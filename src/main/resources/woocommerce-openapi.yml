@@ -1,0 +1,4023 @@
+openapi: 3.0.0
+info:
+  title: wc/store
+  version: '1'
+servers:
+- url: https://www.liberactiva.nl/wp-json/wc/store
+paths:
+  "/":
+    get:
+      parameters:
+      - name: namespace
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: string
+      - name: context
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/add-item":
+    post:
+      parameters:
+      - name: id
+        in: query
+        description: Het winkelwagenartikel of het variatie ID.
+        required: false
+        schema:
+          type: integer
+          description: Het winkelwagenartikel of het variatie ID.
+      - name: quantity
+        in: query
+        description: Aantal van dit artikel in de winkelwagen.
+        required: false
+        schema:
+          type: integer
+          description: Aantal van dit artikel in de winkelwagen.
+      - name: variation
+        in: query
+        description: Gekozen eigenschappen (voor variaties).
+        required: false
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              attribute:
+                type: string
+                description: Variatie attribuut naam.
+              value:
+                type: string
+                description: Waarde attribuut eigenschap.
+          description: Gekozen eigenschappen (voor variaties).
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/apply-coupon":
+    post:
+      parameters:
+      - name: code
+        in: query
+        description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+        required: false
+        schema:
+          type: string
+          description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/coupons":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_coupon"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    post:
+      parameters:
+      - name: code
+        in: query
+        description: De unieke code van de waardebon.
+        required: false
+        schema:
+          type: string
+          description: De unieke code van de waardebon.
+      - name: discount_type
+        in: query
+        description: Het type korting voor de waardebon (d.w.z. percentage of vast
+          bedrag)
+        required: false
+        schema:
+          type: string
+          description: Het type korting voor de waardebon (d.w.z. percentage of vast
+            bedrag)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_coupon"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_coupon"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/coupons/{code}":
+    get:
+      parameters:
+      - name: code
+        in: path
+        description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_coupon"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      parameters:
+      - name: code
+        in: path
+        description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_coupon"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/extensions":
+    post:
+      parameters:
+      - name: namespace
+        in: query
+        description: Naam van de uitbreiding - dit wordt gebruikt om ervoor te zorgen
+          dat de gegevens in de aanvraag op de juiste manier gerouteerd worden.
+        required: false
+        schema:
+          type: string
+          description: Naam van de uitbreiding - dit wordt gebruikt om ervoor te zorgen
+            dat de gegevens in de aanvraag op de juiste manier gerouteerd worden.
+      - name: data
+        in: query
+        description: Extra gegevens om aan de uitbreiding door te geven
+        required: false
+        schema:
+          type: object
+          description: Extra gegevens om aan de uitbreiding door te geven
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart-extensions"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/items":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    post:
+      parameters:
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/items/{key}":
+    get:
+      parameters:
+      - name: key
+        in: path
+        description: Unieke identificatiecode voor het item in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor het item in de winkelwagen.
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    post:
+      parameters:
+      - name: key
+        in: path
+        description: Unieke identificatiecode voor het item in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor het item in de winkelwagen.
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    put:
+      parameters:
+      - name: key
+        in: path
+        description: Unieke identificatiecode voor het item in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor het item in de winkelwagen.
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    patch:
+      parameters:
+      - name: key
+        in: path
+        description: Unieke identificatiecode voor het item in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor het item in de winkelwagen.
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      parameters:
+      - name: key
+        in: path
+        description: Unieke identificatiecode voor het item in de winkelwagen.
+        required: true
+        schema:
+          type: string
+          description: Unieke identificatiecode voor het item in de winkelwagen.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart_item"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/remove-coupon":
+    post:
+      parameters:
+      - name: code
+        in: query
+        description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+        required: false
+        schema:
+          type: string
+          description: Unieke identificatiecode voor de waardebon in de winkelwagen.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/remove-item":
+    post:
+      parameters:
+      - name: key
+        in: query
+        description: Unieke identificatiecode (sleutel) voor het winkelwagenartikel.
+        required: false
+        schema:
+          type: string
+          description: Unieke identificatiecode (sleutel) voor het winkelwagenartikel.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/select-shipping-rate":
+    post:
+      parameters:
+      - name: package_id
+        in: query
+        description: De ID van het pakket dat wordt verzonden.
+        required: true
+        schema:
+          type: string
+          description: De ID van het pakket dat wordt verzonden.
+      - name: rate_id
+        in: query
+        description: De gekozen kosten ID voor het pakket.
+        required: true
+        schema:
+          type: string
+          description: De gekozen kosten ID voor het pakket.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/update-item":
+    post:
+      parameters:
+      - name: key
+        in: query
+        description: Unieke identificatiecode (sleutel) voor het winkelwagenartikel
+          dat moet worden geüpdatet.
+        required: false
+        schema:
+          type: string
+          description: Unieke identificatiecode (sleutel) voor het winkelwagenartikel
+            dat moet worden geüpdatet.
+      - name: quantity
+        in: query
+        description: Nieuwe hoeveelheid van dit artikel in de winkelwagen.
+        required: false
+        schema:
+          type: integer
+          description: Nieuwe hoeveelheid van dit artikel in de winkelwagen.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/cart/update-customer":
+    post:
+      parameters:
+      - name: billing_address
+        in: query
+        description: Factuuradres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+            email:
+              type: string
+              description: E-mail
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          - email
+          description: Factuuradres.
+      - name: shipping_address
+        in: query
+        description: Verzendadres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          description: Verzendadres.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/cart"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/checkout":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/checkout"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    post:
+      parameters:
+      - name: customer_note
+        in: query
+        description: Notitie toegevoegd bij de bestelling dooor de klant tijdens het
+          afrekenen.
+        required: false
+        schema:
+          type: string
+          description: Notitie toegevoegd bij de bestelling dooor de klant tijdens
+            het afrekenen.
+      - name: billing_address
+        in: query
+        description: Factuuradres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+            email:
+              type: string
+              description: E-mail
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          - email
+          description: Factuuradres.
+      - name: shipping_address
+        in: query
+        description: Verzendadres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          description: Verzendadres.
+      - name: payment_method
+        in: query
+        description: De ID van de betaalmethode die wordt gebruikt om de betaling
+          te verwerken.
+        required: false
+        schema:
+          type: string
+          description: De ID van de betaalmethode die wordt gebruikt om de betaling
+            te verwerken.
+          enum:
+          - bacs
+          - cheque
+          - cod
+          - paypal
+          - stripe_ideal
+          - stripe
+          - stripe_sepa
+          - stripe_bancontact
+          - stripe_sofort
+          - stripe_giropay
+          - stripe_eps
+          - stripe_p24
+          - stripe_alipay
+          - stripe_multibanco
+      - name: create_account
+        in: query
+        description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+          van de bestelling.
+        required: false
+        schema:
+          type: boolean
+          description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+            van de bestelling.
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/checkout"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    put:
+      parameters:
+      - name: customer_note
+        in: query
+        description: Notitie toegevoegd bij de bestelling dooor de klant tijdens het
+          afrekenen.
+        required: false
+        schema:
+          type: string
+          description: Notitie toegevoegd bij de bestelling dooor de klant tijdens
+            het afrekenen.
+      - name: billing_address
+        in: query
+        description: Factuuradres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+            email:
+              type: string
+              description: E-mail
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          - email
+          description: Factuuradres.
+      - name: shipping_address
+        in: query
+        description: Verzendadres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          description: Verzendadres.
+      - name: payment_method
+        in: query
+        description: De ID van de betaalmethode die wordt gebruikt om de betaling
+          te verwerken.
+        required: false
+        schema:
+          type: string
+          description: De ID van de betaalmethode die wordt gebruikt om de betaling
+            te verwerken.
+          enum:
+          - bacs
+          - cheque
+          - cod
+          - paypal
+          - stripe_ideal
+          - stripe
+          - stripe_sepa
+          - stripe_bancontact
+          - stripe_sofort
+          - stripe_giropay
+          - stripe_eps
+          - stripe_p24
+          - stripe_alipay
+          - stripe_multibanco
+      - name: create_account
+        in: query
+        description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+          van de bestelling.
+        required: false
+        schema:
+          type: boolean
+          description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+            van de bestelling.
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/checkout"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    patch:
+      parameters:
+      - name: customer_note
+        in: query
+        description: Notitie toegevoegd bij de bestelling dooor de klant tijdens het
+          afrekenen.
+        required: false
+        schema:
+          type: string
+          description: Notitie toegevoegd bij de bestelling dooor de klant tijdens
+            het afrekenen.
+      - name: billing_address
+        in: query
+        description: Factuuradres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+            email:
+              type: string
+              description: E-mail
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          - email
+          description: Factuuradres.
+      - name: shipping_address
+        in: query
+        description: Verzendadres.
+        required: false
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          description: Verzendadres.
+      - name: payment_method
+        in: query
+        description: De ID van de betaalmethode die wordt gebruikt om de betaling
+          te verwerken.
+        required: false
+        schema:
+          type: string
+          description: De ID van de betaalmethode die wordt gebruikt om de betaling
+            te verwerken.
+          enum:
+          - bacs
+          - cheque
+          - cod
+          - paypal
+          - stripe_ideal
+          - stripe
+          - stripe_sepa
+          - stripe_bancontact
+          - stripe_sofort
+          - stripe_giropay
+          - stripe_eps
+          - stripe_p24
+          - stripe_alipay
+          - stripe_multibanco
+      - name: create_account
+        in: query
+        description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+          van de bestelling.
+        required: false
+        schema:
+          type: boolean
+          description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+            van de bestelling.
+      - name: extensions
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/checkout"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/attributes":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product_attribute"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/attributes/{id}":
+    get:
+      parameters:
+      - name: id
+        in: path
+        description: Unieke identificatie voor de gegevensbron.
+        required: true
+        schema:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product_attribute"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/attributes/{attribute_id}/terms":
+    get:
+      parameters:
+      - name: attribute_id
+        in: path
+        description: Unieke identificatiecode voor het attribuut.
+        required: true
+        schema:
+          type: integer
+          description: Unieke identificatiecode voor het attribuut.
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      - name: page
+        in: query
+        description: Huidige pagina van de collectie.
+        required: false
+        schema:
+          type: integer
+          description: Huidige pagina van de collectie.
+      - name: per_page
+        in: query
+        description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+          set. Heeft standaard geen limiet indien leeg gelaten.
+        required: false
+        schema:
+          type: integer
+          description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+            set. Heeft standaard geen limiet indien leeg gelaten.
+      - name: search
+        in: query
+        description: Beperk de resultaten tot resultaten die overeenkomen met een
+          string.
+        required: false
+        schema:
+          type: string
+          description: Beperk de resultaten tot resultaten die overeenkomen met een
+            string.
+      - name: exclude
+        in: query
+        description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+      - name: include
+        in: query
+        description: Beperk resultaten tot specifieke id's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Beperk resultaten tot specifieke id's.
+      - name: order
+        in: query
+        description: Oplopend of aflopend sorteren.
+        required: false
+        schema:
+          type: string
+          description: Oplopend of aflopend sorteren.
+          enum:
+          - asc
+          - desc
+      - name: orderby
+        in: query
+        description: Sorteren op trefwoordeigenschap.
+        required: false
+        schema:
+          type: string
+          description: Sorteren op trefwoordeigenschap.
+          enum:
+          - name
+          - slug
+          - count
+      - name: hide_empty
+        in: query
+        description: Indien waar worden lege trefwoorden niet aangegeven.
+        required: false
+        schema:
+          type: boolean
+          description: Indien waar worden lege trefwoorden niet aangegeven.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/term"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/categories":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - embed
+          - edit
+      - name: page
+        in: query
+        description: Huidige pagina van de collectie.
+        required: false
+        schema:
+          type: integer
+          description: Huidige pagina van de collectie.
+      - name: per_page
+        in: query
+        description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+          set. Heeft standaard geen limiet indien leeg gelaten.
+        required: false
+        schema:
+          type: integer
+          description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+            set. Heeft standaard geen limiet indien leeg gelaten.
+      - name: search
+        in: query
+        description: Beperk de resultaten tot resultaten die overeenkomen met een
+          string.
+        required: false
+        schema:
+          type: string
+          description: Beperk de resultaten tot resultaten die overeenkomen met een
+            string.
+      - name: exclude
+        in: query
+        description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+      - name: include
+        in: query
+        description: Beperk resultaten tot specifieke id's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Beperk resultaten tot specifieke id's.
+      - name: order
+        in: query
+        description: Oplopend of aflopend sorteren.
+        required: false
+        schema:
+          type: string
+          description: Oplopend of aflopend sorteren.
+          enum:
+          - asc
+          - desc
+      - name: orderby
+        in: query
+        description: Sorteren op trefwoordeigenschap.
+        required: false
+        schema:
+          type: string
+          description: Sorteren op trefwoordeigenschap.
+          enum:
+          - name
+          - slug
+          - count
+      - name: hide_empty
+        in: query
+        description: Indien waar worden lege trefwoorden niet aangegeven.
+        required: false
+        schema:
+          type: boolean
+          description: Indien waar worden lege trefwoorden niet aangegeven.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product-category"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/categories/{id}":
+    get:
+      parameters:
+      - name: id
+        in: path
+        description: Unieke identificatie voor de gegevensbron.
+        required: true
+        schema:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - embed
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product-category"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/collection-data":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      - name: page
+        in: query
+        description: Huidige pagina van de collectie.
+        required: false
+        schema:
+          type: integer
+          description: Huidige pagina van de collectie.
+      - name: per_page
+        in: query
+        description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+          set. Heeft standaard geen limiet indien leeg gelaten.
+        required: false
+        schema:
+          type: integer
+          description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+            set. Heeft standaard geen limiet indien leeg gelaten.
+      - name: search
+        in: query
+        description: Beperk de resultaten tot resultaten die overeenkomen met een
+          string.
+        required: false
+        schema:
+          type: string
+          description: Beperk de resultaten tot resultaten die overeenkomen met een
+            string.
+      - name: after
+        in: query
+        description: Beperk de respons op bronnen die zijn gemaakt na een bepaalde
+          ISO8601 nalevingsdatum.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          description: Beperk de respons op bronnen die zijn gemaakt na een bepaalde
+            ISO8601 nalevingsdatum.
+      - name: before
+        in: query
+        description: Beperk de respons op bronnen die zijn gemaakt vóór een bepaalde
+          ISO8601 nalevingsdatum.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          description: Beperk de respons op bronnen die zijn gemaakt vóór een bepaalde
+            ISO8601 nalevingsdatum.
+      - name: date_column
+        in: query
+        description: Wanneer een reactie wordt beperkt met na/voor, de datumkolom
+          waarmee dit vergeleken moet worden.
+        required: false
+        schema:
+          type: string
+          description: Wanneer een reactie wordt beperkt met na/voor, de datumkolom
+            waarmee dit vergeleken moet worden.
+          enum:
+          - date
+          - date_gmt
+          - modified
+          - modified_gmt
+      - name: exclude
+        in: query
+        description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+      - name: include
+        in: query
+        description: Beperk resultaten tot specifieke id's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Beperk resultaten tot specifieke id's.
+      - name: offset
+        in: query
+        description: Bepaal het resultaat door een specifiek aantal items in te stellen.
+        required: false
+        schema:
+          type: integer
+          description: Bepaal het resultaat door een specifiek aantal items in te
+            stellen.
+      - name: order
+        in: query
+        description: Sorteer attribuut oplopend of aflopend.
+        required: false
+        schema:
+          type: string
+          description: Sorteer attribuut oplopend of aflopend.
+          enum:
+          - asc
+          - desc
+      - name: orderby
+        in: query
+        description: Sorteer collectie per object eigenschap.
+        required: false
+        schema:
+          type: string
+          description: Sorteer collectie per object eigenschap.
+          enum:
+          - date
+          - modified
+          - id
+          - include
+          - title
+          - slug
+          - price
+          - popularity
+          - rating
+          - menu_order
+          - comment_count
+      - name: parent
+        in: query
+        description: Resultaten beperken tot die van specifieke hoofd ID's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Resultaten beperken tot die van specifieke hoofd ID's.
+      - name: parent_exclude
+        in: query
+        description: Resultaten beperken tot alle items behalve die met een bepaalde
+          parent ID.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Resultaten beperken tot alle items behalve die met een bepaalde
+            parent ID.
+      - name: type
+        in: query
+        description: Beperk resultaten tot producten met een specifieke type.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten met een specifieke type.
+          enum:
+          - simple
+          - grouped
+          - external
+          - variable
+          - variation
+      - name: sku
+        in: query
+        description: Beperk resultaten tot producten uit een of meerdere specifieke
+          artikelnummers. Gebruik komma's als scheidingsteken.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten uit een of meerdere specifieke
+            artikelnummers. Gebruik komma's als scheidingsteken.
+      - name: featured
+        in: query
+        description: Beperk resultaten tot uitgelichte producten.
+        required: false
+        schema:
+          type: boolean
+          description: Beperk resultaten tot uitgelichte producten.
+      - name: category
+        in: query
+        description: Beperk resultaten tot producten toegewezen aan een categorie.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten toegewezen aan een categorie.
+      - name: category_operator
+        in: query
+        description: Operator om productcategorie termen te vergelijken.
+        required: false
+        schema:
+          type: string
+          description: Operator om productcategorie termen te vergelijken.
+          enum:
+          - in
+          - not in
+          - and
+      - name: tag
+        in: query
+        description: Beperk resultaten tot producten met een specifieke toegewezen
+          tag-ID.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten met een specifieke toegewezen
+            tag-ID.
+      - name: tag_operator
+        in: query
+        description: Operator vergelijkt producttags.
+        required: false
+        schema:
+          type: string
+          description: Operator vergelijkt producttags.
+          enum:
+          - in
+          - not in
+          - and
+      - name: on_sale
+        in: query
+        description: Beperk resultaten met producten in de aanbieding.
+        required: false
+        schema:
+          type: boolean
+          description: Beperk resultaten met producten in de aanbieding.
+      - name: min_price
+        in: query
+        description: Resultaatset beperken tot producten op basis van een minimumprijs,
+          aangegeven met de kleinste valuta-eenheid.
+        required: false
+        schema:
+          type: string
+          description: Resultaatset beperken tot producten op basis van een minimumprijs,
+            aangegeven met de kleinste valuta-eenheid.
+      - name: max_price
+        in: query
+        description: Resultaatset beperken tot producten op basis van een maximumprijs,
+          aangegeven met de kleinste valuta-eenheid.
+        required: false
+        schema:
+          type: string
+          description: Resultaatset beperken tot producten op basis van een maximumprijs,
+            aangegeven met de kleinste valuta-eenheid.
+      - name: stock_status
+        in: query
+        description: Beperk resultaten tot producten met een specifieke voorraadstatus.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - instock
+            - outofstock
+            - onbackorder
+          description: Beperk resultaten tot producten met een specifieke voorraadstatus.
+      - name: attributes
+        in: query
+        description: Beperk resultaten tot producten met bepaalde algemene eigenschappen.
+        required: false
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              attribute:
+                type: string
+                description: Attribuut taxonomie naam.
+              term_id:
+                type: array
+                items:
+                  type: integer
+                description: Lijst van attribuut term ID's.
+              slug:
+                type: array
+                items:
+                  type: string
+                description: Lijst met eigenschap-slug(s). Als een term ID is opgegeven,
+                  wordt dit genegeerd.
+              operator:
+                type: string
+                description: Operator om termen van productattribuut te vergelijken.
+                enum:
+                - in
+                - not in
+                - and
+          description: Beperk resultaten tot producten met bepaalde algemene eigenschappen.
+      - name: attribute_relation
+        in: query
+        description: Het logische verband tussen eigenschappen wanneer op meerdere
+          tegelijk wordt gefilterd.
+        required: false
+        schema:
+          type: string
+          description: Het logische verband tussen eigenschappen wanneer op meerdere
+            tegelijk wordt gefilterd.
+          enum:
+          - in
+          - and
+      - name: catalog_visibility
+        in: query
+        description: Bepaald of verborgen of zichtbare producten worden weergegeven.
+        required: false
+        schema:
+          type: string
+          description: Bepaald of verborgen of zichtbare producten worden weergegeven.
+          enum:
+          - any
+          - visible
+          - catalog
+          - search
+          - hidden
+      - name: rating
+        in: query
+        description: Beperk resultaten tot producten met een bepaalde gemiddelde waardering.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+            enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+          description: Beperk resultaten tot producten met een bepaalde gemiddelde
+            waardering.
+      - name: calculate_price_range
+        in: query
+        description: Indien waar worden de minimum- en maximumproductprijzen berekend
+          voor de collectie.
+        required: false
+        schema:
+          type: boolean
+          description: Indien waar worden de minimum- en maximumproductprijzen berekend
+            voor de collectie.
+      - name: calculate_stock_status_counts
+        in: query
+        description: Indien ingeschakeld, bereken je de voorraadtellingen voor producten
+          in de collectie.
+        required: false
+        schema:
+          type: boolean
+          description: Indien ingeschakeld, bereken je de voorraadtellingen voor producten
+            in de collectie.
+      - name: calculate_attribute_counts
+        in: query
+        description: Indien aangevraagd, wordt het aantal attribuut term berekend
+          voor producten in de collectie.
+        required: false
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              taxonomy:
+                type: string
+                description: Taxonomienaam.
+              query_type:
+                type: string
+                description: Uitgevoerd query type dat de aantallen kan beïnvloeden.
+                  Geldige waarden zijn onder andere 'en' en 'of'.
+                enum:
+                - and
+                - or
+          description: Indien aangevraagd, wordt het aantal attribuut term berekend
+            voor producten in de collectie.
+      - name: calculate_rating_counts
+        in: query
+        description: Indien waar wordt het aantal waarderingen berekend voor producten
+          in de collectie.
+        required: false
+        schema:
+          type: boolean
+          description: Indien waar wordt het aantal waarderingen berekend voor producten
+            in de collectie.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product-collection-data"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/reviews":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      - name: page
+        in: query
+        description: Huidige pagina van de collectie.
+        required: false
+        schema:
+          type: integer
+          description: Huidige pagina van de collectie.
+      - name: per_page
+        in: query
+        description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+          set. Heeft standaard geen limiet indien leeg gelaten.
+        required: false
+        schema:
+          type: integer
+          description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+            set. Heeft standaard geen limiet indien leeg gelaten.
+      - name: offset
+        in: query
+        description: Bepaal het resultaat door een specifiek aantal items in te stellen.
+        required: false
+        schema:
+          type: integer
+          description: Bepaal het resultaat door een specifiek aantal items in te
+            stellen.
+      - name: order
+        in: query
+        description: Sorteer attribuut oplopend of aflopend.
+        required: false
+        schema:
+          type: string
+          description: Sorteer attribuut oplopend of aflopend.
+          enum:
+          - asc
+          - desc
+      - name: orderby
+        in: query
+        description: Sorteer collectie per object eigenschap.
+        required: false
+        schema:
+          type: string
+          description: Sorteer collectie per object eigenschap.
+          enum:
+          - date
+          - date_gmt
+          - id
+          - rating
+          - product
+      - name: category_id
+        in: query
+        description: Beperk resultaten tot beoordelingen van specifieke categorie
+          ID's.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot beoordelingen van specifieke categorie
+            ID's.
+      - name: product_id
+        in: query
+        description: Beperk resultaten tot beoordelingen van specifieke product-ID's.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot beoordelingen van specifieke product-ID's.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product_review"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/tags":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      - name: page
+        in: query
+        description: Huidige pagina van de collectie.
+        required: false
+        schema:
+          type: integer
+          description: Huidige pagina van de collectie.
+      - name: per_page
+        in: query
+        description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+          set. Heeft standaard geen limiet indien leeg gelaten.
+        required: false
+        schema:
+          type: integer
+          description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+            set. Heeft standaard geen limiet indien leeg gelaten.
+      - name: search
+        in: query
+        description: Beperk de resultaten tot resultaten die overeenkomen met een
+          string.
+        required: false
+        schema:
+          type: string
+          description: Beperk de resultaten tot resultaten die overeenkomen met een
+            string.
+      - name: exclude
+        in: query
+        description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+      - name: include
+        in: query
+        description: Beperk resultaten tot specifieke id's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Beperk resultaten tot specifieke id's.
+      - name: order
+        in: query
+        description: Oplopend of aflopend sorteren.
+        required: false
+        schema:
+          type: string
+          description: Oplopend of aflopend sorteren.
+          enum:
+          - asc
+          - desc
+      - name: orderby
+        in: query
+        description: Sorteren op trefwoordeigenschap.
+        required: false
+        schema:
+          type: string
+          description: Sorteren op trefwoordeigenschap.
+          enum:
+          - name
+          - slug
+          - count
+      - name: hide_empty
+        in: query
+        description: Indien waar worden lege trefwoorden niet aangegeven.
+        required: false
+        schema:
+          type: boolean
+          description: Indien waar worden lege trefwoorden niet aangegeven.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/term"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products":
+    get:
+      parameters:
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      - name: page
+        in: query
+        description: Huidige pagina van de collectie.
+        required: false
+        schema:
+          type: integer
+          description: Huidige pagina van de collectie.
+      - name: per_page
+        in: query
+        description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+          set. Heeft standaard geen limiet indien leeg gelaten.
+        required: false
+        schema:
+          type: integer
+          description: Maximumaantal artikelen dat moet worden aangegeven in resultaat
+            set. Heeft standaard geen limiet indien leeg gelaten.
+      - name: search
+        in: query
+        description: Beperk de resultaten tot resultaten die overeenkomen met een
+          string.
+        required: false
+        schema:
+          type: string
+          description: Beperk de resultaten tot resultaten die overeenkomen met een
+            string.
+      - name: after
+        in: query
+        description: Beperk de respons op bronnen die zijn gemaakt na een bepaalde
+          ISO8601 nalevingsdatum.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          description: Beperk de respons op bronnen die zijn gemaakt na een bepaalde
+            ISO8601 nalevingsdatum.
+      - name: before
+        in: query
+        description: Beperk de respons op bronnen die zijn gemaakt vóór een bepaalde
+          ISO8601 nalevingsdatum.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          description: Beperk de respons op bronnen die zijn gemaakt vóór een bepaalde
+            ISO8601 nalevingsdatum.
+      - name: date_column
+        in: query
+        description: Wanneer een reactie wordt beperkt met na/voor, de datumkolom
+          waarmee dit vergeleken moet worden.
+        required: false
+        schema:
+          type: string
+          description: Wanneer een reactie wordt beperkt met na/voor, de datumkolom
+            waarmee dit vergeleken moet worden.
+          enum:
+          - date
+          - date_gmt
+          - modified
+          - modified_gmt
+      - name: exclude
+        in: query
+        description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Zorg ervoor dat de resultaten specifieke ID's niet bevatten.
+      - name: include
+        in: query
+        description: Beperk resultaten tot specifieke id's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Beperk resultaten tot specifieke id's.
+      - name: offset
+        in: query
+        description: Bepaal het resultaat door een specifiek aantal items in te stellen.
+        required: false
+        schema:
+          type: integer
+          description: Bepaal het resultaat door een specifiek aantal items in te
+            stellen.
+      - name: order
+        in: query
+        description: Sorteer attribuut oplopend of aflopend.
+        required: false
+        schema:
+          type: string
+          description: Sorteer attribuut oplopend of aflopend.
+          enum:
+          - asc
+          - desc
+      - name: orderby
+        in: query
+        description: Sorteer collectie per object eigenschap.
+        required: false
+        schema:
+          type: string
+          description: Sorteer collectie per object eigenschap.
+          enum:
+          - date
+          - modified
+          - id
+          - include
+          - title
+          - slug
+          - price
+          - popularity
+          - rating
+          - menu_order
+          - comment_count
+      - name: parent
+        in: query
+        description: Resultaten beperken tot die van specifieke hoofd ID's.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Resultaten beperken tot die van specifieke hoofd ID's.
+      - name: parent_exclude
+        in: query
+        description: Resultaten beperken tot alle items behalve die met een bepaalde
+          parent ID.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          description: Resultaten beperken tot alle items behalve die met een bepaalde
+            parent ID.
+      - name: type
+        in: query
+        description: Beperk resultaten tot producten met een specifieke type.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten met een specifieke type.
+          enum:
+          - simple
+          - grouped
+          - external
+          - variable
+          - variation
+      - name: sku
+        in: query
+        description: Beperk resultaten tot producten uit een of meerdere specifieke
+          artikelnummers. Gebruik komma's als scheidingsteken.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten uit een of meerdere specifieke
+            artikelnummers. Gebruik komma's als scheidingsteken.
+      - name: featured
+        in: query
+        description: Beperk resultaten tot uitgelichte producten.
+        required: false
+        schema:
+          type: boolean
+          description: Beperk resultaten tot uitgelichte producten.
+      - name: category
+        in: query
+        description: Beperk resultaten tot producten toegewezen aan een categorie.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten toegewezen aan een categorie.
+      - name: category_operator
+        in: query
+        description: Operator om productcategorie termen te vergelijken.
+        required: false
+        schema:
+          type: string
+          description: Operator om productcategorie termen te vergelijken.
+          enum:
+          - in
+          - not in
+          - and
+      - name: tag
+        in: query
+        description: Beperk resultaten tot producten met een specifieke toegewezen
+          tag-ID.
+        required: false
+        schema:
+          type: string
+          description: Beperk resultaten tot producten met een specifieke toegewezen
+            tag-ID.
+      - name: tag_operator
+        in: query
+        description: Operator vergelijkt producttags.
+        required: false
+        schema:
+          type: string
+          description: Operator vergelijkt producttags.
+          enum:
+          - in
+          - not in
+          - and
+      - name: on_sale
+        in: query
+        description: Beperk resultaten met producten in de aanbieding.
+        required: false
+        schema:
+          type: boolean
+          description: Beperk resultaten met producten in de aanbieding.
+      - name: min_price
+        in: query
+        description: Resultaatset beperken tot producten op basis van een minimumprijs,
+          aangegeven met de kleinste valuta-eenheid.
+        required: false
+        schema:
+          type: string
+          description: Resultaatset beperken tot producten op basis van een minimumprijs,
+            aangegeven met de kleinste valuta-eenheid.
+      - name: max_price
+        in: query
+        description: Resultaatset beperken tot producten op basis van een maximumprijs,
+          aangegeven met de kleinste valuta-eenheid.
+        required: false
+        schema:
+          type: string
+          description: Resultaatset beperken tot producten op basis van een maximumprijs,
+            aangegeven met de kleinste valuta-eenheid.
+      - name: stock_status
+        in: query
+        description: Beperk resultaten tot producten met een specifieke voorraadstatus.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - instock
+            - outofstock
+            - onbackorder
+          description: Beperk resultaten tot producten met een specifieke voorraadstatus.
+      - name: attributes
+        in: query
+        description: Beperk resultaten tot producten met bepaalde algemene eigenschappen.
+        required: false
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              attribute:
+                type: string
+                description: Attribuut taxonomie naam.
+              term_id:
+                type: array
+                items:
+                  type: integer
+                description: Lijst van attribuut term ID's.
+              slug:
+                type: array
+                items:
+                  type: string
+                description: Lijst met eigenschap-slug(s). Als een term ID is opgegeven,
+                  wordt dit genegeerd.
+              operator:
+                type: string
+                description: Operator om termen van productattribuut te vergelijken.
+                enum:
+                - in
+                - not in
+                - and
+          description: Beperk resultaten tot producten met bepaalde algemene eigenschappen.
+      - name: attribute_relation
+        in: query
+        description: Het logische verband tussen eigenschappen wanneer op meerdere
+          tegelijk wordt gefilterd.
+        required: false
+        schema:
+          type: string
+          description: Het logische verband tussen eigenschappen wanneer op meerdere
+            tegelijk wordt gefilterd.
+          enum:
+          - in
+          - and
+      - name: catalog_visibility
+        in: query
+        description: Bepaald of verborgen of zichtbare producten worden weergegeven.
+        required: false
+        schema:
+          type: string
+          description: Bepaald of verborgen of zichtbare producten worden weergegeven.
+          enum:
+          - any
+          - visible
+          - catalog
+          - search
+          - hidden
+      - name: rating
+        in: query
+        description: Beperk resultaten tot producten met een bepaalde gemiddelde waardering.
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+            enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+          description: Beperk resultaten tot producten met een bepaalde gemiddelde
+            waardering.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/products/{id}":
+    get:
+      parameters:
+      - name: id
+        in: path
+        description: Unieke identificatie voor de gegevensbron.
+        required: true
+        schema:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+      - name: context
+        in: query
+        description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+          de velden die aanwezig zijn in de reactie.
+        required: false
+        schema:
+          type: string
+          description: Toepassingsgebied waaronder de aanvraag wordt ingediend; bepaalt
+            de velden die aanwezig zijn in de reactie.
+          enum:
+          - view
+          - edit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/product"
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  "/batch":
+    post:
+      parameters:
+      - name: validation
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: string
+          enum:
+          - require-all-validate
+          - normal
+      - name: requests
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+                enum:
+                - POST
+                - PUT
+                - PATCH
+                - DELETE
+              path:
+                type: string
+              body:
+                type: object
+              headers:
+                type: object
+            required:
+            - path
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+security: []
+components:
+  schemas:
+    cart:
+      type: object
+      properties:
+        coupons:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: De unieke code van de waardebon.
+              discount_type:
+                type: string
+                description: Het type korting voor de waardebon (d.w.z. percentage
+                  of vast bedrag)
+              totals:
+                type: object
+                properties:
+                  currency_code:
+                    type: string
+                    description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+                  currency_symbol:
+                    type: string
+                    description: Valutateken voor de valuta dat kan worden gebruikt
+                      voor het formatteren van teruggegeven prijzen.
+                  currency_minor_unit:
+                    type: integer
+                    description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                      voor teruggegeven prijzen.
+                  currency_decimal_separator:
+                    type: string
+                    description: Decimaal scheidingsteken voor de valuta die kan worden
+                      gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_thousand_separator:
+                    type: string
+                    description: Scheidingsteken van duizendtallen voor de valuta
+                      die kan worden gebruikt voor het formatteren van teruggegeven
+                      prijzen.
+                  currency_prefix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_suffix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  total_discount:
+                    type: string
+                    description: Totale korting toegepast via deze waardebon.
+                  total_discount_tax:
+                    type: string
+                    description: Totale verwijderde belasting vanwege korting die
+                      via deze waardebon is toegepast.
+                description: Totaalbedrag, aangegeven met de kleinste valuta eenheid.
+          description: Lijst met toegepaste winkelwagen waardebonnen.
+        shipping_rates:
+          type: array
+          items:
+            type: object
+            properties:
+              package_id:
+                type: string
+                description: Het ID van het pakket waarbij de verzendkosten horen.
+              name:
+                type: string
+                description: Naam van het pakket.
+              destination:
+                type: object
+                properties:
+                  address_1:
+                    type: string
+                    description: Eerste regel van het adres waarnaar verzonden wordt.
+                  address_2:
+                    type: string
+                    description: Tweede regel van het adres waarnaar verzonden wordt.
+                  city:
+                    type: string
+                    description: Stad van het adres waarnaar verzonden wordt.
+                  state:
+                    type: string
+                    description: ISO-code, of naam, voor de staat, provincie of het
+                      district van het adres waarnaar verzonden wordt.
+                  postcode:
+                    type: string
+                    description: Postcode van het adres waarnaar verzonden wordt.
+                  country:
+                    type: string
+                    description: ISO-code voor het land van het adres waarnaar verzonden
+                      wordt.
+                description: Verzendadres bestemming.
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                      description: Unieke identificatiecode voor het item in de winkelwagen.
+                    name:
+                      type: string
+                      description: Naam van het artikel.
+                    quantity:
+                      type: number
+                      description: Aantal van dit artikel in het huidige pakket.
+                description: Lijst met winkelwagen artikelen waarop de weergegeven
+                  verzendkosten van toepassing zijn.
+              shipping_rates:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    rate_id:
+                      type: string
+                      description: ID van de verzendkosten.
+                    name:
+                      type: string
+                      description: Naam van de verzendkosten, bijv. Snelle levering.
+                    description:
+                      type: string
+                      description: Beschrijving van de verzendkosten, bijv. Bezorgd
+                        via USPS.
+                    delivery_time:
+                      type: string
+                      description: Geschatte levertijd tekst, bijv. 3-5 werkdagen.
+                    price:
+                      type: string
+                      description: Prijs van de verzendkosten, aangegeven met de kleinste
+                        valuta eenheid.
+                    taxes:
+                      type: string
+                      description: Belasting toegepast op deze verzendkosten, aangegeven
+                        met de kleinste valuta-eenheid.
+                    method_id:
+                      type: string
+                      description: ID van de verzendmethode die het tarief heeft geleverd.
+                    instance_id:
+                      type: integer
+                      description: Instantie ID van de verzendmethode die de kosten
+                        opleverde.
+                    meta_data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          key:
+                            type: string
+                            description: Meta sleutel.
+                          value:
+                            type: string
+                            description: Meta waarde.
+                      description: Metagegevens bijgesloten bij de verzendkosten.
+                    selected:
+                      type: boolean
+                      description: Waar als dit de kosten zijn die momenteel zijn
+                        geselecteerd door de klant voor de winkelwagen.
+                    currency_code:
+                      type: string
+                      description: Valutacode (in ISO format) voor de teruggegeven
+                        prijzen.
+                    currency_symbol:
+                      type: string
+                      description: Valutateken voor de valuta dat kan worden gebruikt
+                        voor het formatteren van teruggegeven prijzen.
+                    currency_minor_unit:
+                      type: integer
+                      description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                        voor teruggegeven prijzen.
+                    currency_decimal_separator:
+                      type: string
+                      description: Decimaal scheidingsteken voor de valuta die kan
+                        worden gebruikt voor het formatteren van teruggegeven prijzen.
+                    currency_thousand_separator:
+                      type: string
+                      description: Scheidingsteken van duizendtallen voor de valuta
+                        die kan worden gebruikt voor het formatteren van teruggegeven
+                        prijzen.
+                    currency_prefix:
+                      type: string
+                      description: Voorvoegsel van de prijs voor de valuta welke kan
+                        worden gebruikt voor het formatteren van teruggegeven prijzen.
+                    currency_suffix:
+                      type: string
+                      description: Voorvoegsel van de prijs voor de valuta welke kan
+                        worden gebruikt voor het formatteren van teruggegeven prijzen.
+                description: Lijst met verzendkosten.
+          description: Lijst met beschikbare verzendkosten voor de winkelwagen.
+        shipping_address:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          description: Huidig ingesteld verzendadres voor de klant.
+        billing_address:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+            email:
+              type: string
+              description: E-mail
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          - email
+          description: Huidig ingesteld factuuradres voor de klant.
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+                description: Unieke identificatiecode voor het item in de winkelwagen.
+              id:
+                type: integer
+                description: Het winkelwagenartikel of het variatie ID.
+              quantity:
+                type: integer
+                description: Aantal van dit artikel in de winkelwagen.
+              quantity_limit:
+                type: integer
+                description: De maximale hoeveelheid die tegelijkertijd aan de winkelwagen
+                  kan worden toegevoegd.
+              name:
+                type: string
+                description: Productnaam.
+              short_description:
+                type: string
+                description: Korte beschrijving van product in HTML-indeling.
+              description:
+                type: string
+                description: Volledige beschrijving van product in HTML-indeling.
+              sku:
+                type: string
+                description: Eenheid voor voorraadbeheer, indien van toepassing.
+              low_stock_remaining:
+                type: integer
+                description: Hoeveelheid op voorraad als de voorraad laag is, of geen
+                  voorraad indien niet van toepassing.
+              backorders_allowed:
+                type: boolean
+                description: Waar als nabestellingen zijn toegestaan nadat de beschikbaarheid
+                  van de voorraad vervalt.
+              show_backorder_badge:
+                type: boolean
+                description: Waar als het product in backorder is.
+              sold_individually:
+                type: boolean
+                description: Indien waar kan slechts één artikel van dit product worden
+                  aangeschaft in een bestelling.
+              permalink:
+                type: string
+                format: uri
+                description: Product-URL.
+              images:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Afbeelding ID.
+                    src:
+                      type: string
+                      format: uri
+                      description: Volledige grootte afbeelding URL.
+                    thumbnail:
+                      type: string
+                      format: uri
+                      description: URL van thumbnail.
+                    srcset:
+                      type: string
+                      description: Srcset van thumbnail voor responsive afbeeldingen.
+                    sizes:
+                      type: string
+                      description: Grootte van thumbnail voor responsive afbeeldingen.
+                    name:
+                      type: string
+                      description: Naam afbeelding.
+                    alt:
+                      type: string
+                      description: Alternatieve tekst afbeelding.
+                description: Lijst van afbeeldingen.
+              variation:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    attribute:
+                      type: string
+                      description: Variatie attribuut naam.
+                    value:
+                      type: string
+                      description: Waarde attribuut eigenschap.
+                description: Gekozen eigenschappen (voor variaties).
+              item_data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Naam van de metadata.
+                    value:
+                      type: string
+                      description: Waarde van de metadata.
+                    display:
+                      type: string
+                      description: Optioneel, hoe de metadata-waarde moet worden weergegeven
+                        aan de gebruiker.
+                description: Metagegevens gerelateerd aan het winkelwagen item
+              prices:
+                type: object
+                properties:
+                  currency_code:
+                    type: string
+                    description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+                  currency_symbol:
+                    type: string
+                    description: Valutateken voor de valuta dat kan worden gebruikt
+                      voor het formatteren van teruggegeven prijzen.
+                  currency_minor_unit:
+                    type: integer
+                    description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                      voor teruggegeven prijzen.
+                  currency_decimal_separator:
+                    type: string
+                    description: Decimaal scheidingsteken voor de valuta die kan worden
+                      gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_thousand_separator:
+                    type: string
+                    description: Scheidingsteken van duizendtallen voor de valuta
+                      die kan worden gebruikt voor het formatteren van teruggegeven
+                      prijzen.
+                  currency_prefix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_suffix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  price:
+                    type: string
+                    description: Huidige prijs.
+                  regular_price:
+                    type: string
+                    description: Reguliere productprijs.
+                  sale_price:
+                    type: string
+                    description: Productprijs in de aanbieding, indien van toepassing.
+                  price_range:
+                    type: object
+                    description: Prijsbereik, indien van toepassing.
+                  raw_prices:
+                    type: object
+                    description: Ruwe, onafgeronde productprijzen die in berekeningen
+                      worden gebruikt. Aangegeven met een hogere nauwkeurigheidseenheid
+                      dan de valuta.
+                description: Prijsgegevens voor het product in het huidige regelitem,
+                  inclusief of exclusief belasting op basis van de instelling 'Prijzen
+                  weergeven tijdens winkelwagen en afrekenen'. Aangegeven met de kleinste
+                  valuta eenheid.
+              totals:
+                type: object
+                properties:
+                  currency_code:
+                    type: string
+                    description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+                  currency_symbol:
+                    type: string
+                    description: Valutateken voor de valuta dat kan worden gebruikt
+                      voor het formatteren van teruggegeven prijzen.
+                  currency_minor_unit:
+                    type: integer
+                    description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                      voor teruggegeven prijzen.
+                  currency_decimal_separator:
+                    type: string
+                    description: Decimaal scheidingsteken voor de valuta die kan worden
+                      gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_thousand_separator:
+                    type: string
+                    description: Scheidingsteken van duizendtallen voor de valuta
+                      die kan worden gebruikt voor het formatteren van teruggegeven
+                      prijzen.
+                  currency_prefix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_suffix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  line_subtotal:
+                    type: string
+                    description: Regel subtotaal (de prijs van het product voordat
+                      waardebon kortingen zijn toegepast).
+                  line_subtotal_tax:
+                    type: string
+                    description: Regel subtotaal belasting.
+                  line_total:
+                    type: string
+                    description: Regel totaal (de prijs van het product nadat waardebon
+                      kortingen zijn toegepast).
+                  line_total_tax:
+                    type: string
+                    description: Regel totale belasting.
+                description: Totaalbedrag van artikel, aangegeven met de kleinste
+                  valuta eenheid.
+              catalog_visibility:
+                type: string
+                description: Of het product zichtbaar is in de catalogus
+              extensions:
+                type: object
+          description: Lijst met winkelwagenartikelen.
+        items_count:
+          type: integer
+          description: Aantal artikelen in de winkelwagen.
+        items_weight:
+          type: number
+          description: Totaalgewicht (in gram) van alle producten in de winkelwagen.
+        needs_payment:
+          type: boolean
+          description: Waar als de winkelwagen betaald moet worden. Onwaar voor winkelwagens
+            met alleen gratis producten en zonder verzendkosten.
+        needs_shipping:
+          type: boolean
+          description: Waar als de winkelwagen verzonden moet worden. Niet waar voor
+            winkelwagens met alleen digitale producten of voor winkels zonder ingestelde
+            verzendmethode.
+        has_calculated_shipping:
+          type: boolean
+          description: Waar als de winkelwagen aan de criteria voor het weergeven
+            van verzendkosten voldoet en de tarieven zijn berekend en toegevoegd aan
+            het totaalbedrag.
+        fees:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unieke identifier voor de kosten in de winkelwagen.
+              name:
+                type: string
+                description: Naam kosten.
+              totals:
+                type: object
+                properties:
+                  currency_code:
+                    type: string
+                    description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+                  currency_symbol:
+                    type: string
+                    description: Valutateken voor de valuta dat kan worden gebruikt
+                      voor het formatteren van teruggegeven prijzen.
+                  currency_minor_unit:
+                    type: integer
+                    description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                      voor teruggegeven prijzen.
+                  currency_decimal_separator:
+                    type: string
+                    description: Decimaal scheidingsteken voor de valuta die kan worden
+                      gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_thousand_separator:
+                    type: string
+                    description: Scheidingsteken van duizendtallen voor de valuta
+                      die kan worden gebruikt voor het formatteren van teruggegeven
+                      prijzen.
+                  currency_prefix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  currency_suffix:
+                    type: string
+                    description: Voorvoegsel van de prijs voor de valuta welke kan
+                      worden gebruikt voor het formatteren van teruggegeven prijzen.
+                  total:
+                    type: string
+                    description: Totaalbedrag voor dit tarief.
+                  total_tax:
+                    type: string
+                    description: Totale belasting voor deze kosten.
+                description: Totaalbedrag van tarief, aangegeven met de kleinste valuta-eenheid.
+          description: Lijst met winkelwagen kosten.
+        totals:
+          type: object
+          properties:
+            currency_code:
+              type: string
+              description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+            currency_symbol:
+              type: string
+              description: Valutateken voor de valuta dat kan worden gebruikt voor
+                het formatteren van teruggegeven prijzen.
+            currency_minor_unit:
+              type: integer
+              description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                voor teruggegeven prijzen.
+            currency_decimal_separator:
+              type: string
+              description: Decimaal scheidingsteken voor de valuta die kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_thousand_separator:
+              type: string
+              description: Scheidingsteken van duizendtallen voor de valuta die kan
+                worden gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_prefix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_suffix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            total_items:
+              type: string
+              description: Totaalbedrag van alle artikelen in de winkelwagen.
+            total_items_tax:
+              type: string
+              description: Totale belasting op alle artikelen in de winkelwagen.
+            total_fees:
+              type: string
+              description: Totaalbedrag van alle toegepaste kosten.
+            total_fees_tax:
+              type: string
+              description: Totale belasting op kosten.
+            total_discount:
+              type: string
+              description: Totale korting via toegepaste waardebonnen.
+            total_discount_tax:
+              type: string
+              description: Totale verwijderde belasting vanwege korting via toegepaste
+                waardebonnen.
+            total_shipping:
+              type: string
+              description: Totaalbedrag van verzending. Als de verzending niet is
+                berekend, wordt er een nul-respons verzonden.
+            total_shipping_tax:
+              type: string
+              description: Totale belasting op verzendkosten. Als de verzending niet
+                is berekend, wordt er een nul-respons verzonden.
+            total_price:
+              type: string
+              description: Totaalbedrag dat de klant moet betalen.
+            total_tax:
+              type: string
+              description: Totale belasting toegepast op artikelen en verzending.
+            tax_lines:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Naam van de belasting.
+                  price:
+                    type: string
+                    description: Belastingtarief dat in rekening wordt gebracht.
+                  rate:
+                    type: string
+                    description: Het tarief waartegen belasting wordt toegepast.
+              description: Regels met belastingen toegepast op artikelen en verzending.
+          description: Totaalbedrag van winkelwagen, aangegeven met de kleinste valuta
+            eenheid.
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Foutcode
+              message:
+                type: string
+                description: Foutbericht
+          description: Lijst met fouten bij winkelwagenartikelen, bijvoorbeeld voor
+            artikelen in de winkelwagen die niet op voorraad zijn.
+        payment_requirements:
+          type: array
+          items:
+            type: string
+          description: Lijst met vereiste betaling-gateway functies om de bestelling
+            te verwerken.
+        generated_timestamp:
+          type: number
+          description: Het moment waarop deze winkelwagen gegevens zijn aangemaakt
+        extensions:
+          type: object
+    cart_coupon:
+      type: object
+      properties:
+        code:
+          type: string
+          description: De unieke code van de waardebon.
+        discount_type:
+          type: string
+          description: Het type korting voor de waardebon (d.w.z. percentage of vast
+            bedrag)
+        totals:
+          type: object
+          properties:
+            currency_code:
+              type: string
+              description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+            currency_symbol:
+              type: string
+              description: Valutateken voor de valuta dat kan worden gebruikt voor
+                het formatteren van teruggegeven prijzen.
+            currency_minor_unit:
+              type: integer
+              description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                voor teruggegeven prijzen.
+            currency_decimal_separator:
+              type: string
+              description: Decimaal scheidingsteken voor de valuta die kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_thousand_separator:
+              type: string
+              description: Scheidingsteken van duizendtallen voor de valuta die kan
+                worden gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_prefix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_suffix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            total_discount:
+              type: string
+              description: Totale korting toegepast via deze waardebon.
+            total_discount_tax:
+              type: string
+              description: Totale verwijderde belasting vanwege korting die via deze
+                waardebon is toegepast.
+          description: Totaalbedrag, aangegeven met de kleinste valuta eenheid.
+    cart-extensions:
+      type: object
+    cart_item:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Unieke identificatiecode voor het item in de winkelwagen.
+        id:
+          type: integer
+          description: Het winkelwagenartikel of het variatie ID.
+        quantity:
+          type: integer
+          description: Aantal van dit artikel in de winkelwagen.
+        quantity_limit:
+          type: integer
+          description: De maximale hoeveelheid die tegelijkertijd aan de winkelwagen
+            kan worden toegevoegd.
+        name:
+          type: string
+          description: Productnaam.
+        short_description:
+          type: string
+          description: Korte beschrijving van product in HTML-indeling.
+        description:
+          type: string
+          description: Volledige beschrijving van product in HTML-indeling.
+        sku:
+          type: string
+          description: Eenheid voor voorraadbeheer, indien van toepassing.
+        low_stock_remaining:
+          type: integer
+          description: Hoeveelheid op voorraad als de voorraad laag is, of geen voorraad
+            indien niet van toepassing.
+        backorders_allowed:
+          type: boolean
+          description: Waar als nabestellingen zijn toegestaan nadat de beschikbaarheid
+            van de voorraad vervalt.
+        show_backorder_badge:
+          type: boolean
+          description: Waar als het product in backorder is.
+        sold_individually:
+          type: boolean
+          description: Indien waar kan slechts één artikel van dit product worden
+            aangeschaft in een bestelling.
+        permalink:
+          type: string
+          format: uri
+          description: Product-URL.
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Afbeelding ID.
+              src:
+                type: string
+                format: uri
+                description: Volledige grootte afbeelding URL.
+              thumbnail:
+                type: string
+                format: uri
+                description: URL van thumbnail.
+              srcset:
+                type: string
+                description: Srcset van thumbnail voor responsive afbeeldingen.
+              sizes:
+                type: string
+                description: Grootte van thumbnail voor responsive afbeeldingen.
+              name:
+                type: string
+                description: Naam afbeelding.
+              alt:
+                type: string
+                description: Alternatieve tekst afbeelding.
+          description: Lijst van afbeeldingen.
+        variation:
+          type: array
+          items:
+            type: object
+            properties:
+              attribute:
+                type: string
+                description: Variatie attribuut naam.
+              value:
+                type: string
+                description: Waarde attribuut eigenschap.
+          description: Gekozen eigenschappen (voor variaties).
+        item_data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Naam van de metadata.
+              value:
+                type: string
+                description: Waarde van de metadata.
+              display:
+                type: string
+                description: Optioneel, hoe de metadata-waarde moet worden weergegeven
+                  aan de gebruiker.
+          description: Metagegevens gerelateerd aan het winkelwagen item
+        prices:
+          type: object
+          properties:
+            currency_code:
+              type: string
+              description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+            currency_symbol:
+              type: string
+              description: Valutateken voor de valuta dat kan worden gebruikt voor
+                het formatteren van teruggegeven prijzen.
+            currency_minor_unit:
+              type: integer
+              description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                voor teruggegeven prijzen.
+            currency_decimal_separator:
+              type: string
+              description: Decimaal scheidingsteken voor de valuta die kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_thousand_separator:
+              type: string
+              description: Scheidingsteken van duizendtallen voor de valuta die kan
+                worden gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_prefix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_suffix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            price:
+              type: string
+              description: Huidige prijs.
+            regular_price:
+              type: string
+              description: Reguliere productprijs.
+            sale_price:
+              type: string
+              description: Productprijs in de aanbieding, indien van toepassing.
+            price_range:
+              type: object
+              description: Prijsbereik, indien van toepassing.
+            raw_prices:
+              type: object
+              description: Ruwe, onafgeronde productprijzen die in berekeningen worden
+                gebruikt. Aangegeven met een hogere nauwkeurigheidseenheid dan de
+                valuta.
+          description: Prijsgegevens voor het product in het huidige regelitem, inclusief
+            of exclusief belasting op basis van de instelling 'Prijzen weergeven tijdens
+            winkelwagen en afrekenen'. Aangegeven met de kleinste valuta eenheid.
+        totals:
+          type: object
+          properties:
+            currency_code:
+              type: string
+              description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+            currency_symbol:
+              type: string
+              description: Valutateken voor de valuta dat kan worden gebruikt voor
+                het formatteren van teruggegeven prijzen.
+            currency_minor_unit:
+              type: integer
+              description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                voor teruggegeven prijzen.
+            currency_decimal_separator:
+              type: string
+              description: Decimaal scheidingsteken voor de valuta die kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_thousand_separator:
+              type: string
+              description: Scheidingsteken van duizendtallen voor de valuta die kan
+                worden gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_prefix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_suffix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            line_subtotal:
+              type: string
+              description: Regel subtotaal (de prijs van het product voordat waardebon
+                kortingen zijn toegepast).
+            line_subtotal_tax:
+              type: string
+              description: Regel subtotaal belasting.
+            line_total:
+              type: string
+              description: Regel totaal (de prijs van het product nadat waardebon
+                kortingen zijn toegepast).
+            line_total_tax:
+              type: string
+              description: Regel totale belasting.
+          description: Totaalbedrag van artikel, aangegeven met de kleinste valuta
+            eenheid.
+        catalog_visibility:
+          type: string
+          description: Of het product zichtbaar is in de catalogus
+        extensions:
+          type: object
+    checkout:
+      type: object
+      properties:
+        order_id:
+          type: integer
+          description: Het bestel ID om te verwerken tijdens het afrekenen.
+        status:
+          type: string
+          description: Bestelstatus. Betaalproviders werken deze waarde bij na betaling.
+        order_key:
+          type: string
+          description: Bestelsleutel gebruikt om de geldigheid te controleren of toegang
+            tot bepaalde bestelgegevens te beschermen.
+        customer_note:
+          type: string
+          description: Notitie toegevoegd bij de bestelling dooor de klant tijdens
+            het afrekenen.
+        customer_id:
+          type: integer
+          description: Klant ID indien geregistreerd. Geeft 0 aan voor gasten.
+        billing_address:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+            email:
+              type: string
+              description: E-mail
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          - email
+          description: Factuuradres.
+        shipping_address:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Voornaam
+            last_name:
+              type: string
+              description: Achternaam
+            company:
+              type: string
+              description: Bedrijf
+            address_1:
+              type: string
+              description: Adres
+            address_2:
+              type: string
+              description: Appartement, suite, enz.
+            city:
+              type: string
+              description: Plaats
+            state:
+              type: string
+              description: Staats-/provinciecode of naam van de staat, provincie,
+                provincie of district.
+            postcode:
+              type: string
+              description: Postcode
+            country:
+              type: string
+              description: Land/regio-code in ISO 3166-1 alfa-2 format.
+            phone:
+              type: string
+              description: Telefoon
+          required:
+          - first_name
+          - last_name
+          - company
+          - address_1
+          - address_2
+          - city
+          - state
+          - postcode
+          - country
+          - phone
+          description: Verzendadres.
+        payment_method:
+          type: string
+          description: De ID van de betaalmethode die wordt gebruikt om de betaling
+            te verwerken.
+          enum:
+          - bacs
+          - cheque
+          - cod
+          - paypal
+          - stripe_ideal
+          - stripe
+          - stripe_sepa
+          - stripe_bancontact
+          - stripe_sofort
+          - stripe_giropay
+          - stripe_eps
+          - stripe_p24
+          - stripe_alipay
+          - stripe_multibanco
+        create_account:
+          type: boolean
+          description: Of je een nieuw gebruikersaccount aanmaakt tijdens het verwerken
+            van de bestelling.
+        payment_result:
+          type: object
+          properties:
+            payment_status:
+              type: string
+              description: Status van de betaling die wordt teruggezonden door de
+                gateway. Succes, in behandeling, mislukt of fout.
+            payment_details:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+              description: Een reeks gegevens die worden teruggezonden door de betalingsgateway.
+            redirect_url:
+              type: string
+              description: Een URL om de klant om te leiden na het afrekenen. Dit
+                kan bijvoorbeeld een link naar de site van de betalingsverwerker zijn.
+          description: Resultaat van verwerking van betaling, of onwaar indien nog
+            niet verwerkt.
+        extensions:
+          type: object
+      required:
+      - billing_address
+      - shipping_address
+    product_attribute:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+        name:
+          type: string
+          description: Naam eigenschap.
+        taxonomy:
+          type: string
+          description: De taxonomienaam van het attribuut.
+        type:
+          type: string
+          description: Attribuut type.
+        order:
+          type: string
+          description: Hoe termen in dit attribuut standaard worden gesorteerd.
+        has_archives:
+          type: boolean
+          description: Of dit attribuut term archiefpagina's heeft.
+        count:
+          type: integer
+          description: Aantal termen in de attribuut taxonomie.
+    term:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+        name:
+          type: string
+          description: Term naam.
+        slug:
+          type: string
+          description: Op strings gebaseerde id voor de term.
+        description:
+          type: string
+          description: Term beschrijving.
+        parent:
+          type: integer
+          description: Hoofd term ID, indien van toepassing.
+        count:
+          type: integer
+          description: Het aantal objecten (berichten van welk type dan ook) dat aan
+            de term is toegewezen.
+    product-category:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+        name:
+          type: string
+          description: Term naam.
+        slug:
+          type: string
+          description: Op strings gebaseerde id voor de term.
+        description:
+          type: string
+          description: Term beschrijving.
+        parent:
+          type: integer
+          description: Hoofd term ID, indien van toepassing.
+        count:
+          type: integer
+          description: Het aantal objecten (berichten van welk type dan ook) dat aan
+            de term is toegewezen.
+        image:
+          type: object
+          properties:
+            id:
+              type: integer
+              description: Afbeelding ID.
+            src:
+              type: string
+              format: uri
+              description: Volledige grootte afbeelding URL.
+            thumbnail:
+              type: string
+              format: uri
+              description: URL van thumbnail.
+            srcset:
+              type: string
+              description: Srcset van thumbnail voor responsive afbeeldingen.
+            sizes:
+              type: string
+              description: Grootte van thumbnail voor responsive afbeeldingen.
+            name:
+              type: string
+              description: Naam afbeelding.
+            alt:
+              type: string
+              description: Alternatieve tekst afbeelding.
+          description: Categorie naam.
+        review_count:
+          type: integer
+          description: Aantal beoordelingen voor producten in deze categorie.
+        permalink:
+          type: string
+          format: uri
+          description: Categorie URL.
+    product-collection-data:
+      type: object
+      properties:
+        price_range:
+          type: object
+          description: Minimum- en maximumprijzen gevonden in productcollecties, aangegeven
+            met de kleinste valuta eenheid.
+        attribute_counts:
+          type: integer
+          description: Retourneert het aantal producten binnen attribuut termen.
+        rating_counts:
+          type: integer
+          description: Geeft het aantal producten weer met elke gemiddelde waardering.
+        stock_status_counts:
+          type: integer
+          description: Retourneert het aantal producten met elke voorraadstatus.
+    product_review:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+        date_created:
+          type: string
+          format: date-time
+          description: Datum van de beoordeling, in de tijdzone van de site.
+        formatted_date_created:
+          type: string
+          description: De datum waarop de beoordeling is aangemaakt, in de tijdzone
+            van de site in een door mensen leesbare indeling.
+        date_created_gmt:
+          type: string
+          format: date-time
+          description: De datum waarop de beoordeling is gemaakt, als GMT.
+        product_id:
+          type: integer
+          description: Uniek ID voor het product waaraan de beoordeling toebehoort.
+        product_name:
+          type: string
+          description: Naam het product waaraan de beoordeling toebehoort.
+        product_permalink:
+          type: string
+          description: Permalink van het product waaraan de beoordeling toebehoort.
+        product_image:
+          type: object
+          properties:
+            id:
+              type: integer
+              description: Afbeelding ID.
+            src:
+              type: string
+              format: uri
+              description: Volledige grootte afbeelding URL.
+            thumbnail:
+              type: string
+              format: uri
+              description: URL van thumbnail.
+            srcset:
+              type: string
+              description: Srcset van thumbnail voor responsive afbeeldingen.
+            sizes:
+              type: string
+              description: Grootte van thumbnail voor responsive afbeeldingen.
+            name:
+              type: string
+              description: Naam afbeelding.
+            alt:
+              type: string
+              description: Alternatieve tekst afbeelding.
+          description: Afbeelding van het product waaraan de beoordeling toebehoort.
+        reviewer:
+          type: string
+          description: Naam van beoordelaar.
+        review:
+          type: string
+          description: De inhoud van de beoordeling.
+        rating:
+          type: integer
+          description: Beoordelingscijfer (0 tot 5).
+        verified:
+          type: boolean
+          description: Geeft aan of de beoordelaar het product heeft gekocht of niet.
+        reviewer_avatar_urls:
+          type: object
+          properties:
+            '24':
+              type: string
+              format: uri
+              description: Avatar URL met afbeeldingsgrootte van 24 pixels.
+            '48':
+              type: string
+              format: uri
+              description: Avatar URL met afbeeldingsgrootte van 48 pixels.
+            '96':
+              type: string
+              format: uri
+              description: Avatar URL met afbeeldingsgrootte van 96 pixels.
+          description: Avatar URLs voor de object beoordelaar.
+    product:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unieke identificatie voor de gegevensbron.
+        name:
+          type: string
+          description: Productnaam.
+        parent:
+          type: integer
+          description: ID van hoofd product, indien van toepassing.
+        type:
+          type: string
+          description: Producttype.
+        variation:
+          type: string
+          description: Eigenschappen van productvariatie, indien van toepassing.
+        permalink:
+          type: string
+          format: uri
+          description: Product-URL.
+        short_description:
+          type: string
+          description: Korte beschrijving van product in HTML-indeling.
+        description:
+          type: string
+          description: Volledige beschrijving van product in HTML-indeling.
+        on_sale:
+          type: boolean
+          description: Is het product in de aanbieding?
+        sku:
+          type: string
+          description: Unieke identifier.
+        prices:
+          type: object
+          properties:
+            currency_code:
+              type: string
+              description: Valutacode (in ISO format) voor de teruggegeven prijzen.
+            currency_symbol:
+              type: string
+              description: Valutateken voor de valuta dat kan worden gebruikt voor
+                het formatteren van teruggegeven prijzen.
+            currency_minor_unit:
+              type: integer
+              description: Valuta kleine eenheid (aantal cijfers na het decimaalteken)
+                voor teruggegeven prijzen.
+            currency_decimal_separator:
+              type: string
+              description: Decimaal scheidingsteken voor de valuta die kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_thousand_separator:
+              type: string
+              description: Scheidingsteken van duizendtallen voor de valuta die kan
+                worden gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_prefix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            currency_suffix:
+              type: string
+              description: Voorvoegsel van de prijs voor de valuta welke kan worden
+                gebruikt voor het formatteren van teruggegeven prijzen.
+            price:
+              type: string
+              description: Huidige prijs.
+            regular_price:
+              type: string
+              description: Reguliere productprijs.
+            sale_price:
+              type: string
+              description: Productprijs in de aanbieding, indien van toepassing.
+            price_range:
+              type: object
+              description: Prijsbereik, indien van toepassing.
+          description: Prijsgegevens, aangegeven met de kleinste valuta eenheid.
+        price_html:
+          type: string
+          description: Prijs string geformatteerd als HTML.
+        average_rating:
+          type: string
+          description: Gemiddelde waardering van beoordelingen.
+        review_count:
+          type: integer
+          description: Aantal beoordelingen dat een product heeft.
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Afbeelding ID.
+              src:
+                type: string
+                format: uri
+                description: Volledige grootte afbeelding URL.
+              thumbnail:
+                type: string
+                format: uri
+                description: URL van thumbnail.
+              srcset:
+                type: string
+                description: Srcset van thumbnail voor responsive afbeeldingen.
+              sizes:
+                type: string
+                description: Grootte van thumbnail voor responsive afbeeldingen.
+              name:
+                type: string
+                description: Naam afbeelding.
+              alt:
+                type: string
+                description: Alternatieve tekst afbeelding.
+          description: Lijst van afbeeldingen.
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                description: Categorie ID
+              name:
+                type: string
+                description: Categorienaam
+              slug:
+                type: string
+                description: Categorie slug
+              link:
+                type: string
+                description: Categorie link
+          description: Lijst met categorieën, indien van toepassing.
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                description: Tag-ID
+              name:
+                type: string
+                description: Tag naam
+              slug:
+                type: string
+                description: Tag slug
+              link:
+                type: string
+                description: Tag-link
+          description: Lijst met tags, indien van toepassing.
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Het attribuut ID, of 0 als het attribuut niet op taxonomie
+                  is gebaseerd.
+              name:
+                type: string
+                description: De attribuut naam.
+              taxonomy:
+                type: string
+                description: De attribuuttaxonomie, of nul als het attribuut niet
+                  op taxonomie is gebaseerd.
+              has_variations:
+                type: boolean
+                description: Waar als dit attribuut wordt gebruikt voor productvariaties.
+              terms:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: De term ID, of 0 als het attribuut geen globaal
+                        attribuut is.
+                    name:
+                      type: string
+                      description: De term naam.
+                    slug:
+                      type: string
+                      description: De term slug.
+                    default:
+                      type: boolean
+                      description: Als dit een standaard attribuut is
+                description: Lijst met toegewezen attribuuttermen.
+          description: Lijst met attributen die zijn toegewezen aan het product/de
+            variatie die zichtbaar zijn of worden gebruikt voor variaties.
+        variations:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Het attribuut ID, of 0 als het attribuut niet op taxonomie
+                  is gebaseerd.
+              attributes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: De attribuut naam.
+                    value:
+                      type: string
+                      description: Het toegewezen attribuut.
+                description: Lijst met variatie-attributen.
+          description: Lijst van variabele IDs, als toepasbaar.
+        has_options:
+          type: boolean
+          description: Heeft het product aanvullende opties voordat het aan de winkelwagen
+            kan worden toegevoegd?
+        is_purchasable:
+          type: boolean
+          description: Kan het product worden aangeschaft?
+        is_in_stock:
+          type: boolean
+          description: Is het product op voorraad?
+        is_on_backorder:
+          type: boolean
+          description: Wordt de productvoorraad nageleverd? Dit geeft ook een onwaar
+            aan als de naleveringsmeldingen zijn uitgeschakeld.
+        low_stock_remaining:
+          type: integer
+          description: Hoeveelheid op voorraad als de voorraad laag is, of geen voorraad
+            indien niet van toepassing.
+        sold_individually:
+          type: boolean
+          description: Indien waar kan slechts één artikel van dit product worden
+            aangeschaft in een bestelling.
+        quantity_limit:
+          type: integer
+          description: De maximale hoeveelheid die tegelijkertijd aan de winkelwagen
+            kan worden toegevoegd.
+        add_to_cart:
+          type: object
+          properties:
+            text:
+              type: string
+              description: Knoptekst.
+            description:
+              type: string
+              description: Knop beschrijving.
+            url:
+              type: string
+              description: URL voor Toevoegen aan winkelwagen.
+          description: Parameters van knop voor Toevoegen aan winkelwagen.
