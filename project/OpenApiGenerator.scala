@@ -20,8 +20,7 @@ object OpenApiGenerator {
   def replaceAll(toReplace:Map[String, String])(file:String) = {
     import scala.io.Source
     val content = Source.fromFile(file).mkString
-    toReplace.foldLeft(content){case (c,(target,replacement)) => c.replaceAll(target,replacement)}
-    val newContent = content.replaceAll("\"openapi-client\"","\"woocommerce-akka-client\"").replaceAll("\"org.openapitools\"","\"org.woocommerce\"")
+    val newContent = toReplace.foldLeft(content){case (c,(target,replacement)) => c.replaceAll(target,replacement)}
     val writer = new PrintWriter(new File(file))
     writer.write(newContent)
     writer.close()
@@ -34,7 +33,7 @@ object OpenApiGenerator {
     // Some ugly search&replace of the default scala version, so the submodule's scala version is the same as the main module
     // Hadn't find out yet how to update this via the config file openapitools.json
     val files = Seq("woocommerce-akka-client/build.sbt")
-    val toReplace = Map("scalaVersion := \"2.12.13\""->"scalaVersion := \"2.13.6\"","Seq(scalaVersion.value, \"2.13.4\")"-> "Seq(scalaVersion.value, \"2.12.13\")")
+    val toReplace = Map("scalaVersion := \"2.12.13\""->"scalaVersion := \"2.13.6\"", "Seq(scalaVersion.value, \"2.13.4\")"-> "Seq(scalaVersion.value, \"2.12.13\")")
     files.foreach(replaceAll(toReplace))
     state
   }
