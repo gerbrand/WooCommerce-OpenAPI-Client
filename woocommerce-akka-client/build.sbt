@@ -1,6 +1,6 @@
 version := "1.0.0"
-name := "openapi-client"
-organization := "org.openapitools"
+name := "woocommerce-akka-client"
+organization := "org.woocommerce"
 
 scalaVersion := "2.12.13"
 crossScalaVersions := Seq(scalaVersion.value, "2.13.4")
