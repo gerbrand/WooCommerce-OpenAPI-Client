@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <name>woocommerce-akka-client</name>
+  <name>openapi-client</name>
 
-  <groupId>org.woocommerce</groupId>
-  <artifactId>woocommerce-akka-client</artifactId>
+  <groupId>org.openapitools</groupId>
+  <artifactId>openapi-client</artifactId>
   <version>1.0.0</version>
 
   <packaging>jar</packaging>
