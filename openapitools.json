@@ -9,7 +9,9 @@
         "output": "#{cwd}/woocommerce-akka-client",
         "glob": "src/main/resources/woocommerce-openapi-*.yml",
         "additionalProperties": {
-          "mainPackage": "org.woocommerce.akkaclient"
+          "mainPackage": "org.woocommerce.akkaclient",
+          "artifactId": "woocommerce-akka-client",
+          "groupId": "org.woocommerce"
         }
       }
     }

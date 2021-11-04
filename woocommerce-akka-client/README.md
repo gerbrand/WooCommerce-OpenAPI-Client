@@ -1,4 +1,4 @@
-# openapi-client
+# woocommerce-akka-client
 
 wc/store
 - API version: 1
@@ -36,8 +36,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.openapitools</groupId>
-  <artifactId>openapi-client</artifactId>
+  <groupId>org.woocommerce</groupId>
+  <artifactId>woocommerce-akka-client</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
@@ -48,7 +48,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-client:1.0.0"
+compile "org.woocommerce:woocommerce-akka-client:1.0.0"
 ```
 
 ### SBT users

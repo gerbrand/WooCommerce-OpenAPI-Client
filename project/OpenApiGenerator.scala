@@ -31,9 +31,10 @@ object OpenApiGenerator {
     // Generate files using openapitools.json file
     val result = "openapi-generator-cli generate".!!
     log.info(result)
-    // Some ugly search&replace, as I can't get the CLI to override the default group and name somehow.
-    val files = Seq("woocommerce-akka-client/build.sbt","woocommerce-akka-client/pom.xml", "woocommerce-akka-client/README.md")
-    val toReplace = Map("openapi-client"->"woocommerce-akka-client","org.openapitools"-> "org.woocommerce")
+    // Some ugly search&replace of the default scala version, so the submodule's scala version is the same as the main module
+    // Hadn't find out yet how to update this via the config file openapitools.json
+    val files = Seq("woocommerce-akka-client/build.sbt")
+    val toReplace = Map("scalaVersion := \"2.12.13\""->"scalaVersion := \"2.13.6\"","Seq(scalaVersion.value, \"2.13.4\")"-> "Seq(scalaVersion.value, \"2.12.13\")")
     files.foreach(replaceAll(toReplace))
     state
   }
