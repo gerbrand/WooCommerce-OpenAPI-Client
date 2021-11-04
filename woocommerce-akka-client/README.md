@@ -54,7 +54,7 @@ compile "org.openapitools:openapi-client:1.0.0"
 ### SBT users
 
 ```scala
-libraryDependencies += "org.openapitools" % "openapi-client" % "1.0.0"
+libraryDependencies += "org.woocommerce" % "woocommerce-akka-client" % "1.0.0"
 ```
 
 ## Getting Started

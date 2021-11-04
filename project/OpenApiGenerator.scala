@@ -32,8 +32,8 @@ object OpenApiGenerator {
     val result = "openapi-generator-cli generate -g scala-akka -o woocommerce-akka-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=mainPackage=org.woocommerce.akkaclient".!!
     log.info(result)
     // Some ugly search&replace, as I can't get the CLI to override the default group and name somehow.
-    val files = Seq("woocommerce-akka-client/build.sbt","woocommerce-akka-client/pom.xml")
-    val toReplace = Map("\"openapi-client\""->"\"woocommerce-akka-client\"","\"openapi-client\""->"\"woocommerce-akka-client\"")
+    val files = Seq("woocommerce-akka-client/build.sbt","woocommerce-akka-client/pom.xml", "woocommerce-akka-client/README.md")
+    val toReplace = Map("openapi-client"->"woocommerce-akka-client","org.openapitools"-> "org.woocommerce")
     files.foreach(replaceAll(toReplace))
     state
   }
