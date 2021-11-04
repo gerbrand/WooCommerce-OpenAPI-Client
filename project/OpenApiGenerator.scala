@@ -29,7 +29,7 @@ object OpenApiGenerator {
   def generateAkkaClient = Command.command("generateAkkaClient") { state =>
     val log = state.log
     // Generate files, not doing anything with results yet
-    val result = "openapi-generator-cli generate -g scala-akka -o woocommerce-akka-client -i src/main/resources/woocommerce-openapi.yml --additional-properties=mainPackage=org.woocommerce.akkaclient".!!
+    val result = "openapi-generator-cli generate -g scala-akka -o woocommerce-akka-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=mainPackage=org.woocommerce.akkaclient".!!
     log.info(result)
     // Some ugly search&replace, as I can't get the CLI to override the default group and name somehow.
     val files = Seq("woocommerce-akka-client/build.sbt","woocommerce-akka-client/pom.xml")
