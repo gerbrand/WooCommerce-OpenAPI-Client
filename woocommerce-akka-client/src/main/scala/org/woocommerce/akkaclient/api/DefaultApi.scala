@@ -148,16 +148,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : CartCoupon (OK)
+   *   code 200 : Seq[CartCoupon] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def cartCouponsGet(context: Option[String] = None): ApiRequest[CartCoupon] =
-    ApiRequest[CartCoupon](ApiMethods.GET, baseUrl, "/cart/coupons", "application/json")
+  def cartCouponsGet(context: Option[String] = None): ApiRequest[Seq[CartCoupon]] =
+    ApiRequest[Seq[CartCoupon]](ApiMethods.GET, baseUrl, "/cart/coupons", "application/json")
       .withQueryParam("context", context)
-      .withSuccessResponse[CartCoupon](200)
+      .withSuccessResponse[Seq[CartCoupon]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -229,16 +229,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : CartItem (OK)
+   *   code 200 : Seq[CartItem] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def cartItemsGet(context: Option[String] = None): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.GET, baseUrl, "/cart/items", "application/json")
+  def cartItemsGet(context: Option[String] = None): ApiRequest[Seq[CartItem]] =
+    ApiRequest[Seq[CartItem]](ApiMethods.GET, baseUrl, "/cart/items", "application/json")
       .withQueryParam("context", context)
-      .withSuccessResponse[CartItem](200)
+      .withSuccessResponse[Seq[CartItem]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -563,16 +563,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductAttribute (OK)
+   *   code 200 : Seq[ProductAttribute] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def productsAttributesGet(context: Option[String] = None): ApiRequest[ProductAttribute] =
-    ApiRequest[ProductAttribute](ApiMethods.GET, baseUrl, "/products/attributes", "application/json")
+  def productsAttributesGet(context: Option[String] = None): ApiRequest[Seq[ProductAttribute]] =
+    ApiRequest[Seq[ProductAttribute]](ApiMethods.GET, baseUrl, "/products/attributes", "application/json")
       .withQueryParam("context", context)
-      .withSuccessResponse[ProductAttribute](200)
+      .withSuccessResponse[Seq[ProductAttribute]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -597,7 +597,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductCategory (OK)
+   *   code 200 : Seq[ProductCategory] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -611,8 +611,8 @@ class DefaultApi(baseUrl: String) {
    * @param orderby Sort by term property.
    * @param hideEmpty If true, empty terms will not be returned.
    */
-  def productsCategoriesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None): ApiRequest[ProductCategory] =
-    ApiRequest[ProductCategory](ApiMethods.GET, baseUrl, "/products/categories", "application/json")
+  def productsCategoriesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None): ApiRequest[Seq[ProductCategory]] =
+    ApiRequest[Seq[ProductCategory]](ApiMethods.GET, baseUrl, "/products/categories", "application/json")
       .withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -622,7 +622,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
       .withQueryParam("hide_empty", hideEmpty)
-      .withSuccessResponse[ProductCategory](200)
+      .withSuccessResponse[Seq[ProductCategory]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -727,7 +727,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : Product (OK)
+   *   code 200 : Seq[Product] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -761,8 +761,8 @@ class DefaultApi(baseUrl: String) {
    * @param catalogVisibility Determines if hidden or visible catalog products are shown.
    * @param rating Limit result set to products with a certain average rating.
    */
-  def productsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[OffsetDateTime] = None, before: Option[OffsetDateTime] = None, dateColumn: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, categoryOperator: Option[String] = None, tag: Option[String] = None, tagOperator: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Seq[String], attributes: Seq[Attributes], attributeRelation: Option[String] = None, catalogVisibility: Option[String] = None, rating: Seq[Int]): ApiRequest[Product] =
-    ApiRequest[Product](ApiMethods.GET, baseUrl, "/products", "application/json")
+  def productsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[OffsetDateTime] = None, before: Option[OffsetDateTime] = None, dateColumn: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, categoryOperator: Option[String] = None, tag: Option[String] = None, tagOperator: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Seq[String], attributes: Seq[Attributes], attributeRelation: Option[String] = None, catalogVisibility: Option[String] = None, rating: Seq[Int]): ApiRequest[Seq[Product]] =
+    ApiRequest[Seq[Product]](ApiMethods.GET, baseUrl, "/products", "application/json")
       .withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -792,7 +792,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("attribute_relation", attributeRelation)
       .withQueryParam("catalog_visibility", catalogVisibility)
       .withQueryParam("rating", ArrayValues(rating, MULTI))
-      .withSuccessResponse[Product](200)
+      .withSuccessResponse[Seq[Product]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
