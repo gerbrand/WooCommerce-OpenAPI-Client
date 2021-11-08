@@ -18,20 +18,25 @@ lazy val akkaClient = (project in file("woocommerce-akka-client"))
     name := "woocommerce-akka-client",
     organization := "org.woocommerce"
   )
+lazy val sttpClient = (project in file("woocommerce-sttp-client"))
+  .settings(
+    name := "woocommerce-sttp-client",
+    organization := "org.woocommerce"
+  )
 
 lazy val example = (project in file("example"))
   .settings(
     name := "woocommerce-example",
     organization := "org.woocommerce",
     libraryDependencies ++= Seq(),
-  ).dependsOn(akkaClient)
+  ).dependsOn(akkaClient, sttpClient)
 
 lazy val root = (project in file("."))
   .settings(
     name := "woocommerce-scala-client",
     libraryDependencies += scalaTest % Test,
-    commands ++= Seq(generateAkkaClient)
+    commands ++= Seq(generateAkkaClient, generateSttplient)
   )
-  .aggregate(akkaClient, example)
+  .aggregate(akkaClient, sttpClient, example)
 
 // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.

@@ -25,10 +25,17 @@ object OpenApiGenerator {
     writer.write(newContent)
     writer.close()
   }
+  def generateSttplient = Command.command("generateSttpClient") { state =>
+    val log = state.log
+    // Generate files using openapitools.json file
+    val result = "openapi-generator-cli generate -g scala-sttp -o woocommerce-sttp-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=mainPackage=org.woocommerce.sttpclient,artifactId=woocommerce-sttp-client,groupId=org.woocommerce".!!
+    log.info(result)
+    state
+  }
   def generateAkkaClient = Command.command("generateAkkaClient") { state =>
     val log = state.log
     // Generate files using openapitools.json file
-    val result = "openapi-generator-cli generate".!!
+    val result = "openapi-generator-cli generate -g scala-akka -o woocommerce-akka-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=mainPackage=org.woocommerce.akkaclient,artifactId=woocommerce-akka-client,groupId=org.woocommerce".!!
     log.info(result)
     // Some ugly search&replace of the default scala version, so the submodule's scala version is the same as the main module
     // Hadn't find out yet how to update this via the config file openapitools.json
