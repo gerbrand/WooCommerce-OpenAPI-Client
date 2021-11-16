@@ -3,7 +3,7 @@ name := "woocommerce-akka-client"
 organization := "org.woocommerce"
 
 scalaVersion := "2.13.6"
-crossScalaVersions := Seq(scalaVersion.value, "2.12.13")
+crossScalaVersions := Seq(scalaVersion.value, "2.13.4")
 
 
 libraryDependencies ++= Seq(
