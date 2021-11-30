@@ -1,10 +1,12 @@
 openapi: 3.0.0
 info:
   title: wc/store
-  description: Generated OpenAPI document of the namespace wc/store on Software-Creation.
+  description: >-
+    OpenAPI document of the namespace wc/store. Based on generated json
+    document, with some changes and additions
   version: '1'
 servers:
-  - url: https://www.software-creation.nl/wp-json/wc/store
+  - url: https://www.software-creation.nl/wp-json/wc/v3
 paths:
   /:
     get:
@@ -33,11 +35,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -122,11 +128,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -195,11 +205,15 @@ paths:
             description: Unique identifier for the coupon within the cart.
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -239,11 +253,15 @@ paths:
       parameters:
         - name: namespace
           in: query
-          description: Extension's name - this will be used to ensure the data in the request is routed appropriately.
+          description: >-
+            Extension's name - this will be used to ensure the data in the
+            request is routed appropriately.
           required: false
           schema:
             type: string
-            description: Extension's name - this will be used to ensure the data in the request is routed appropriately.
+            description: >-
+              Extension's name - this will be used to ensure the data in the
+              request is routed appropriately.
         - name: data
           in: query
           description: Additional data to pass to the extension
@@ -267,11 +285,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -332,11 +354,15 @@ paths:
             description: Unique identifier for the item within the cart.
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -577,7 +603,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -630,7 +658,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -668,11 +698,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -723,7 +757,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -776,7 +812,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -870,7 +908,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -923,7 +963,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -1017,7 +1059,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -1070,7 +1114,9 @@ paths:
                 description: City
               state:
                 type: string
-                description: State/County code, or name of the state, county, province, or district.
+                description: >-
+                  State/County code, or name of the state, county, province, or
+                  district.
               postcode:
                 type: string
                 description: Postal code
@@ -1133,11 +1179,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1166,11 +1216,15 @@ paths:
             description: Unique identifier for the resource.
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1197,11 +1251,15 @@ paths:
             description: Unique identifier for the attribute.
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1214,11 +1272,15 @@ paths:
             description: Current page of the collection.
         - name: per_page
           in: query
-          description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+          description: >-
+            Maximum number of items to be returned in result set. Defaults to no
+            limit if left blank.
           required: false
           schema:
             type: integer
-            description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+            description: >-
+              Maximum number of items to be returned in result set. Defaults to
+              no limit if left blank.
         - name: search
           in: query
           description: Limit results to those matching a string.
@@ -1288,11 +1350,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - embed
@@ -1306,11 +1372,15 @@ paths:
             description: Current page of the collection.
         - name: per_page
           in: query
-          description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+          description: >-
+            Maximum number of items to be returned in result set. Defaults to no
+            limit if left blank.
           required: false
           schema:
             type: integer
-            description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+            description: >-
+              Maximum number of items to be returned in result set. Defaults to
+              no limit if left blank.
         - name: search
           in: query
           description: Limit results to those matching a string.
@@ -1389,11 +1459,15 @@ paths:
             description: Unique identifier for the resource.
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - embed
@@ -1414,11 +1488,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1431,11 +1509,15 @@ paths:
             description: Current page of the collection.
         - name: per_page
           in: query
-          description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+          description: >-
+            Maximum number of items to be returned in result set. Defaults to no
+            limit if left blank.
           required: false
           schema:
             type: integer
-            description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+            description: >-
+              Maximum number of items to be returned in result set. Defaults to
+              no limit if left blank.
         - name: search
           in: query
           description: Limit results to those matching a string.
@@ -1445,27 +1527,39 @@ paths:
             description: Limit results to those matching a string.
         - name: after
           in: query
-          description: Limit response to resources created after a given ISO8601 compliant date.
+          description: >-
+            Limit response to resources created after a given ISO8601 compliant
+            date.
           required: false
           schema:
             type: string
             format: date-time
-            description: Limit response to resources created after a given ISO8601 compliant date.
+            description: >-
+              Limit response to resources created after a given ISO8601
+              compliant date.
         - name: before
           in: query
-          description: Limit response to resources created before a given ISO8601 compliant date.
+          description: >-
+            Limit response to resources created before a given ISO8601 compliant
+            date.
           required: false
           schema:
             type: string
             format: date-time
-            description: Limit response to resources created before a given ISO8601 compliant date.
+            description: >-
+              Limit response to resources created before a given ISO8601
+              compliant date.
         - name: date_column
           in: query
-          description: When limiting response using after/before, which date column to compare against.
+          description: >-
+            When limiting response using after/before, which date column to
+            compare against.
           required: false
           schema:
             type: string
-            description: When limiting response using after/before, which date column to compare against.
+            description: >-
+              When limiting response using after/before, which date column to
+              compare against.
             enum:
               - date
               - date_gmt
@@ -1536,13 +1630,17 @@ paths:
             description: Limit result set to those of particular parent IDs.
         - name: parent_exclude
           in: query
-          description: Limit result set to all items except those of a particular parent ID.
+          description: >-
+            Limit result set to all items except those of a particular parent
+            ID.
           required: false
           schema:
             type: array
             items:
               type: integer
-            description: Limit result set to all items except those of a particular parent ID.
+            description: >-
+              Limit result set to all items except those of a particular parent
+              ID.
         - name: type
           in: query
           description: Limit result set to products assigned a specific type.
@@ -1558,11 +1656,15 @@ paths:
               - variation
         - name: sku
           in: query
-          description: Limit result set to products with specific SKU(s). Use commas to separate.
+          description: >-
+            Limit result set to products with specific SKU(s). Use commas to
+            separate.
           required: false
           schema:
             type: string
-            description: Limit result set to products with specific SKU(s). Use commas to separate.
+            description: >-
+              Limit result set to products with specific SKU(s). Use commas to
+              separate.
         - name: featured
           in: query
           description: Limit result set to featured products.
@@ -1615,18 +1717,26 @@ paths:
             description: Limit result set to products on sale.
         - name: min_price
           in: query
-          description: Limit result set to products based on a minimum price, provided using the smallest unit of the currency.
+          description: >-
+            Limit result set to products based on a minimum price, provided
+            using the smallest unit of the currency.
           required: false
           schema:
             type: string
-            description: Limit result set to products based on a minimum price, provided using the smallest unit of the currency.
+            description: >-
+              Limit result set to products based on a minimum price, provided
+              using the smallest unit of the currency.
         - name: max_price
           in: query
-          description: Limit result set to products based on a maximum price, provided using the smallest unit of the currency.
+          description: >-
+            Limit result set to products based on a maximum price, provided
+            using the smallest unit of the currency.
           required: false
           schema:
             type: string
-            description: Limit result set to products based on a maximum price, provided using the smallest unit of the currency.
+            description: >-
+              Limit result set to products based on a maximum price, provided
+              using the smallest unit of the currency.
         - name: stock_status
           in: query
           description: Limit result set to products with specified stock status.
@@ -1661,7 +1771,9 @@ paths:
                   type: array
                   items:
                     type: string
-                  description: List of attribute slug(s). If a term ID is provided, this will be ignored.
+                  description: >-
+                    List of attribute slug(s). If a term ID is provided, this
+                    will be ignored.
                 operator:
                   type: string
                   description: Operator to compare product attribute terms.
@@ -1672,11 +1784,15 @@ paths:
             description: Limit result set to products with selected global attributes.
         - name: attribute_relation
           in: query
-          description: The logical relationship between attributes when filtering across multiple at once.
+          description: >-
+            The logical relationship between attributes when filtering across
+            multiple at once.
           required: false
           schema:
             type: string
-            description: The logical relationship between attributes when filtering across multiple at once.
+            description: >-
+              The logical relationship between attributes when filtering across
+              multiple at once.
             enum:
               - in
               - and
@@ -1710,11 +1826,15 @@ paths:
             description: Limit result set to products with a certain average rating.
         - name: calculate_price_range
           in: query
-          description: If true, calculates the minimum and maximum product prices for the collection.
+          description: >-
+            If true, calculates the minimum and maximum product prices for the
+            collection.
           required: false
           schema:
             type: boolean
-            description: If true, calculates the minimum and maximum product prices for the collection.
+            description: >-
+              If true, calculates the minimum and maximum product prices for the
+              collection.
         - name: calculate_stock_status_counts
           in: query
           description: If true, calculates stock counts for products in the collection.
@@ -1724,7 +1844,9 @@ paths:
             description: If true, calculates stock counts for products in the collection.
         - name: calculate_attribute_counts
           in: query
-          description: If requested, calculates attribute term counts for products in the collection.
+          description: >-
+            If requested, calculates attribute term counts for products in the
+            collection.
           required: false
           schema:
             type: array
@@ -1736,11 +1858,15 @@ paths:
                   description: Taxonomy name.
                 query_type:
                   type: string
-                  description: Query type being performed which may affect counts. Valid values include "and" and "or".
+                  description: >-
+                    Query type being performed which may affect counts. Valid
+                    values include "and" and "or".
                   enum:
                     - and
                     - or
-            description: If requested, calculates attribute term counts for products in the collection.
+            description: >-
+              If requested, calculates attribute term counts for products in the
+              collection.
         - name: calculate_rating_counts
           in: query
           description: If true, calculates rating counts for products in the collection.
@@ -1764,11 +1890,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1781,11 +1911,15 @@ paths:
             description: Current page of the collection.
         - name: per_page
           in: query
-          description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+          description: >-
+            Maximum number of items to be returned in result set. Defaults to no
+            limit if left blank.
           required: false
           schema:
             type: integer
-            description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+            description: >-
+              Maximum number of items to be returned in result set. Defaults to
+              no limit if left blank.
         - name: offset
           in: query
           description: Offset the result set by a specific number of items.
@@ -1846,11 +1980,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1863,11 +2001,15 @@ paths:
             description: Current page of the collection.
         - name: per_page
           in: query
-          description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+          description: >-
+            Maximum number of items to be returned in result set. Defaults to no
+            limit if left blank.
           required: false
           schema:
             type: integer
-            description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+            description: >-
+              Maximum number of items to be returned in result set. Defaults to
+              no limit if left blank.
         - name: search
           in: query
           description: Limit results to those matching a string.
@@ -1937,11 +2079,15 @@ paths:
       parameters:
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -1954,11 +2100,15 @@ paths:
             description: Current page of the collection.
         - name: per_page
           in: query
-          description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+          description: >-
+            Maximum number of items to be returned in result set. Defaults to no
+            limit if left blank.
           required: false
           schema:
             type: integer
-            description: Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+            description: >-
+              Maximum number of items to be returned in result set. Defaults to
+              no limit if left blank.
         - name: search
           in: query
           description: Limit results to those matching a string.
@@ -1968,27 +2118,39 @@ paths:
             description: Limit results to those matching a string.
         - name: after
           in: query
-          description: Limit response to resources created after a given ISO8601 compliant date.
+          description: >-
+            Limit response to resources created after a given ISO8601 compliant
+            date.
           required: false
           schema:
             type: string
             format: date-time
-            description: Limit response to resources created after a given ISO8601 compliant date.
+            description: >-
+              Limit response to resources created after a given ISO8601
+              compliant date.
         - name: before
           in: query
-          description: Limit response to resources created before a given ISO8601 compliant date.
+          description: >-
+            Limit response to resources created before a given ISO8601 compliant
+            date.
           required: false
           schema:
             type: string
             format: date-time
-            description: Limit response to resources created before a given ISO8601 compliant date.
+            description: >-
+              Limit response to resources created before a given ISO8601
+              compliant date.
         - name: date_column
           in: query
-          description: When limiting response using after/before, which date column to compare against.
+          description: >-
+            When limiting response using after/before, which date column to
+            compare against.
           required: false
           schema:
             type: string
-            description: When limiting response using after/before, which date column to compare against.
+            description: >-
+              When limiting response using after/before, which date column to
+              compare against.
             enum:
               - date
               - date_gmt
@@ -2059,13 +2221,17 @@ paths:
             description: Limit result set to those of particular parent IDs.
         - name: parent_exclude
           in: query
-          description: Limit result set to all items except those of a particular parent ID.
+          description: >-
+            Limit result set to all items except those of a particular parent
+            ID.
           required: false
           schema:
             type: array
             items:
               type: integer
-            description: Limit result set to all items except those of a particular parent ID.
+            description: >-
+              Limit result set to all items except those of a particular parent
+              ID.
         - name: type
           in: query
           description: Limit result set to products assigned a specific type.
@@ -2081,11 +2247,15 @@ paths:
               - variation
         - name: sku
           in: query
-          description: Limit result set to products with specific SKU(s). Use commas to separate.
+          description: >-
+            Limit result set to products with specific SKU(s). Use commas to
+            separate.
           required: false
           schema:
             type: string
-            description: Limit result set to products with specific SKU(s). Use commas to separate.
+            description: >-
+              Limit result set to products with specific SKU(s). Use commas to
+              separate.
         - name: featured
           in: query
           description: Limit result set to featured products.
@@ -2138,18 +2308,26 @@ paths:
             description: Limit result set to products on sale.
         - name: min_price
           in: query
-          description: Limit result set to products based on a minimum price, provided using the smallest unit of the currency.
+          description: >-
+            Limit result set to products based on a minimum price, provided
+            using the smallest unit of the currency.
           required: false
           schema:
             type: string
-            description: Limit result set to products based on a minimum price, provided using the smallest unit of the currency.
+            description: >-
+              Limit result set to products based on a minimum price, provided
+              using the smallest unit of the currency.
         - name: max_price
           in: query
-          description: Limit result set to products based on a maximum price, provided using the smallest unit of the currency.
+          description: >-
+            Limit result set to products based on a maximum price, provided
+            using the smallest unit of the currency.
           required: false
           schema:
             type: string
-            description: Limit result set to products based on a maximum price, provided using the smallest unit of the currency.
+            description: >-
+              Limit result set to products based on a maximum price, provided
+              using the smallest unit of the currency.
         - name: stock_status
           in: query
           description: Limit result set to products with specified stock status.
@@ -2184,7 +2362,9 @@ paths:
                   type: array
                   items:
                     type: string
-                  description: List of attribute slug(s). If a term ID is provided, this will be ignored.
+                  description: >-
+                    List of attribute slug(s). If a term ID is provided, this
+                    will be ignored.
                 operator:
                   type: string
                   description: Operator to compare product attribute terms.
@@ -2195,11 +2375,15 @@ paths:
             description: Limit result set to products with selected global attributes.
         - name: attribute_relation
           in: query
-          description: The logical relationship between attributes when filtering across multiple at once.
+          description: >-
+            The logical relationship between attributes when filtering across
+            multiple at once.
           required: false
           schema:
             type: string
-            description: The logical relationship between attributes when filtering across multiple at once.
+            description: >-
+              The logical relationship between attributes when filtering across
+              multiple at once.
             enum:
               - in
               - and
@@ -2244,6 +2428,38 @@ paths:
           description: Bad Request
         '404':
           description: Not Found
+    post:
+      summary: This API helps you to create a new product.
+      description: ''
+      security:
+        - basicAuth: []
+      operationId: 'addProduct'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/product'
+            example:
+              order:
+                value:
+                  name: Premium Quality
+                  type: simple
+                  regular_price: '21.99'
+                  description: Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                  short_description: Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                  categories:
+                    - id: 9
+                    - id: 14
+                  images:
+                    - src: http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg
+                    - src: http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Invalid username or password
   /products/{id}:
     get:
       parameters:
@@ -2256,11 +2472,15 @@ paths:
             description: Unique identifier for the resource.
         - name: context
           in: query
-          description: Scope under which the request is made; determines fields present in response.
+          description: >-
+            Scope under which the request is made; determines fields present in
+            response.
           required: false
           schema:
             type: string
-            description: Scope under which the request is made; determines fields present in response.
+            description: >-
+              Scope under which the request is made; determines fields present
+              in response.
             enum:
               - view
               - edit
@@ -2320,6 +2540,11 @@ paths:
           description: Not Found
 security: []
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Wordpress username and password. Tip, use generated application password
   schemas:
     cart:
       type: object
@@ -2334,7 +2559,9 @@ components:
                 description: The coupon's unique code.
               discount_type:
                 type: string
-                description: The discount type for the coupon (e.g. percentage or fixed amount)
+                description: >-
+                  The discount type for the coupon (e.g. percentage or fixed
+                  amount)
               totals:
                 type: object
                 properties:
@@ -2343,29 +2570,43 @@ components:
                     description: Currency code (in ISO format) for returned prices.
                   currency_symbol:
                     type: string
-                    description: Currency symbol for the currency which can be used to format returned prices.
+                    description: >-
+                      Currency symbol for the currency which can be used to
+                      format returned prices.
                   currency_minor_unit:
                     type: integer
-                    description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+                    description: >-
+                      Currency minor unit (number of digits after the decimal
+                      separator) for returned prices.
                   currency_decimal_separator:
                     type: string
-                    description: Decimal separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Decimal separator for the currency which can be used to
+                      format returned prices.
                   currency_thousand_separator:
                     type: string
-                    description: Thousand separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Thousand separator for the currency which can be used to
+                      format returned prices.
                   currency_prefix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   currency_suffix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   total_discount:
                     type: string
                     description: Total discount applied by this coupon.
                   total_discount_tax:
                     type: string
                     description: Total tax removed due to discount applied by this coupon.
-                description: Total amounts provided using the smallest unit of the currency.
+                description: >-
+                  Total amounts provided using the smallest unit of the
+                  currency.
           description: List of applied cart coupons.
         shipping_rates:
           type: array
@@ -2392,7 +2633,9 @@ components:
                     description: City of the address being shipped to.
                   state:
                     type: string
-                    description: ISO code, or name, for the state, province, or district of the address being shipped to.
+                    description: >-
+                      ISO code, or name, for the state, province, or district of
+                      the address being shipped to.
                   postcode:
                     type: string
                     description: Zip or Postcode of the address being shipped to.
@@ -2428,22 +2671,30 @@ components:
                       description: Name of the shipping rate, e.g. Express shipping.
                     description:
                       type: string
-                      description: Description of the shipping rate, e.g. Dispatched via USPS.
+                      description: >-
+                        Description of the shipping rate, e.g. Dispatched via
+                        USPS.
                     delivery_time:
                       type: string
                       description: Delivery time estimate text, e.g. 3-5 business days.
                     price:
                       type: string
-                      description: Price of this shipping rate using the smallest unit of the currency.
+                      description: >-
+                        Price of this shipping rate using the smallest unit of
+                        the currency.
                     taxes:
                       type: string
-                      description: Taxes applied to this shipping rate using the smallest unit of the currency.
+                      description: >-
+                        Taxes applied to this shipping rate using the smallest
+                        unit of the currency.
                     method_id:
                       type: string
                       description: ID of the shipping method that provided the rate.
                     instance_id:
                       type: integer
-                      description: Instance ID of the shipping method that provided the rate.
+                      description: >-
+                        Instance ID of the shipping method that provided the
+                        rate.
                     meta_data:
                       type: array
                       items:
@@ -2458,28 +2709,42 @@ components:
                       description: Meta data attached to the shipping rate.
                     selected:
                       type: boolean
-                      description: True if this is the rate currently selected by the customer for the cart.
+                      description: >-
+                        True if this is the rate currently selected by the
+                        customer for the cart.
                     currency_code:
                       type: string
                       description: Currency code (in ISO format) for returned prices.
                     currency_symbol:
                       type: string
-                      description: Currency symbol for the currency which can be used to format returned prices.
+                      description: >-
+                        Currency symbol for the currency which can be used to
+                        format returned prices.
                     currency_minor_unit:
                       type: integer
-                      description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+                      description: >-
+                        Currency minor unit (number of digits after the decimal
+                        separator) for returned prices.
                     currency_decimal_separator:
                       type: string
-                      description: Decimal separator for the currency which can be used to format returned prices.
+                      description: >-
+                        Decimal separator for the currency which can be used to
+                        format returned prices.
                     currency_thousand_separator:
                       type: string
-                      description: Thousand separator for the currency which can be used to format returned prices.
+                      description: >-
+                        Thousand separator for the currency which can be used to
+                        format returned prices.
                     currency_prefix:
                       type: string
-                      description: Price prefix for the currency which can be used to format returned prices.
+                      description: >-
+                        Price prefix for the currency which can be used to
+                        format returned prices.
                     currency_suffix:
                       type: string
-                      description: Price prefix for the currency which can be used to format returned prices.
+                      description: >-
+                        Price prefix for the currency which can be used to
+                        format returned prices.
                 description: List of shipping rates.
           description: List of available shipping rates for the cart.
         shipping_address:
@@ -2505,7 +2770,9 @@ components:
               description: City
             state:
               type: string
-              description: State/County code, or name of the state, county, province, or district.
+              description: >-
+                State/County code, or name of the state, county, province, or
+                district.
             postcode:
               type: string
               description: Postal code
@@ -2550,7 +2817,9 @@ components:
               description: City
             state:
               type: string
-              description: State/County code, or name of the state, county, province, or district.
+              description: >-
+                State/County code, or name of the state, county, province, or
+                district.
             postcode:
               type: string
               description: Postal code
@@ -2607,7 +2876,9 @@ components:
                 description: Stock keeping unit, if applicable.
               low_stock_remaining:
                 type: integer
-                description: Quantity left in stock if stock is low, or null if not applicable.
+                description: >-
+                  Quantity left in stock if stock is low, or null if not
+                  applicable.
               backorders_allowed:
                 type: boolean
                 description: True if backorders are allowed past stock availability.
@@ -2616,7 +2887,9 @@ components:
                 description: True if the product is on backorder.
               sold_individually:
                 type: boolean
-                description: If true, only one item of this product is allowed for purchase in a single order.
+                description: >-
+                  If true, only one item of this product is allowed for purchase
+                  in a single order.
               permalink:
                 type: string
                 format: uri
@@ -2675,7 +2948,9 @@ components:
                       description: Value of the metadata.
                     display:
                       type: string
-                      description: Optionally, how the metadata value should be displayed to the user.
+                      description: >-
+                        Optionally, how the metadata value should be displayed
+                        to the user.
                 description: Metadata related to the cart item
               prices:
                 type: object
@@ -2685,22 +2960,34 @@ components:
                     description: Currency code (in ISO format) for returned prices.
                   currency_symbol:
                     type: string
-                    description: Currency symbol for the currency which can be used to format returned prices.
+                    description: >-
+                      Currency symbol for the currency which can be used to
+                      format returned prices.
                   currency_minor_unit:
                     type: integer
-                    description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+                    description: >-
+                      Currency minor unit (number of digits after the decimal
+                      separator) for returned prices.
                   currency_decimal_separator:
                     type: string
-                    description: Decimal separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Decimal separator for the currency which can be used to
+                      format returned prices.
                   currency_thousand_separator:
                     type: string
-                    description: Thousand separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Thousand separator for the currency which can be used to
+                      format returned prices.
                   currency_prefix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   currency_suffix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   price:
                     type: string
                     description: Current product price.
@@ -2715,8 +3002,15 @@ components:
                     description: Price range, if applicable.
                   raw_prices:
                     type: object
-                    description: Raw unrounded product prices used in calculations. Provided using a higher unit of precision than the currency.
-                description: Price data for the product in the current line item, including or excluding taxes based on the "display prices during cart and checkout" setting. Provided using the smallest unit of the currency.
+                    description: >-
+                      Raw unrounded product prices used in calculations.
+                      Provided using a higher unit of precision than the
+                      currency.
+                description: >-
+                  Price data for the product in the current line item, including
+                  or excluding taxes based on the "display prices during cart
+                  and checkout" setting. Provided using the smallest unit of the
+                  currency.
               totals:
                 type: object
                 properties:
@@ -2725,35 +3019,53 @@ components:
                     description: Currency code (in ISO format) for returned prices.
                   currency_symbol:
                     type: string
-                    description: Currency symbol for the currency which can be used to format returned prices.
+                    description: >-
+                      Currency symbol for the currency which can be used to
+                      format returned prices.
                   currency_minor_unit:
                     type: integer
-                    description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+                    description: >-
+                      Currency minor unit (number of digits after the decimal
+                      separator) for returned prices.
                   currency_decimal_separator:
                     type: string
-                    description: Decimal separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Decimal separator for the currency which can be used to
+                      format returned prices.
                   currency_thousand_separator:
                     type: string
-                    description: Thousand separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Thousand separator for the currency which can be used to
+                      format returned prices.
                   currency_prefix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   currency_suffix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   line_subtotal:
                     type: string
-                    description: Line subtotal (the price of the product before coupon discounts have been applied).
+                    description: >-
+                      Line subtotal (the price of the product before coupon
+                      discounts have been applied).
                   line_subtotal_tax:
                     type: string
                     description: Line subtotal tax.
                   line_total:
                     type: string
-                    description: Line total (the price of the product after coupon discounts have been applied).
+                    description: >-
+                      Line total (the price of the product after coupon
+                      discounts have been applied).
                   line_total_tax:
                     type: string
                     description: Line total tax.
-                description: Item total amounts provided using the smallest unit of the currency.
+                description: >-
+                  Item total amounts provided using the smallest unit of the
+                  currency.
               catalog_visibility:
                 type: string
                 description: Whether the product is visible in the catalog
@@ -2768,13 +3080,19 @@ components:
           description: Total weight (in grams) of all products in the cart.
         needs_payment:
           type: boolean
-          description: True if the cart needs payment. False for carts with only free products and no shipping costs.
+          description: >-
+            True if the cart needs payment. False for carts with only free
+            products and no shipping costs.
         needs_shipping:
           type: boolean
-          description: True if the cart needs shipping. False for carts with only digital goods or stores with no shipping methods set-up.
+          description: >-
+            True if the cart needs shipping. False for carts with only digital
+            goods or stores with no shipping methods set-up.
         has_calculated_shipping:
           type: boolean
-          description: True if the cart meets the criteria for showing shipping costs, and rates have been calculated and included in the totals.
+          description: >-
+            True if the cart meets the criteria for showing shipping costs, and
+            rates have been calculated and included in the totals.
         fees:
           type: array
           items:
@@ -2794,29 +3112,43 @@ components:
                     description: Currency code (in ISO format) for returned prices.
                   currency_symbol:
                     type: string
-                    description: Currency symbol for the currency which can be used to format returned prices.
+                    description: >-
+                      Currency symbol for the currency which can be used to
+                      format returned prices.
                   currency_minor_unit:
                     type: integer
-                    description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+                    description: >-
+                      Currency minor unit (number of digits after the decimal
+                      separator) for returned prices.
                   currency_decimal_separator:
                     type: string
-                    description: Decimal separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Decimal separator for the currency which can be used to
+                      format returned prices.
                   currency_thousand_separator:
                     type: string
-                    description: Thousand separator for the currency which can be used to format returned prices.
+                    description: >-
+                      Thousand separator for the currency which can be used to
+                      format returned prices.
                   currency_prefix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   currency_suffix:
                     type: string
-                    description: Price prefix for the currency which can be used to format returned prices.
+                    description: >-
+                      Price prefix for the currency which can be used to format
+                      returned prices.
                   total:
                     type: string
                     description: Total amount for this fee.
                   total_tax:
                     type: string
                     description: Total tax amount for this fee.
-                description: Fee total amounts provided using the smallest unit of the currency.
+                description: >-
+                  Fee total amounts provided using the smallest unit of the
+                  currency.
           description: List of cart fees.
         totals:
           type: object
@@ -2826,22 +3158,34 @@ components:
               description: Currency code (in ISO format) for returned prices.
             currency_symbol:
               type: string
-              description: Currency symbol for the currency which can be used to format returned prices.
+              description: >-
+                Currency symbol for the currency which can be used to format
+                returned prices.
             currency_minor_unit:
               type: integer
-              description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+              description: >-
+                Currency minor unit (number of digits after the decimal
+                separator) for returned prices.
             currency_decimal_separator:
               type: string
-              description: Decimal separator for the currency which can be used to format returned prices.
+              description: >-
+                Decimal separator for the currency which can be used to format
+                returned prices.
             currency_thousand_separator:
               type: string
-              description: Thousand separator for the currency which can be used to format returned prices.
+              description: >-
+                Thousand separator for the currency which can be used to format
+                returned prices.
             currency_prefix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             currency_suffix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             total_items:
               type: string
               description: Total price of items in the cart.
@@ -2862,10 +3206,14 @@ components:
               description: Total tax removed due to discount from applied coupons.
             total_shipping:
               type: string
-              description: Total price of shipping. If shipping has not been calculated, a null response will be sent.
+              description: >-
+                Total price of shipping. If shipping has not been calculated, a
+                null response will be sent.
             total_shipping_tax:
               type: string
-              description: Total tax on shipping. If shipping has not been calculated, a null response will be sent.
+              description: >-
+                Total tax on shipping. If shipping has not been calculated, a
+                null response will be sent.
             total_price:
               type: string
               description: Total price the customer will pay.
@@ -2899,7 +3247,9 @@ components:
               message:
                 type: string
                 description: Error message
-          description: List of cart item errors, for example, items in the cart which are out of stock.
+          description: >-
+            List of cart item errors, for example, items in the cart which are
+            out of stock.
         payment_requirements:
           type: array
           description: List of required payment gateway features to process the order.
@@ -2927,22 +3277,34 @@ components:
               description: Currency code (in ISO format) for returned prices.
             currency_symbol:
               type: string
-              description: Currency symbol for the currency which can be used to format returned prices.
+              description: >-
+                Currency symbol for the currency which can be used to format
+                returned prices.
             currency_minor_unit:
               type: integer
-              description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+              description: >-
+                Currency minor unit (number of digits after the decimal
+                separator) for returned prices.
             currency_decimal_separator:
               type: string
-              description: Decimal separator for the currency which can be used to format returned prices.
+              description: >-
+                Decimal separator for the currency which can be used to format
+                returned prices.
             currency_thousand_separator:
               type: string
-              description: Thousand separator for the currency which can be used to format returned prices.
+              description: >-
+                Thousand separator for the currency which can be used to format
+                returned prices.
             currency_prefix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             currency_suffix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             total_discount:
               type: string
               description: Total discount applied by this coupon.
@@ -2990,7 +3352,9 @@ components:
           description: True if the product is on backorder.
         sold_individually:
           type: boolean
-          description: If true, only one item of this product is allowed for purchase in a single order.
+          description: >-
+            If true, only one item of this product is allowed for purchase in a
+            single order.
         permalink:
           type: string
           format: uri
@@ -3049,7 +3413,9 @@ components:
                 description: Value of the metadata.
               display:
                 type: string
-                description: Optionally, how the metadata value should be displayed to the user.
+                description: >-
+                  Optionally, how the metadata value should be displayed to the
+                  user.
           description: Metadata related to the cart item
         prices:
           type: object
@@ -3059,22 +3425,34 @@ components:
               description: Currency code (in ISO format) for returned prices.
             currency_symbol:
               type: string
-              description: Currency symbol for the currency which can be used to format returned prices.
+              description: >-
+                Currency symbol for the currency which can be used to format
+                returned prices.
             currency_minor_unit:
               type: integer
-              description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+              description: >-
+                Currency minor unit (number of digits after the decimal
+                separator) for returned prices.
             currency_decimal_separator:
               type: string
-              description: Decimal separator for the currency which can be used to format returned prices.
+              description: >-
+                Decimal separator for the currency which can be used to format
+                returned prices.
             currency_thousand_separator:
               type: string
-              description: Thousand separator for the currency which can be used to format returned prices.
+              description: >-
+                Thousand separator for the currency which can be used to format
+                returned prices.
             currency_prefix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             currency_suffix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             price:
               type: string
               description: Current product price.
@@ -3089,8 +3467,13 @@ components:
               description: Price range, if applicable.
             raw_prices:
               type: object
-              description: Raw unrounded product prices used in calculations. Provided using a higher unit of precision than the currency.
-          description: Price data for the product in the current line item, including or excluding taxes based on the "display prices during cart and checkout" setting. Provided using the smallest unit of the currency.
+              description: >-
+                Raw unrounded product prices used in calculations. Provided
+                using a higher unit of precision than the currency.
+          description: >-
+            Price data for the product in the current line item, including or
+            excluding taxes based on the "display prices during cart and
+            checkout" setting. Provided using the smallest unit of the currency.
         totals:
           type: object
           properties:
@@ -3099,31 +3482,47 @@ components:
               description: Currency code (in ISO format) for returned prices.
             currency_symbol:
               type: string
-              description: Currency symbol for the currency which can be used to format returned prices.
+              description: >-
+                Currency symbol for the currency which can be used to format
+                returned prices.
             currency_minor_unit:
               type: integer
-              description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+              description: >-
+                Currency minor unit (number of digits after the decimal
+                separator) for returned prices.
             currency_decimal_separator:
               type: string
-              description: Decimal separator for the currency which can be used to format returned prices.
+              description: >-
+                Decimal separator for the currency which can be used to format
+                returned prices.
             currency_thousand_separator:
               type: string
-              description: Thousand separator for the currency which can be used to format returned prices.
+              description: >-
+                Thousand separator for the currency which can be used to format
+                returned prices.
             currency_prefix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             currency_suffix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             line_subtotal:
               type: string
-              description: Line subtotal (the price of the product before coupon discounts have been applied).
+              description: >-
+                Line subtotal (the price of the product before coupon discounts
+                have been applied).
             line_subtotal_tax:
               type: string
               description: Line subtotal tax.
             line_total:
               type: string
-              description: Line total (the price of the product after coupon discounts have been applied).
+              description: >-
+                Line total (the price of the product after coupon discounts have
+                been applied).
             line_total_tax:
               type: string
               description: Line total tax.
@@ -3141,10 +3540,14 @@ components:
           description: The order ID to process during checkout.
         status:
           type: string
-          description: Order status. Payment providers will update this value after payment.
+          description: >-
+            Order status. Payment providers will update this value after
+            payment.
         order_key:
           type: string
-          description: Order key used to check validity or protect access to certain order data.
+          description: >-
+            Order key used to check validity or protect access to certain order
+            data.
         customer_note:
           type: string
           description: Note added to the order by the customer during checkout.
@@ -3174,7 +3577,9 @@ components:
               description: City
             state:
               type: string
-              description: State/County code, or name of the state, county, province, or district.
+              description: >-
+                State/County code, or name of the state, county, province, or
+                district.
             postcode:
               type: string
               description: Postal code
@@ -3223,7 +3628,9 @@ components:
               description: City
             state:
               type: string
-              description: State/County code, or name of the state, county, province, or district.
+              description: >-
+                State/County code, or name of the state, county, province, or
+                district.
             postcode:
               type: string
               description: Postal code
@@ -3261,7 +3668,9 @@ components:
           properties:
             payment_status:
               type: string
-              description: Status of the payment returned by the gateway. One of success, pending, failure, error.
+              description: >-
+                Status of the payment returned by the gateway. One of success,
+                pending, failure, error.
             payment_details:
               type: array
               items:
@@ -3274,7 +3683,9 @@ components:
               description: An array of data being returned from the payment gateway.
             redirect_url:
               type: string
-              description: A URL to redirect the customer after checkout. This could be, for example, a link to the payment processors website.
+              description: >-
+                A URL to redirect the customer after checkout. This could be,
+                for example, a link to the payment processors website.
           description: Result of payment processing, or false if not yet processed.
         extensions:
           type: object
@@ -3386,7 +3797,9 @@ components:
       properties:
         price_range:
           type: object
-          description: Min and max prices found in collection of products, provided using the smallest unit of the currency.
+          description: >-
+            Min and max prices found in collection of products, provided using
+            the smallest unit of the currency.
         attribute_counts:
           type: array
           items:
@@ -3414,7 +3827,9 @@ components:
           description: The date the review was created, in the site's timezone.
         formatted_date_created:
           type: string
-          description: The date the review was created, in the site's timezone in human-readable format.
+          description: >-
+            The date the review was created, in the site's timezone in
+            human-readable format.
         date_created_gmt:
           type: string
           format: date-time
@@ -3525,22 +3940,34 @@ components:
               description: Currency code (in ISO format) for returned prices.
             currency_symbol:
               type: string
-              description: Currency symbol for the currency which can be used to format returned prices.
+              description: >-
+                Currency symbol for the currency which can be used to format
+                returned prices.
             currency_minor_unit:
               type: integer
-              description: Currency minor unit (number of digits after the decimal separator) for returned prices.
+              description: >-
+                Currency minor unit (number of digits after the decimal
+                separator) for returned prices.
             currency_decimal_separator:
               type: string
-              description: Decimal separator for the currency which can be used to format returned prices.
+              description: >-
+                Decimal separator for the currency which can be used to format
+                returned prices.
             currency_thousand_separator:
               type: string
-              description: Thousand separator for the currency which can be used to format returned prices.
+              description: >-
+                Thousand separator for the currency which can be used to format
+                returned prices.
             currency_prefix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             currency_suffix:
               type: string
-              description: Price prefix for the currency which can be used to format returned prices.
+              description: >-
+                Price prefix for the currency which can be used to format
+                returned prices.
             price:
               type: string
               description: Current product price.
@@ -3641,7 +4068,9 @@ components:
                 description: The attribute name.
               taxonomy:
                 type: string
-                description: The attribute taxonomy, or null if the attribute is not taxonomy based.
+                description: >-
+                  The attribute taxonomy, or null if the attribute is not
+                  taxonomy based.
               has_variations:
                 type: boolean
                 description: True if this attribute is used by product variations.
@@ -3652,7 +4081,9 @@ components:
                   properties:
                     id:
                       type: integer
-                      description: The term ID, or 0 if the attribute is not a global attribute.
+                      description: >-
+                        The term ID, or 0 if the attribute is not a global
+                        attribute.
                     name:
                       type: string
                       description: The term name.
@@ -3660,7 +4091,9 @@ components:
                       type: string
                       description: The term slug.
                 description: List of assigned attribute terms.
-          description: List of attributes assigned to the product/variation that are visible or used for variations.
+          description: >-
+            List of attributes assigned to the product/variation that are
+            visible or used for variations.
         variations:
           type: array
           items:
@@ -3684,7 +4117,9 @@ components:
           description: List of variation IDs, if applicable.
         has_options:
           type: boolean
-          description: Does the product have additional options before it can be added to the cart?
+          description: >-
+            Does the product have additional options before it can be added to
+            the cart?
         is_purchasable:
           type: boolean
           description: Is the product purchasable?
@@ -3693,13 +4128,17 @@ components:
           description: Is the product in stock?
         is_on_backorder:
           type: boolean
-          description: Is the product stock backordered? This will also return false if backorder notifications are turned off.
+          description: >-
+            Is the product stock backordered? This will also return false if
+            backorder notifications are turned off.
         low_stock_remaining:
           type: integer
           description: Quantity left in stock if stock is low, or null if not applicable.
         sold_individually:
           type: boolean
-          description: If true, only one item of this product is allowed for purchase in a single order.
+          description: >-
+            If true, only one item of this product is allowed for purchase in a
+            single order.
         quantity_limit:
           type: integer
           description: The maximum quantity than can be added to the cart at once.

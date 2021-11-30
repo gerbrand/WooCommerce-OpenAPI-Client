@@ -1,6 +1,6 @@
 /**
  * wc/store
- * Generated OpenAPI document of the namespace wc/store on Software-Creation.
+ * OpenAPI document of the namespace wc/store. Based on generated json document, with some changes and additions
  *
  * The version of the OpenAPI document: 1
  * 

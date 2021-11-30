@@ -1,6 +1,6 @@
 /**
  * wc/store
- * Generated OpenAPI document of the namespace wc/store on Software-Creation.
+ * OpenAPI document of the namespace wc/store. Based on generated json document, with some changes and additions
  *
  * The version of the OpenAPI document: 1
  * 
@@ -40,10 +40,29 @@ import org.woocommerce.akkaclient.core.ApiKeyLocations._
 
 object DefaultApi {
 
-  def apply(baseUrl: String = "https://www.software-creation.nl/wp-json/wc/store") = new DefaultApi(baseUrl)
+  def apply(baseUrl: String = "https://www.software-creation.nl/wp-json/wc/v3") = new DefaultApi(baseUrl)
 }
 
 class DefaultApi(baseUrl: String) {
+
+  /**
+   * Expected answers:
+   *   code 200 :  (OK)
+   *   code 400 :  (Bad Request)
+   *   code 401 :  (Invalid username or password)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param product 
+   */
+  def addProduct(product: Option[Product] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/products", "application/json")
+      .withCredentials(basicAuth).withBody(product)
+      .withSuccessResponse[Unit](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](401)
+      
 
   /**
    * Expected answers:
