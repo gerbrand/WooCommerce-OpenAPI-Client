@@ -1,6 +1,6 @@
 /**
- * wc/store
- * OpenAPI document of the namespace wc/store. Based on generated json document, with some changes and additions
+ * wc/v3
+ * OpenAPI documented, based on generated OpenAPI document of the namespace wc/v3 with some manual fixes.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -11,29 +11,155 @@
  */
 package org.woocommerce.akkaclient.api
 
-import org.woocommerce.akkaclient.model.Attributes
-import org.woocommerce.akkaclient.model.BillingAddress
-import org.woocommerce.akkaclient.model.BillingAddress1
-import org.woocommerce.akkaclient.model.BillingAddress2
-import org.woocommerce.akkaclient.model.BillingAddress3
-import org.woocommerce.akkaclient.model.CalculateAttributeCounts
-import org.woocommerce.akkaclient.model.Cart
-import org.woocommerce.akkaclient.model.CartCoupon
-import org.woocommerce.akkaclient.model.CartItem
-import org.woocommerce.akkaclient.model.Checkout
-import java.time.OffsetDateTime
+import org.woocommerce.akkaclient.model.Batch
+import org.woocommerce.akkaclient.model.Batch1
+import org.woocommerce.akkaclient.model.Batch10
+import org.woocommerce.akkaclient.model.Batch11
+import org.woocommerce.akkaclient.model.Batch12
+import org.woocommerce.akkaclient.model.Batch13
+import org.woocommerce.akkaclient.model.Batch14
+import org.woocommerce.akkaclient.model.Batch15
+import org.woocommerce.akkaclient.model.Batch16
+import org.woocommerce.akkaclient.model.Batch17
+import org.woocommerce.akkaclient.model.Batch18
+import org.woocommerce.akkaclient.model.Batch19
+import org.woocommerce.akkaclient.model.Batch2
+import org.woocommerce.akkaclient.model.Batch20
+import org.woocommerce.akkaclient.model.Batch21
+import org.woocommerce.akkaclient.model.Batch22
+import org.woocommerce.akkaclient.model.Batch23
+import org.woocommerce.akkaclient.model.Batch24
+import org.woocommerce.akkaclient.model.Batch25
+import org.woocommerce.akkaclient.model.Batch26
+import org.woocommerce.akkaclient.model.Batch27
+import org.woocommerce.akkaclient.model.Batch28
+import org.woocommerce.akkaclient.model.Batch29
+import org.woocommerce.akkaclient.model.Batch3
+import org.woocommerce.akkaclient.model.Batch30
+import org.woocommerce.akkaclient.model.Batch31
+import org.woocommerce.akkaclient.model.Batch32
+import org.woocommerce.akkaclient.model.Batch33
+import org.woocommerce.akkaclient.model.Batch34
+import org.woocommerce.akkaclient.model.Batch35
+import org.woocommerce.akkaclient.model.Batch36
+import org.woocommerce.akkaclient.model.Batch37
+import org.woocommerce.akkaclient.model.Batch38
+import org.woocommerce.akkaclient.model.Batch39
+import org.woocommerce.akkaclient.model.Batch4
+import org.woocommerce.akkaclient.model.Batch5
+import org.woocommerce.akkaclient.model.Batch6
+import org.woocommerce.akkaclient.model.Batch7
+import org.woocommerce.akkaclient.model.Batch8
+import org.woocommerce.akkaclient.model.Batch9
+import org.woocommerce.akkaclient.model.Customer
+import org.woocommerce.akkaclient.model.Customer1
+import org.woocommerce.akkaclient.model.Customer2
+import org.woocommerce.akkaclient.model.Customer3
+import org.woocommerce.akkaclient.model.Customer4
+import org.woocommerce.akkaclient.model.CustomerDownload
+import org.woocommerce.akkaclient.model.DataContinents
+import org.woocommerce.akkaclient.model.DataCountries
+import org.woocommerce.akkaclient.model.DataCurrencies
+import org.woocommerce.akkaclient.model.DataIndex
+import java.time.LocalDate
+import org.woocommerce.akkaclient.model.OrderNote
+import org.woocommerce.akkaclient.model.OrderNote1
+import org.woocommerce.akkaclient.model.PaymentGateway
+import org.woocommerce.akkaclient.model.PaymentGateway1
+import org.woocommerce.akkaclient.model.PaymentGateway2
+import org.woocommerce.akkaclient.model.PaymentGateway3
 import org.woocommerce.akkaclient.model.Product
+import org.woocommerce.akkaclient.model.Product1
+import org.woocommerce.akkaclient.model.Product2
+import org.woocommerce.akkaclient.model.Product3
+import org.woocommerce.akkaclient.model.Product4
 import org.woocommerce.akkaclient.model.ProductAttribute
-import org.woocommerce.akkaclient.model.ProductCategory
-import org.woocommerce.akkaclient.model.ProductCollectionData
+import org.woocommerce.akkaclient.model.ProductAttribute1
+import org.woocommerce.akkaclient.model.ProductAttribute2
+import org.woocommerce.akkaclient.model.ProductAttribute3
+import org.woocommerce.akkaclient.model.ProductAttribute4
+import org.woocommerce.akkaclient.model.ProductAttributeTerm
+import org.woocommerce.akkaclient.model.ProductAttributeTerm1
+import org.woocommerce.akkaclient.model.ProductAttributeTerm2
+import org.woocommerce.akkaclient.model.ProductAttributeTerm3
+import org.woocommerce.akkaclient.model.ProductAttributeTerm4
+import org.woocommerce.akkaclient.model.ProductCat
+import org.woocommerce.akkaclient.model.ProductCat1
+import org.woocommerce.akkaclient.model.ProductCat2
+import org.woocommerce.akkaclient.model.ProductCat3
+import org.woocommerce.akkaclient.model.ProductCat4
 import org.woocommerce.akkaclient.model.ProductReview
-import org.woocommerce.akkaclient.model.Requests
-import org.woocommerce.akkaclient.model.ShippingAddress
-import org.woocommerce.akkaclient.model.ShippingAddress1
-import org.woocommerce.akkaclient.model.ShippingAddress2
-import org.woocommerce.akkaclient.model.ShippingAddress3
-import org.woocommerce.akkaclient.model.Term
-import org.woocommerce.akkaclient.model.Variation
+import org.woocommerce.akkaclient.model.ProductReview1
+import org.woocommerce.akkaclient.model.ProductReview2
+import org.woocommerce.akkaclient.model.ProductReview3
+import org.woocommerce.akkaclient.model.ProductReview4
+import org.woocommerce.akkaclient.model.ProductShippingClass
+import org.woocommerce.akkaclient.model.ProductShippingClass1
+import org.woocommerce.akkaclient.model.ProductShippingClass2
+import org.woocommerce.akkaclient.model.ProductShippingClass3
+import org.woocommerce.akkaclient.model.ProductShippingClass4
+import org.woocommerce.akkaclient.model.ProductTag
+import org.woocommerce.akkaclient.model.ProductTag1
+import org.woocommerce.akkaclient.model.ProductTag2
+import org.woocommerce.akkaclient.model.ProductTag3
+import org.woocommerce.akkaclient.model.ProductTag4
+import org.woocommerce.akkaclient.model.ProductVariation
+import org.woocommerce.akkaclient.model.ProductVariation1
+import org.woocommerce.akkaclient.model.ProductVariation2
+import org.woocommerce.akkaclient.model.ProductVariation3
+import org.woocommerce.akkaclient.model.ProductVariation4
+import org.woocommerce.akkaclient.model.Report
+import org.woocommerce.akkaclient.model.ReportCouponTotal
+import org.woocommerce.akkaclient.model.ReportCustomerTotal
+import org.woocommerce.akkaclient.model.ReportOrderTotal
+import org.woocommerce.akkaclient.model.ReportProductTotal
+import org.woocommerce.akkaclient.model.ReportReviewTotal
+import org.woocommerce.akkaclient.model.SalesReport
+import org.woocommerce.akkaclient.model.ShippingMethod
+import org.woocommerce.akkaclient.model.ShippingZone
+import org.woocommerce.akkaclient.model.ShippingZone1
+import org.woocommerce.akkaclient.model.ShippingZone2
+import org.woocommerce.akkaclient.model.ShippingZone3
+import org.woocommerce.akkaclient.model.ShippingZone4
+import org.woocommerce.akkaclient.model.ShippingZoneLocation
+import org.woocommerce.akkaclient.model.ShippingZoneLocation1
+import org.woocommerce.akkaclient.model.ShippingZoneLocation2
+import org.woocommerce.akkaclient.model.ShippingZoneLocation3
+import org.woocommerce.akkaclient.model.ShippingZoneMethod
+import org.woocommerce.akkaclient.model.ShippingZoneMethod1
+import org.woocommerce.akkaclient.model.ShippingZoneMethod2
+import org.woocommerce.akkaclient.model.ShippingZoneMethod3
+import org.woocommerce.akkaclient.model.ShippingZoneMethod4
+import org.woocommerce.akkaclient.model.ShopCoupon
+import org.woocommerce.akkaclient.model.ShopCoupon1
+import org.woocommerce.akkaclient.model.ShopCoupon2
+import org.woocommerce.akkaclient.model.ShopCoupon3
+import org.woocommerce.akkaclient.model.ShopCoupon4
+import org.woocommerce.akkaclient.model.ShopOrder
+import org.woocommerce.akkaclient.model.ShopOrder1
+import org.woocommerce.akkaclient.model.ShopOrder2
+import org.woocommerce.akkaclient.model.ShopOrder3
+import org.woocommerce.akkaclient.model.ShopOrder4
+import org.woocommerce.akkaclient.model.ShopOrderRefund
+import org.woocommerce.akkaclient.model.ShopOrderRefund1
+import org.woocommerce.akkaclient.model.SystemStatus
+import org.woocommerce.akkaclient.model.SystemStatusTool
+import org.woocommerce.akkaclient.model.SystemStatusTool1
+import org.woocommerce.akkaclient.model.SystemStatusTool2
+import org.woocommerce.akkaclient.model.SystemStatusTool3
+import org.woocommerce.akkaclient.model.Tax
+import org.woocommerce.akkaclient.model.Tax1
+import org.woocommerce.akkaclient.model.Tax2
+import org.woocommerce.akkaclient.model.Tax3
+import org.woocommerce.akkaclient.model.Tax4
+import org.woocommerce.akkaclient.model.TaxClass
+import org.woocommerce.akkaclient.model.TaxClass1
+import org.woocommerce.akkaclient.model.TopSellersReport
+import org.woocommerce.akkaclient.model.Webhook
+import org.woocommerce.akkaclient.model.Webhook1
+import org.woocommerce.akkaclient.model.Webhook2
+import org.woocommerce.akkaclient.model.Webhook3
+import org.woocommerce.akkaclient.model.Webhook4
 import org.woocommerce.akkaclient.core._
 import org.woocommerce.akkaclient.core.CollectionFormats._
 import org.woocommerce.akkaclient.core.ApiKeyLocations._
@@ -47,551 +173,1460 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 :  (OK)
+   *   code 200 : Batch (OK)
    *   code 400 :  (Bad Request)
-   *   code 401 :  (Invalid username or password)
+   *   code 404 :  (Not Found)
    * 
    * Available security schemes:
    *   basicAuth (http)
    * 
-   * @param product 
+   * @param batch3 
    */
-  def addProduct(product: Option[Product] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/products", "application/json")
-      .withCredentials(basicAuth).withBody(product)
-      .withSuccessResponse[Unit](200)
+  def couponsBatchPatch(batch3: Batch3)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/coupons/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch3)
+      .withSuccessResponse[Batch](200)
       .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](401)
+      .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 :  (OK)
+   *   code 200 : Batch (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
-   * @param requests 
-   * @param validation 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch2 
    */
-  def batchPost(requests: Seq[Requests], validation: Option[String] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/batch", "application/json")
-      .withQueryParam("validation", validation)
-      .withQueryParam("requests", ArrayValues(requests, MULTI))
-      .withSuccessResponse[Unit](200)
+  def couponsBatchPost(batch2: Batch2)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/coupons/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch2)
+      .withSuccessResponse[Batch](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : Cart (OK)
+   *   code 200 : Batch (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
-   * @param id The cart item product or variation ID.
-   * @param quantity Quantity of this item in the cart.
-   * @param variation Chosen attributes (for variations).
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch1 
    */
-  def cartAddItemPost(id: Option[Int] = None, quantity: Option[Int] = None, variation: Seq[Variation]): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/add-item", "application/json")
-      .withQueryParam("id", id)
-      .withQueryParam("quantity", quantity)
-      .withQueryParam("variation", ArrayValues(variation, MULTI))
-      .withSuccessResponse[Cart](200)
+  def couponsBatchPut(batch1: Batch1)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/coupons/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch1)
+      .withSuccessResponse[Batch](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : Cart (OK)
+   *   code 200 : ShopCoupon (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
-   * @param code Unique identifier for the coupon within the cart.
-   */
-  def cartApplyCouponPost(code: Option[String] = None): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/apply-coupon", "application/json")
-      .withQueryParam("code", code)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartCoupon (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
+   * Available security schemes:
+   *   basicAuth (http)
    * 
-   * @param code Unique identifier for the coupon within the cart.
-   */
-  def cartCouponsCodeDelete(code: String): ApiRequest[CartCoupon] =
-    ApiRequest[CartCoupon](ApiMethods.DELETE, baseUrl, "/cart/coupons/{code}", "application/json")
-      .withPathParam("code", code)
-      .withSuccessResponse[CartCoupon](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartCoupon (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param code Unique identifier for the coupon within the cart.
-   * @param context Scope under which the request is made; determines fields present in response.
-   */
-  def cartCouponsCodeGet(code: String, context: Option[String] = None): ApiRequest[CartCoupon] =
-    ApiRequest[CartCoupon](ApiMethods.GET, baseUrl, "/cart/coupons/{code}", "application/json")
-      .withQueryParam("context", context)
-      .withPathParam("code", code)
-      .withSuccessResponse[CartCoupon](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartCoupon (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   */
-  def cartCouponsDelete(): ApiRequest[CartCoupon] =
-    ApiRequest[CartCoupon](ApiMethods.DELETE, baseUrl, "/cart/coupons", "application/json")
-      .withSuccessResponse[CartCoupon](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Seq[CartCoupon] (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param context Scope under which the request is made; determines fields present in response.
-   */
-  def cartCouponsGet(context: Option[String] = None): ApiRequest[Seq[CartCoupon]] =
-    ApiRequest[Seq[CartCoupon]](ApiMethods.GET, baseUrl, "/cart/coupons", "application/json")
-      .withQueryParam("context", context)
-      .withSuccessResponse[Seq[CartCoupon]](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartCoupon (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param code The coupon's unique code.
-   * @param discountType The discount type for the coupon (e.g. percentage or fixed amount)
-   */
-  def cartCouponsPost(code: Option[String] = None, discountType: Option[String] = None): ApiRequest[CartCoupon] =
-    ApiRequest[CartCoupon](ApiMethods.POST, baseUrl, "/cart/coupons", "application/json")
-      .withQueryParam("code", code)
-      .withQueryParam("discount_type", discountType)
-      .withSuccessResponse[CartCoupon](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Any (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param namespace Extension's name - this will be used to ensure the data in the request is routed appropriately.
-   * @param data Additional data to pass to the extension
-   */
-  def cartExtensionsPost(namespace: Option[String] = None, data: Option[Any] = None): ApiRequest[Any] =
-    ApiRequest[Any](ApiMethods.POST, baseUrl, "/cart/extensions", "application/json")
-      .withQueryParam("namespace", namespace)
-      .withQueryParam("data", data)
-      .withSuccessResponse[Any](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Cart (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param context Scope under which the request is made; determines fields present in response.
-   */
-  def cartGet(context: Option[String] = None): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.GET, baseUrl, "/cart", "application/json")
-      .withQueryParam("context", context)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   */
-  def cartItemsDelete(): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.DELETE, baseUrl, "/cart/items", "application/json")
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Seq[CartItem] (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param context Scope under which the request is made; determines fields present in response.
-   */
-  def cartItemsGet(context: Option[String] = None): ApiRequest[Seq[CartItem]] =
-    ApiRequest[Seq[CartItem]](ApiMethods.GET, baseUrl, "/cart/items", "application/json")
-      .withQueryParam("context", context)
-      .withSuccessResponse[Seq[CartItem]](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier for the item within the cart.
-   */
-  def cartItemsKeyDelete(key: String): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.DELETE, baseUrl, "/cart/items/{key}", "application/json")
-      .withPathParam("key", key)
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier for the item within the cart.
-   * @param context Scope under which the request is made; determines fields present in response.
-   */
-  def cartItemsKeyGet(key: String, context: Option[String] = None): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.GET, baseUrl, "/cart/items/{key}", "application/json")
-      .withQueryParam("context", context)
-      .withPathParam("key", key)
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier for the item within the cart.
-   * @param extensions 
-   */
-  def cartItemsKeyPatch(key: String, extensions: Option[Any] = None): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.PATCH, baseUrl, "/cart/items/{key}", "application/json")
-      .withQueryParam("extensions", extensions)
-      .withPathParam("key", key)
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier for the item within the cart.
-   * @param extensions 
-   */
-  def cartItemsKeyPost(key: String, extensions: Option[Any] = None): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.POST, baseUrl, "/cart/items/{key}", "application/json")
-      .withQueryParam("extensions", extensions)
-      .withPathParam("key", key)
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier for the item within the cart.
-   * @param extensions 
-   */
-  def cartItemsKeyPut(key: String, extensions: Option[Any] = None): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.PUT, baseUrl, "/cart/items/{key}", "application/json")
-      .withQueryParam("extensions", extensions)
-      .withPathParam("key", key)
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : CartItem (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param extensions 
-   */
-  def cartItemsPost(extensions: Option[Any] = None): ApiRequest[CartItem] =
-    ApiRequest[CartItem](ApiMethods.POST, baseUrl, "/cart/items", "application/json")
-      .withQueryParam("extensions", extensions)
-      .withSuccessResponse[CartItem](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Cart (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param code Unique identifier for the coupon within the cart.
-   */
-  def cartRemoveCouponPost(code: Option[String] = None): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/remove-coupon", "application/json")
-      .withQueryParam("code", code)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Cart (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier (key) for the cart item.
-   */
-  def cartRemoveItemPost(key: Option[String] = None): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/remove-item", "application/json")
-      .withQueryParam("key", key)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Cart (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param packageId The ID of the package being shipped.
-   * @param rateId The chosen rate ID for the package.
-   */
-  def cartSelectShippingRatePost(packageId: String, rateId: String): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/select-shipping-rate", "application/json")
-      .withQueryParam("package_id", packageId)
-      .withQueryParam("rate_id", rateId)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Cart (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param billingAddress Billing address.
-   * @param shippingAddress Shipping address.
-   */
-  def cartUpdateCustomerPost(billingAddress: Option[BillingAddress] = None, shippingAddress: Option[ShippingAddress] = None): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/update-customer", "application/json")
-      .withQueryParam("billing_address", billingAddress)
-      .withQueryParam("shipping_address", shippingAddress)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Cart (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param key Unique identifier (key) for the cart item to update.
-   * @param quantity New quantity of the item in the cart.
-   */
-  def cartUpdateItemPost(key: Option[String] = None, quantity: Option[Int] = None): ApiRequest[Cart] =
-    ApiRequest[Cart](ApiMethods.POST, baseUrl, "/cart/update-item", "application/json")
-      .withQueryParam("key", key)
-      .withQueryParam("quantity", quantity)
-      .withSuccessResponse[Cart](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Checkout (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param context Scope under which the request is made; determines fields present in response.
-   */
-  def checkoutGet(context: Option[String] = None): ApiRequest[Checkout] =
-    ApiRequest[Checkout](ApiMethods.GET, baseUrl, "/checkout", "application/json")
-      .withQueryParam("context", context)
-      .withSuccessResponse[Checkout](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Checkout (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param customerNote Note added to the order by the customer during checkout.
-   * @param billingAddress Billing address.
-   * @param shippingAddress Shipping address.
-   * @param paymentMethod The ID of the payment method being used to process the payment.
-   * @param createAccount Whether to create a new user account as part of order processing.
-   * @param extensions 
-   */
-  def checkoutPatch(customerNote: Option[String] = None, billingAddress: Option[BillingAddress3] = None, shippingAddress: Option[ShippingAddress3] = None, paymentMethod: Option[String] = None, createAccount: Option[Boolean] = None, extensions: Option[Any] = None): ApiRequest[Checkout] =
-    ApiRequest[Checkout](ApiMethods.PATCH, baseUrl, "/checkout", "application/json")
-      .withQueryParam("customer_note", customerNote)
-      .withQueryParam("billing_address", billingAddress)
-      .withQueryParam("shipping_address", shippingAddress)
-      .withQueryParam("payment_method", paymentMethod)
-      .withQueryParam("create_account", createAccount)
-      .withQueryParam("extensions", extensions)
-      .withSuccessResponse[Checkout](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Checkout (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param customerNote Note added to the order by the customer during checkout.
-   * @param billingAddress Billing address.
-   * @param shippingAddress Shipping address.
-   * @param paymentMethod The ID of the payment method being used to process the payment.
-   * @param createAccount Whether to create a new user account as part of order processing.
-   * @param extensions 
-   */
-  def checkoutPost(customerNote: Option[String] = None, billingAddress: Option[BillingAddress2] = None, shippingAddress: Option[ShippingAddress2] = None, paymentMethod: Option[String] = None, createAccount: Option[Boolean] = None, extensions: Option[Any] = None): ApiRequest[Checkout] =
-    ApiRequest[Checkout](ApiMethods.POST, baseUrl, "/checkout", "application/json")
-      .withQueryParam("customer_note", customerNote)
-      .withQueryParam("billing_address", billingAddress)
-      .withQueryParam("shipping_address", shippingAddress)
-      .withQueryParam("payment_method", paymentMethod)
-      .withQueryParam("create_account", createAccount)
-      .withQueryParam("extensions", extensions)
-      .withSuccessResponse[Checkout](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Checkout (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param customerNote Note added to the order by the customer during checkout.
-   * @param billingAddress Billing address.
-   * @param shippingAddress Shipping address.
-   * @param paymentMethod The ID of the payment method being used to process the payment.
-   * @param createAccount Whether to create a new user account as part of order processing.
-   * @param extensions 
-   */
-  def checkoutPut(customerNote: Option[String] = None, billingAddress: Option[BillingAddress1] = None, shippingAddress: Option[ShippingAddress1] = None, paymentMethod: Option[String] = None, createAccount: Option[Boolean] = None, extensions: Option[Any] = None): ApiRequest[Checkout] =
-    ApiRequest[Checkout](ApiMethods.PUT, baseUrl, "/checkout", "application/json")
-      .withQueryParam("customer_note", customerNote)
-      .withQueryParam("billing_address", billingAddress)
-      .withQueryParam("shipping_address", shippingAddress)
-      .withQueryParam("payment_method", paymentMethod)
-      .withQueryParam("create_account", createAccount)
-      .withQueryParam("extensions", extensions)
-      .withSuccessResponse[Checkout](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : Term (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
-   * 
-   * @param attributeId Unique identifier for the attribute.
    * @param context Scope under which the request is made; determines fields present in response.
    * @param page Current page of the collection.
-   * @param perPage Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+   * @param perPage Maximum number of items to be returned in result set.
    * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to resources published before a given ISO8601 compliant date.
+   * @param modifiedAfter Limit response to resources modified after a given ISO8601 compliant date.
+   * @param modifiedBefore Limit response to resources modified before a given ISO8601 compliant date.
+   * @param datesAreGmt Whether to consider GMT post dates when limiting response by published or modified date.
    * @param exclude Ensure result set excludes specific IDs.
    * @param include Limit result set to specific ids.
-   * @param order Sort ascending or descending.
-   * @param orderby Sort by term property.
-   * @param hideEmpty If true, empty terms will not be returned.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param code Limit result set to resources with a specific code.
    */
-  def productsAttributesAttributeIdTermsGet(attributeId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None): ApiRequest[Term] =
-    ApiRequest[Term](ApiMethods.GET, baseUrl, "/products/attributes/{attribute_id}/terms", "application/json")
-      .withQueryParam("context", context)
+  def couponsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, code: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.GET, baseUrl, "/coupons", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("modified_after", modifiedAfter)
+      .withQueryParam("modified_before", modifiedBefore)
+      .withQueryParam("dates_are_gmt", datesAreGmt)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("code", code)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopCoupon (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def couponsIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.DELETE, baseUrl, "/coupons/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopCoupon (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def couponsIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.GET, baseUrl, "/coupons/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopCoupon (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param shopCoupon4 
+   */
+  def couponsIdPatch(id: Int, shopCoupon4: ShopCoupon4)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.PATCH, baseUrl, "/coupons/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shopCoupon4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopCoupon (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param shopCoupon3 
+   */
+  def couponsIdPost(id: Int, shopCoupon3: ShopCoupon3)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.POST, baseUrl, "/coupons/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shopCoupon3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopCoupon (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param shopCoupon2 
+   */
+  def couponsIdPut(id: Int, shopCoupon2: ShopCoupon2)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.PUT, baseUrl, "/coupons/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shopCoupon2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopCoupon (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param shopCoupon1 
+   */
+  def couponsPost(shopCoupon1: ShopCoupon1)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
+    ApiRequest[ShopCoupon](ApiMethods.POST, baseUrl, "/coupons", "application/json")
+      .withCredentials(basicAuth).withBody(shopCoupon1)
+      .withSuccessResponse[ShopCoupon](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch6 
+   */
+  def customersBatchPatch(batch6: Batch6)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/customers/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch6)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch5 
+   */
+  def customersBatchPost(batch5: Batch5)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/customers/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch5)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch4 
+   */
+  def customersBatchPut(batch4: Batch4)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/customers/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch4)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : CustomerDownload (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param customerId Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def customersCustomerIdDownloadsGet(customerId: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[CustomerDownload] =
+    ApiRequest[CustomerDownload](ApiMethods.GET, baseUrl, "/customers/{customer_id}/downloads", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("customer_id", customerId)
+      .withSuccessResponse[CustomerDownload](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Customer (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific IDs.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param email Limit result set to resources with a specific email.
+   * @param role Limit result set to resources with a specific role.
+   */
+  def customersGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, email: Option[String] = None, role: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.GET, baseUrl, "/customers", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
       .withQueryParam("search", search)
       .withQueryParam("exclude", ArrayValues(exclude, MULTI))
       .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
-      .withQueryParam("hide_empty", hideEmpty)
-      .withPathParam("attribute_id", attributeId)
-      .withSuccessResponse[Term](200)
+      .withQueryParam("email", email)
+      .withQueryParam("role", role)
+      .withSuccessResponse[Customer](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : Seq[ProductAttribute] (OK)
+   *   code 200 : Customer (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   * @param reassign ID to reassign posts to.
+   */
+  def customersIdDelete(id: Int, force: Option[Boolean] = None, reassign: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.DELETE, baseUrl, "/customers/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withQueryParam("reassign", reassign)
+      .withPathParam("id", id)
+      .withSuccessResponse[Customer](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Customer (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def productsAttributesGet(context: Option[String] = None): ApiRequest[Seq[ProductAttribute]] =
-    ApiRequest[Seq[ProductAttribute]](ApiMethods.GET, baseUrl, "/products/attributes", "application/json")
-      .withQueryParam("context", context)
-      .withSuccessResponse[Seq[ProductAttribute]](200)
+  def customersIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.GET, baseUrl, "/customers/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[Customer](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Customer (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param customer4 
+   */
+  def customersIdPatch(id: Int, customer4: Customer4)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.PATCH, baseUrl, "/customers/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(customer4)
+      .withPathParam("id", id)
+      .withSuccessResponse[Customer](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Customer (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param customer3 
+   */
+  def customersIdPost(id: Int, customer3: Customer3)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.POST, baseUrl, "/customers/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(customer3)
+      .withPathParam("id", id)
+      .withSuccessResponse[Customer](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Customer (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param customer2 
+   */
+  def customersIdPut(id: Int, customer2: Customer2)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.PUT, baseUrl, "/customers/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(customer2)
+      .withPathParam("id", id)
+      .withSuccessResponse[Customer](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Customer (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param customer1 
+   */
+  def customersPost(customer1: Customer1)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
+    ApiRequest[Customer](ApiMethods.POST, baseUrl, "/customers", "application/json")
+      .withCredentials(basicAuth).withBody(customer1)
+      .withSuccessResponse[Customer](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataContinents (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   */
+  def dataContinentsGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataContinents] =
+    ApiRequest[DataContinents](ApiMethods.GET, baseUrl, "/data/continents", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[DataContinents](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataContinents (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param location 2 character continent code.
+   */
+  def dataContinentsLocationGet(location: String)(implicit basicAuth: BasicCredentials): ApiRequest[DataContinents] =
+    ApiRequest[DataContinents](ApiMethods.GET, baseUrl, "/data/continents/{location}", "application/json")
+      .withCredentials(basicAuth).withPathParam("location", location)
+      .withSuccessResponse[DataContinents](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataCountries (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   */
+  def dataCountriesGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataCountries] =
+    ApiRequest[DataCountries](ApiMethods.GET, baseUrl, "/data/countries", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[DataCountries](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataCountries (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param location ISO3166 alpha-2 country code.
+   */
+  def dataCountriesLocationGet(location: String)(implicit basicAuth: BasicCredentials): ApiRequest[DataCountries] =
+    ApiRequest[DataCountries](ApiMethods.GET, baseUrl, "/data/countries/{location}", "application/json")
+      .withCredentials(basicAuth).withPathParam("location", location)
+      .withSuccessResponse[DataCountries](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataCurrencies (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param currency ISO4217 currency code.
+   */
+  def dataCurrenciesCurrencyGet(currency: String)(implicit basicAuth: BasicCredentials): ApiRequest[DataCurrencies] =
+    ApiRequest[DataCurrencies](ApiMethods.GET, baseUrl, "/data/currencies/{currency}", "application/json")
+      .withCredentials(basicAuth).withPathParam("currency", currency)
+      .withSuccessResponse[DataCurrencies](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataCurrencies (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   */
+  def dataCurrenciesCurrentGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataCurrencies] =
+    ApiRequest[DataCurrencies](ApiMethods.GET, baseUrl, "/data/currencies/current", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[DataCurrencies](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataCurrencies (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   */
+  def dataCurrenciesGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataCurrencies] =
+    ApiRequest[DataCurrencies](ApiMethods.GET, baseUrl, "/data/currencies", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[DataCurrencies](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : DataIndex (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   */
+  def dataGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataIndex] =
+    ApiRequest[DataIndex](ApiMethods.GET, baseUrl, "/data", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[DataIndex](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch9 
+   */
+  def ordersBatchPatch(batch9: Batch9)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/orders/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch9)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch8 
+   */
+  def ordersBatchPost(batch8: Batch8)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/orders/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch8)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch7 
+   */
+  def ordersBatchPut(batch7: Batch7)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/orders/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch7)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to resources published before a given ISO8601 compliant date.
+   * @param modifiedAfter Limit response to resources modified after a given ISO8601 compliant date.
+   * @param modifiedBefore Limit response to resources modified before a given ISO8601 compliant date.
+   * @param datesAreGmt Whether to consider GMT post dates when limiting response by published or modified date.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param parent Limit result set to those of particular parent IDs.
+   * @param parentExclude Limit result set to all items except those of a particular parent ID.
+   * @param status Limit result set to orders which have specific statuses.
+   * @param customer Limit result set to orders assigned a specific customer.
+   * @param product Limit result set to orders assigned a specific product.
+   * @param dp Number of decimal points to use in each resource.
+   */
+  def ordersGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], status: Seq[String], customer: Option[Int] = None, product: Option[Int] = None, dp: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.GET, baseUrl, "/orders", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("modified_after", modifiedAfter)
+      .withQueryParam("modified_before", modifiedBefore)
+      .withQueryParam("dates_are_gmt", datesAreGmt)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("parent", ArrayValues(parent, MULTI))
+      .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
+      .withQueryParam("status", ArrayValues(status, MULTI))
+      .withQueryParam("customer", customer)
+      .withQueryParam("product", product)
+      .withQueryParam("dp", dp)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def ordersIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.DELETE, baseUrl, "/orders/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def ordersIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.GET, baseUrl, "/orders/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param shopOrder4 
+   */
+  def ordersIdPatch(id: Int, shopOrder4: ShopOrder4)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.PATCH, baseUrl, "/orders/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shopOrder4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param shopOrder3 
+   */
+  def ordersIdPost(id: Int, shopOrder3: ShopOrder3)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.POST, baseUrl, "/orders/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shopOrder3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param shopOrder2 
+   */
+  def ordersIdPut(id: Int, shopOrder2: ShopOrder2)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.PUT, baseUrl, "/orders/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shopOrder2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : OrderNote (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param orderId The order ID.
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param `type` Limit result to customers or internal notes.
+   */
+  def ordersOrderIdNotesGet(orderId: Int, context: Option[String] = None, `type`: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[OrderNote] =
+    ApiRequest[OrderNote](ApiMethods.GET, baseUrl, "/orders/{order_id}/notes", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("type", `type`)
+      .withPathParam("order_id", orderId)
+      .withSuccessResponse[OrderNote](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : OrderNote (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param orderId The order ID.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def ordersOrderIdNotesIdDelete(id: Int, orderId: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[OrderNote] =
+    ApiRequest[OrderNote](ApiMethods.DELETE, baseUrl, "/orders/{order_id}/notes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withPathParam("order_id", orderId)
+      .withSuccessResponse[OrderNote](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : OrderNote (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param orderId The order ID.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def ordersOrderIdNotesIdGet(id: Int, orderId: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[OrderNote] =
+    ApiRequest[OrderNote](ApiMethods.GET, baseUrl, "/orders/{order_id}/notes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withPathParam("order_id", orderId)
+      .withSuccessResponse[OrderNote](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : OrderNote (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param orderId The order ID.
+   * @param orderNote1 
+   */
+  def ordersOrderIdNotesPost(orderId: Int, orderNote1: OrderNote1)(implicit basicAuth: BasicCredentials): ApiRequest[OrderNote] =
+    ApiRequest[OrderNote](ApiMethods.POST, baseUrl, "/orders/{order_id}/notes", "application/json")
+      .withCredentials(basicAuth).withBody(orderNote1)
+      .withPathParam("order_id", orderId)
+      .withSuccessResponse[OrderNote](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrderRefund (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param orderId The order ID.
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to resources published before a given ISO8601 compliant date.
+   * @param modifiedAfter Limit response to resources modified after a given ISO8601 compliant date.
+   * @param modifiedBefore Limit response to resources modified before a given ISO8601 compliant date.
+   * @param datesAreGmt Whether to consider GMT post dates when limiting response by published or modified date.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param parent Limit result set to those of particular parent IDs.
+   * @param parentExclude Limit result set to all items except those of a particular parent ID.
+   * @param dp Number of decimal points to use in each resource.
+   */
+  def ordersOrderIdRefundsGet(orderId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], dp: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrderRefund] =
+    ApiRequest[ShopOrderRefund](ApiMethods.GET, baseUrl, "/orders/{order_id}/refunds", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("modified_after", modifiedAfter)
+      .withQueryParam("modified_before", modifiedBefore)
+      .withQueryParam("dates_are_gmt", datesAreGmt)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("parent", ArrayValues(parent, MULTI))
+      .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
+      .withQueryParam("dp", dp)
+      .withPathParam("order_id", orderId)
+      .withSuccessResponse[ShopOrderRefund](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrderRefund (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param orderId The order ID.
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def ordersOrderIdRefundsIdDelete(orderId: Int, id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrderRefund] =
+    ApiRequest[ShopOrderRefund](ApiMethods.DELETE, baseUrl, "/orders/{order_id}/refunds/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("order_id", orderId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrderRefund](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrderRefund (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param orderId The order ID.
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def ordersOrderIdRefundsIdGet(orderId: Int, id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrderRefund] =
+    ApiRequest[ShopOrderRefund](ApiMethods.GET, baseUrl, "/orders/{order_id}/refunds/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("order_id", orderId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShopOrderRefund](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrderRefund (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param orderId The order ID.
+   * @param shopOrderRefund1 
+   */
+  def ordersOrderIdRefundsPost(orderId: Int, shopOrderRefund1: ShopOrderRefund1)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrderRefund] =
+    ApiRequest[ShopOrderRefund](ApiMethods.POST, baseUrl, "/orders/{order_id}/refunds", "application/json")
+      .withCredentials(basicAuth).withBody(shopOrderRefund1)
+      .withPathParam("order_id", orderId)
+      .withSuccessResponse[ShopOrderRefund](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShopOrder (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param shopOrder1 
+   */
+  def ordersPost(shopOrder1: ShopOrder1)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
+    ApiRequest[ShopOrder](ApiMethods.POST, baseUrl, "/orders", "application/json")
+      .withCredentials(basicAuth).withBody(shopOrder1)
+      .withSuccessResponse[ShopOrder](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : PaymentGateway (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def paymentGatewaysGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[PaymentGateway] =
+    ApiRequest[PaymentGateway](ApiMethods.GET, baseUrl, "/payment_gateways", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[PaymentGateway](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : PaymentGateway (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def paymentGatewaysIdGet(id: String, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[PaymentGateway] =
+    ApiRequest[PaymentGateway](ApiMethods.GET, baseUrl, "/payment_gateways/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[PaymentGateway](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : PaymentGateway (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param paymentGateway3 
+   */
+  def paymentGatewaysIdPatch(id: String, paymentGateway3: PaymentGateway3)(implicit basicAuth: BasicCredentials): ApiRequest[PaymentGateway] =
+    ApiRequest[PaymentGateway](ApiMethods.PATCH, baseUrl, "/payment_gateways/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(paymentGateway3)
+      .withPathParam("id", id)
+      .withSuccessResponse[PaymentGateway](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : PaymentGateway (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param paymentGateway2 
+   */
+  def paymentGatewaysIdPost(id: String, paymentGateway2: PaymentGateway2)(implicit basicAuth: BasicCredentials): ApiRequest[PaymentGateway] =
+    ApiRequest[PaymentGateway](ApiMethods.POST, baseUrl, "/payment_gateways/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(paymentGateway2)
+      .withPathParam("id", id)
+      .withSuccessResponse[PaymentGateway](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : PaymentGateway (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param paymentGateway1 
+   */
+  def paymentGatewaysIdPut(id: String, paymentGateway1: PaymentGateway1)(implicit basicAuth: BasicCredentials): ApiRequest[PaymentGateway] =
+    ApiRequest[PaymentGateway](ApiMethods.PUT, baseUrl, "/payment_gateways/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(paymentGateway1)
+      .withPathParam("id", id)
+      .withSuccessResponse[PaymentGateway](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param batch12 
+   */
+  def productsAttributesAttributeIdTermsBatchPatch(attributeId: Int, batch12: Batch12)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/attributes/{attribute_id}/terms/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch12)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param batch11 
+   */
+  def productsAttributesAttributeIdTermsBatchPost(attributeId: Int, batch11: Batch11)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/attributes/{attribute_id}/terms/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch11)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param batch10 
+   */
+  def productsAttributesAttributeIdTermsBatchPut(attributeId: Int, batch10: Batch10)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/attributes/{attribute_id}/terms/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch10)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items. Applies to hierarchical taxonomies only.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by resource attribute.
+   * @param hideEmpty Whether to hide resources not assigned to any products.
+   * @param parent Limit result set to resources assigned to a specific parent. Applies to hierarchical taxonomies only.
+   * @param product Limit result set to resources assigned to a specific product.
+   * @param slug Limit result set to resources with a specific slug.
+   */
+  def productsAttributesAttributeIdTermsGet(attributeId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.GET, baseUrl, "/products/attributes/{attribute_id}/terms", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("hide_empty", hideEmpty)
+      .withQueryParam("parent", parent)
+      .withQueryParam("product", product)
+      .withQueryParam("slug", slug)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def productsAttributesAttributeIdTermsIdDelete(id: Int, attributeId: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.DELETE, baseUrl, "/products/attributes/{attribute_id}/terms/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def productsAttributesAttributeIdTermsIdGet(id: Int, attributeId: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.GET, baseUrl, "/products/attributes/{attribute_id}/terms/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param productAttributeTerm4 
+   */
+  def productsAttributesAttributeIdTermsIdPatch(id: Int, attributeId: Int, productAttributeTerm4: ProductAttributeTerm4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.PATCH, baseUrl, "/products/attributes/{attribute_id}/terms/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productAttributeTerm4)
+      .withPathParam("id", id)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param productAttributeTerm3 
+   */
+  def productsAttributesAttributeIdTermsIdPost(id: Int, attributeId: Int, productAttributeTerm3: ProductAttributeTerm3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.POST, baseUrl, "/products/attributes/{attribute_id}/terms/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productAttributeTerm3)
+      .withPathParam("id", id)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param productAttributeTerm2 
+   */
+  def productsAttributesAttributeIdTermsIdPut(id: Int, attributeId: Int, productAttributeTerm2: ProductAttributeTerm2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.PUT, baseUrl, "/products/attributes/{attribute_id}/terms/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productAttributeTerm2)
+      .withPathParam("id", id)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttributeTerm (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param attributeId Unique identifier for the attribute of the terms.
+   * @param productAttributeTerm1 
+   */
+  def productsAttributesAttributeIdTermsPost(attributeId: Int, productAttributeTerm1: ProductAttributeTerm1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
+    ApiRequest[ProductAttributeTerm](ApiMethods.POST, baseUrl, "/products/attributes/{attribute_id}/terms", "application/json")
+      .withCredentials(basicAuth).withBody(productAttributeTerm1)
+      .withPathParam("attribute_id", attributeId)
+      .withSuccessResponse[ProductAttributeTerm](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch15 
+   */
+  def productsAttributesBatchPatch(batch15: Batch15)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/attributes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch15)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch14 
+   */
+  def productsAttributesBatchPost(batch14: Batch14)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/attributes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch14)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch13 
+   */
+  def productsAttributesBatchPut(batch13: Batch13)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/attributes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch13)
+      .withSuccessResponse[Batch](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -602,12 +1637,34 @@ class DefaultApi(baseUrl: String) {
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
-   * @param id Unique identifier for the resource.
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def productsAttributesIdGet(id: Int, context: Option[String] = None): ApiRequest[ProductAttribute] =
-    ApiRequest[ProductAttribute](ApiMethods.GET, baseUrl, "/products/attributes/{id}", "application/json")
-      .withQueryParam("context", context)
+  def productsAttributesGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.GET, baseUrl, "/products/attributes", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ProductAttribute](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttribute (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def productsAttributesIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.DELETE, baseUrl, "/products/attributes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
       .withPathParam("id", id)
       .withSuccessResponse[ProductAttribute](200)
       .withErrorResponse[Unit](400)
@@ -616,202 +1673,384 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : Seq[ProductCategory] (OK)
+   *   code 200 : ProductAttribute (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
-   * @param context Scope under which the request is made; determines fields present in response.
-   * @param page Current page of the collection.
-   * @param perPage Maximum number of items to be returned in result set. Defaults to no limit if left blank.
-   * @param search Limit results to those matching a string.
-   * @param exclude Ensure result set excludes specific IDs.
-   * @param include Limit result set to specific ids.
-   * @param order Sort ascending or descending.
-   * @param orderby Sort by term property.
-   * @param hideEmpty If true, empty terms will not be returned.
-   */
-  def productsCategoriesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None): ApiRequest[Seq[ProductCategory]] =
-    ApiRequest[Seq[ProductCategory]](ApiMethods.GET, baseUrl, "/products/categories", "application/json")
-      .withQueryParam("context", context)
-      .withQueryParam("page", page)
-      .withQueryParam("per_page", perPage)
-      .withQueryParam("search", search)
-      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
-      .withQueryParam("include", ArrayValues(include, MULTI))
-      .withQueryParam("order", order)
-      .withQueryParam("orderby", orderby)
-      .withQueryParam("hide_empty", hideEmpty)
-      .withSuccessResponse[Seq[ProductCategory]](200)
-      .withErrorResponse[Unit](400)
-      .withErrorResponse[Unit](404)
-      
-
-  /**
-   * Expected answers:
-   *   code 200 : ProductCategory (OK)
-   *   code 400 :  (Bad Request)
-   *   code 404 :  (Not Found)
+   * Available security schemes:
+   *   basicAuth (http)
    * 
    * @param id Unique identifier for the resource.
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def productsCategoriesIdGet(id: Int, context: Option[String] = None): ApiRequest[ProductCategory] =
-    ApiRequest[ProductCategory](ApiMethods.GET, baseUrl, "/products/categories/{id}", "application/json")
-      .withQueryParam("context", context)
+  def productsAttributesIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.GET, baseUrl, "/products/attributes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
       .withPathParam("id", id)
-      .withSuccessResponse[ProductCategory](200)
+      .withSuccessResponse[ProductAttribute](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : ProductCollectionData (OK)
+   *   code 200 : ProductAttribute (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
-   * @param context Scope under which the request is made; determines fields present in response.
-   * @param page Current page of the collection.
-   * @param perPage Maximum number of items to be returned in result set. Defaults to no limit if left blank.
-   * @param search Limit results to those matching a string.
-   * @param after Limit response to resources created after a given ISO8601 compliant date.
-   * @param before Limit response to resources created before a given ISO8601 compliant date.
-   * @param dateColumn When limiting response using after/before, which date column to compare against.
-   * @param exclude Ensure result set excludes specific IDs.
-   * @param include Limit result set to specific ids.
-   * @param offset Offset the result set by a specific number of items.
-   * @param order Order sort attribute ascending or descending.
-   * @param orderby Sort collection by object attribute.
-   * @param parent Limit result set to those of particular parent IDs.
-   * @param parentExclude Limit result set to all items except those of a particular parent ID.
-   * @param `type` Limit result set to products assigned a specific type.
-   * @param sku Limit result set to products with specific SKU(s). Use commas to separate.
-   * @param featured Limit result set to featured products.
-   * @param category Limit result set to products assigned a specific category ID.
-   * @param categoryOperator Operator to compare product category terms.
-   * @param tag Limit result set to products assigned a specific tag ID.
-   * @param tagOperator Operator to compare product tags.
-   * @param onSale Limit result set to products on sale.
-   * @param minPrice Limit result set to products based on a minimum price, provided using the smallest unit of the currency.
-   * @param maxPrice Limit result set to products based on a maximum price, provided using the smallest unit of the currency.
-   * @param stockStatus Limit result set to products with specified stock status.
-   * @param attributes Limit result set to products with selected global attributes.
-   * @param attributeRelation The logical relationship between attributes when filtering across multiple at once.
-   * @param catalogVisibility Determines if hidden or visible catalog products are shown.
-   * @param rating Limit result set to products with a certain average rating.
-   * @param calculatePriceRange If true, calculates the minimum and maximum product prices for the collection.
-   * @param calculateStockStatusCounts If true, calculates stock counts for products in the collection.
-   * @param calculateAttributeCounts If requested, calculates attribute term counts for products in the collection.
-   * @param calculateRatingCounts If true, calculates rating counts for products in the collection.
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productAttribute4 
    */
-  def productsCollectionDataGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[OffsetDateTime] = None, before: Option[OffsetDateTime] = None, dateColumn: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, categoryOperator: Option[String] = None, tag: Option[String] = None, tagOperator: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Seq[String], attributes: Seq[Attributes], attributeRelation: Option[String] = None, catalogVisibility: Option[String] = None, rating: Seq[Int], calculatePriceRange: Option[Boolean] = None, calculateStockStatusCounts: Option[Boolean] = None, calculateAttributeCounts: Seq[CalculateAttributeCounts], calculateRatingCounts: Option[Boolean] = None): ApiRequest[ProductCollectionData] =
-    ApiRequest[ProductCollectionData](ApiMethods.GET, baseUrl, "/products/collection-data", "application/json")
-      .withQueryParam("context", context)
-      .withQueryParam("page", page)
-      .withQueryParam("per_page", perPage)
-      .withQueryParam("search", search)
-      .withQueryParam("after", after)
-      .withQueryParam("before", before)
-      .withQueryParam("date_column", dateColumn)
-      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
-      .withQueryParam("include", ArrayValues(include, MULTI))
-      .withQueryParam("offset", offset)
-      .withQueryParam("order", order)
-      .withQueryParam("orderby", orderby)
-      .withQueryParam("parent", ArrayValues(parent, MULTI))
-      .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
-      .withQueryParam("type", `type`)
-      .withQueryParam("sku", sku)
-      .withQueryParam("featured", featured)
-      .withQueryParam("category", category)
-      .withQueryParam("category_operator", categoryOperator)
-      .withQueryParam("tag", tag)
-      .withQueryParam("tag_operator", tagOperator)
-      .withQueryParam("on_sale", onSale)
-      .withQueryParam("min_price", minPrice)
-      .withQueryParam("max_price", maxPrice)
-      .withQueryParam("stock_status", ArrayValues(stockStatus, MULTI))
-      .withQueryParam("attributes", ArrayValues(attributes, MULTI))
-      .withQueryParam("attribute_relation", attributeRelation)
-      .withQueryParam("catalog_visibility", catalogVisibility)
-      .withQueryParam("rating", ArrayValues(rating, MULTI))
-      .withQueryParam("calculate_price_range", calculatePriceRange)
-      .withQueryParam("calculate_stock_status_counts", calculateStockStatusCounts)
-      .withQueryParam("calculate_attribute_counts", ArrayValues(calculateAttributeCounts, MULTI))
-      .withQueryParam("calculate_rating_counts", calculateRatingCounts)
-      .withSuccessResponse[ProductCollectionData](200)
+  def productsAttributesIdPatch(id: Int, productAttribute4: ProductAttribute4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.PATCH, baseUrl, "/products/attributes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productAttribute4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductAttribute](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : Seq[Product] (OK)
+   *   code 200 : ProductAttribute (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productAttribute3 
+   */
+  def productsAttributesIdPost(id: Int, productAttribute3: ProductAttribute3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.POST, baseUrl, "/products/attributes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productAttribute3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductAttribute](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttribute (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productAttribute2 
+   */
+  def productsAttributesIdPut(id: Int, productAttribute2: ProductAttribute2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.PUT, baseUrl, "/products/attributes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productAttribute2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductAttribute](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductAttribute (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productAttribute1 
+   */
+  def productsAttributesPost(productAttribute1: ProductAttribute1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
+    ApiRequest[ProductAttribute](ApiMethods.POST, baseUrl, "/products/attributes", "application/json")
+      .withCredentials(basicAuth).withBody(productAttribute1)
+      .withSuccessResponse[ProductAttribute](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch30 
+   */
+  def productsBatchPatch(batch30: Batch30)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch30)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch29 
+   */
+  def productsBatchPost(batch29: Batch29)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch29)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch28 
+   */
+  def productsBatchPut(batch28: Batch28)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch28)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch18 
+   */
+  def productsCategoriesBatchPatch(batch18: Batch18)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/categories/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch18)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch17 
+   */
+  def productsCategoriesBatchPost(batch17: Batch17)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/categories/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch17)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch16 
+   */
+  def productsCategoriesBatchPut(batch16: Batch16)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/categories/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch16)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
    * @param context Scope under which the request is made; determines fields present in response.
    * @param page Current page of the collection.
-   * @param perPage Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+   * @param perPage Maximum number of items to be returned in result set.
    * @param search Limit results to those matching a string.
-   * @param after Limit response to resources created after a given ISO8601 compliant date.
-   * @param before Limit response to resources created before a given ISO8601 compliant date.
-   * @param dateColumn When limiting response using after/before, which date column to compare against.
    * @param exclude Ensure result set excludes specific IDs.
    * @param include Limit result set to specific ids.
-   * @param offset Offset the result set by a specific number of items.
+   * @param offset Offset the result set by a specific number of items. Applies to hierarchical taxonomies only.
    * @param order Order sort attribute ascending or descending.
-   * @param orderby Sort collection by object attribute.
-   * @param parent Limit result set to those of particular parent IDs.
-   * @param parentExclude Limit result set to all items except those of a particular parent ID.
-   * @param `type` Limit result set to products assigned a specific type.
-   * @param sku Limit result set to products with specific SKU(s). Use commas to separate.
-   * @param featured Limit result set to featured products.
-   * @param category Limit result set to products assigned a specific category ID.
-   * @param categoryOperator Operator to compare product category terms.
-   * @param tag Limit result set to products assigned a specific tag ID.
-   * @param tagOperator Operator to compare product tags.
-   * @param onSale Limit result set to products on sale.
-   * @param minPrice Limit result set to products based on a minimum price, provided using the smallest unit of the currency.
-   * @param maxPrice Limit result set to products based on a maximum price, provided using the smallest unit of the currency.
-   * @param stockStatus Limit result set to products with specified stock status.
-   * @param attributes Limit result set to products with selected global attributes.
-   * @param attributeRelation The logical relationship between attributes when filtering across multiple at once.
-   * @param catalogVisibility Determines if hidden or visible catalog products are shown.
-   * @param rating Limit result set to products with a certain average rating.
+   * @param orderby Sort collection by resource attribute.
+   * @param hideEmpty Whether to hide resources not assigned to any products.
+   * @param parent Limit result set to resources assigned to a specific parent. Applies to hierarchical taxonomies only.
+   * @param product Limit result set to resources assigned to a specific product.
+   * @param slug Limit result set to resources with a specific slug.
    */
-  def productsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[OffsetDateTime] = None, before: Option[OffsetDateTime] = None, dateColumn: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, categoryOperator: Option[String] = None, tag: Option[String] = None, tagOperator: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Seq[String], attributes: Seq[Attributes], attributeRelation: Option[String] = None, catalogVisibility: Option[String] = None, rating: Seq[Int]): ApiRequest[Seq[Product]] =
-    ApiRequest[Seq[Product]](ApiMethods.GET, baseUrl, "/products", "application/json")
-      .withQueryParam("context", context)
+  def productsCategoriesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.GET, baseUrl, "/products/categories", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
       .withQueryParam("search", search)
-      .withQueryParam("after", after)
-      .withQueryParam("before", before)
-      .withQueryParam("date_column", dateColumn)
       .withQueryParam("exclude", ArrayValues(exclude, MULTI))
       .withQueryParam("include", ArrayValues(include, MULTI))
       .withQueryParam("offset", offset)
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
-      .withQueryParam("parent", ArrayValues(parent, MULTI))
-      .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
-      .withQueryParam("type", `type`)
-      .withQueryParam("sku", sku)
-      .withQueryParam("featured", featured)
-      .withQueryParam("category", category)
-      .withQueryParam("category_operator", categoryOperator)
-      .withQueryParam("tag", tag)
-      .withQueryParam("tag_operator", tagOperator)
-      .withQueryParam("on_sale", onSale)
-      .withQueryParam("min_price", minPrice)
-      .withQueryParam("max_price", maxPrice)
-      .withQueryParam("stock_status", ArrayValues(stockStatus, MULTI))
-      .withQueryParam("attributes", ArrayValues(attributes, MULTI))
-      .withQueryParam("attribute_relation", attributeRelation)
-      .withQueryParam("catalog_visibility", catalogVisibility)
-      .withQueryParam("rating", ArrayValues(rating, MULTI))
-      .withSuccessResponse[Seq[Product]](200)
+      .withQueryParam("hide_empty", hideEmpty)
+      .withQueryParam("parent", parent)
+      .withQueryParam("product", product)
+      .withQueryParam("slug", slug)
+      .withSuccessResponse[ProductCat](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def productsCategoriesIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.DELETE, baseUrl, "/products/categories/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductCat](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def productsCategoriesIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.GET, baseUrl, "/products/categories/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductCat](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productCat4 
+   */
+  def productsCategoriesIdPatch(id: Int, productCat4: ProductCat4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.PATCH, baseUrl, "/products/categories/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productCat4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductCat](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productCat3 
+   */
+  def productsCategoriesIdPost(id: Int, productCat3: ProductCat3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.POST, baseUrl, "/products/categories/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productCat3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductCat](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productCat2 
+   */
+  def productsCategoriesIdPut(id: Int, productCat2: ProductCat2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.PUT, baseUrl, "/products/categories/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productCat2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductCat](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductCat (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productCat1 
+   */
+  def productsCategoriesPost(productCat1: ProductCat1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
+    ApiRequest[ProductCat](ApiMethods.POST, baseUrl, "/products/categories", "application/json")
+      .withCredentials(basicAuth).withBody(productCat1)
+      .withSuccessResponse[ProductCat](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -822,14 +2061,518 @@ class DefaultApi(baseUrl: String) {
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to resources published before a given ISO8601 compliant date.
+   * @param modifiedAfter Limit response to resources modified after a given ISO8601 compliant date.
+   * @param modifiedBefore Limit response to resources modified before a given ISO8601 compliant date.
+   * @param datesAreGmt Whether to consider GMT post dates when limiting response by published or modified date.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param parent Limit result set to those of particular parent IDs.
+   * @param parentExclude Limit result set to all items except those of a particular parent ID.
+   * @param slug Limit result set to products with a specific slug.
+   * @param status Limit result set to products assigned a specific status.
+   * @param `type` Limit result set to products assigned a specific type.
+   * @param sku Limit result set to products with specific SKU(s). Use commas to separate.
+   * @param featured Limit result set to featured products.
+   * @param category Limit result set to products assigned a specific category ID.
+   * @param tag Limit result set to products assigned a specific tag ID.
+   * @param shippingClass Limit result set to products assigned a specific shipping class ID.
+   * @param attribute Limit result set to products with a specific attribute. Use the taxonomy name/attribute slug.
+   * @param attributeTerm Limit result set to products with a specific attribute term ID (required an assigned attribute).
+   * @param onSale Limit result set to products on sale.
+   * @param minPrice Limit result set to products based on a minimum price.
+   * @param maxPrice Limit result set to products based on a maximum price.
+   * @param stockStatus Limit result set to products with specified stock status.
+   */
+  def productsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], slug: Option[String] = None, status: Option[String] = None, `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, tag: Option[String] = None, shippingClass: Option[String] = None, attribute: Option[String] = None, attributeTerm: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
+    ApiRequest[Product](ApiMethods.GET, baseUrl, "/products", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("modified_after", modifiedAfter)
+      .withQueryParam("modified_before", modifiedBefore)
+      .withQueryParam("dates_are_gmt", datesAreGmt)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("parent", ArrayValues(parent, MULTI))
+      .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
+      .withQueryParam("slug", slug)
+      .withQueryParam("status", status)
+      .withQueryParam("type", `type`)
+      .withQueryParam("sku", sku)
+      .withQueryParam("featured", featured)
+      .withQueryParam("category", category)
+      .withQueryParam("tag", tag)
+      .withQueryParam("shipping_class", shippingClass)
+      .withQueryParam("attribute", attribute)
+      .withQueryParam("attribute_term", attributeTerm)
+      .withQueryParam("on_sale", onSale)
+      .withQueryParam("min_price", minPrice)
+      .withQueryParam("max_price", maxPrice)
+      .withQueryParam("stock_status", stockStatus)
+      .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Product (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def productsIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
+    ApiRequest[Product](ApiMethods.DELETE, baseUrl, "/products/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Product (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
    * @param id Unique identifier for the resource.
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def productsIdGet(id: Int, context: Option[String] = None): ApiRequest[Product] =
+  def productsIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
     ApiRequest[Product](ApiMethods.GET, baseUrl, "/products/{id}", "application/json")
-      .withQueryParam("context", context)
+      .withCredentials(basicAuth).withQueryParam("context", context)
       .withPathParam("id", id)
       .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Product (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param product4 
+   */
+  def productsIdPatch(id: Int, product4: Product4)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
+    ApiRequest[Product](ApiMethods.PATCH, baseUrl, "/products/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(product4)
+      .withPathParam("id", id)
+      .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Product (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param product3 
+   */
+  def productsIdPost(id: Int, product3: Product3)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
+    ApiRequest[Product](ApiMethods.POST, baseUrl, "/products/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(product3)
+      .withPathParam("id", id)
+      .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Product (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param product2 
+   */
+  def productsIdPut(id: Int, product2: Product2)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
+    ApiRequest[Product](ApiMethods.PUT, baseUrl, "/products/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(product2)
+      .withPathParam("id", id)
+      .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Product (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param product1 
+   */
+  def productsPost(product1: Product1)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
+    ApiRequest[Product](ApiMethods.POST, baseUrl, "/products", "application/json")
+      .withCredentials(basicAuth).withBody(product1)
+      .withSuccessResponse[Product](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param batch33 
+   */
+  def productsProductIdVariationsBatchPatch(productId: Int, batch33: Batch33)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/{product_id}/variations/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch33)
+      .withPathParam("product_id", productId)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param batch32 
+   */
+  def productsProductIdVariationsBatchPost(productId: Int, batch32: Batch32)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/{product_id}/variations/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch32)
+      .withPathParam("product_id", productId)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param batch31 
+   */
+  def productsProductIdVariationsBatchPut(productId: Int, batch31: Batch31)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/{product_id}/variations/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch31)
+      .withPathParam("product_id", productId)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to resources published before a given ISO8601 compliant date.
+   * @param modifiedAfter Limit response to resources modified after a given ISO8601 compliant date.
+   * @param modifiedBefore Limit response to resources modified before a given ISO8601 compliant date.
+   * @param datesAreGmt Whether to consider GMT post dates when limiting response by published or modified date.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param parent Limit result set to those of particular parent IDs.
+   * @param parentExclude Limit result set to all items except those of a particular parent ID.
+   * @param slug Limit result set to products with a specific slug.
+   * @param status Limit result set to products assigned a specific status.
+   * @param sku Limit result set to products with specific SKU(s). Use commas to separate.
+   * @param onSale Limit result set to products on sale.
+   * @param minPrice Limit result set to products based on a minimum price.
+   * @param maxPrice Limit result set to products based on a maximum price.
+   * @param stockStatus Limit result set to products with specified stock status.
+   */
+  def productsProductIdVariationsGet(productId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], slug: Option[String] = None, status: Option[String] = None, sku: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.GET, baseUrl, "/products/{product_id}/variations", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("modified_after", modifiedAfter)
+      .withQueryParam("modified_before", modifiedBefore)
+      .withQueryParam("dates_are_gmt", datesAreGmt)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("parent", ArrayValues(parent, MULTI))
+      .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
+      .withQueryParam("slug", slug)
+      .withQueryParam("status", status)
+      .withQueryParam("sku", sku)
+      .withQueryParam("on_sale", onSale)
+      .withQueryParam("min_price", minPrice)
+      .withQueryParam("max_price", maxPrice)
+      .withQueryParam("stock_status", stockStatus)
+      .withPathParam("product_id", productId)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param id Unique identifier for the variation.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def productsProductIdVariationsIdDelete(productId: Int, id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.DELETE, baseUrl, "/products/{product_id}/variations/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("product_id", productId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param id Unique identifier for the variation.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def productsProductIdVariationsIdGet(productId: Int, id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.GET, baseUrl, "/products/{product_id}/variations/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("product_id", productId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param id Unique identifier for the variation.
+   * @param productVariation4 
+   */
+  def productsProductIdVariationsIdPatch(productId: Int, id: Int, productVariation4: ProductVariation4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.PATCH, baseUrl, "/products/{product_id}/variations/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productVariation4)
+      .withPathParam("product_id", productId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param id Unique identifier for the variation.
+   * @param productVariation3 
+   */
+  def productsProductIdVariationsIdPost(productId: Int, id: Int, productVariation3: ProductVariation3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.POST, baseUrl, "/products/{product_id}/variations/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productVariation3)
+      .withPathParam("product_id", productId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param id Unique identifier for the variation.
+   * @param productVariation2 
+   */
+  def productsProductIdVariationsIdPut(productId: Int, id: Int, productVariation2: ProductVariation2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.PUT, baseUrl, "/products/{product_id}/variations/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productVariation2)
+      .withPathParam("product_id", productId)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductVariation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productId Unique identifier for the variable product.
+   * @param productVariation1 
+   */
+  def productsProductIdVariationsPost(productId: Int, productVariation1: ProductVariation1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
+    ApiRequest[ProductVariation](ApiMethods.POST, baseUrl, "/products/{product_id}/variations", "application/json")
+      .withCredentials(basicAuth).withBody(productVariation1)
+      .withPathParam("product_id", productId)
+      .withSuccessResponse[ProductVariation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch21 
+   */
+  def productsReviewsBatchPatch(batch21: Batch21)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/reviews/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch21)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch20 
+   */
+  def productsReviewsBatchPost(batch20: Batch20)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/reviews/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch20)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch19 
+   */
+  def productsReviewsBatchPut(batch19: Batch19)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/reviews/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch19)
+      .withSuccessResponse[Batch](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -840,25 +2583,44 @@ class DefaultApi(baseUrl: String) {
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
    * @param context Scope under which the request is made; determines fields present in response.
    * @param page Current page of the collection.
-   * @param perPage Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to reviews published before a given ISO8601 compliant date.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific IDs.
    * @param offset Offset the result set by a specific number of items.
    * @param order Order sort attribute ascending or descending.
    * @param orderby Sort collection by object attribute.
-   * @param categoryId Limit result set to reviews from specific category IDs.
-   * @param productId Limit result set to reviews from specific product IDs.
+   * @param reviewer Limit result set to reviews assigned to specific user IDs.
+   * @param reviewerExclude Ensure result set excludes reviews assigned to specific user IDs.
+   * @param reviewerEmail Limit result set to that from a specific author email.
+   * @param product Limit result set to reviews assigned to specific product IDs.
+   * @param status Limit result set to reviews assigned a specific status.
    */
-  def productsReviewsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, categoryId: Option[String] = None, productId: Option[String] = None): ApiRequest[ProductReview] =
+  def productsReviewsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, reviewer: Seq[Int], reviewerExclude: Seq[Int], reviewerEmail: Option[String] = None, product: Seq[Int], status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
     ApiRequest[ProductReview](ApiMethods.GET, baseUrl, "/products/reviews", "application/json")
-      .withQueryParam("context", context)
+      .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
       .withQueryParam("offset", offset)
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
-      .withQueryParam("category_id", categoryId)
-      .withQueryParam("product_id", productId)
+      .withQueryParam("reviewer", ArrayValues(reviewer, MULTI))
+      .withQueryParam("reviewer_exclude", ArrayValues(reviewerExclude, MULTI))
+      .withQueryParam("reviewer_email", reviewerEmail)
+      .withQueryParam("product", ArrayValues(product, MULTI))
+      .withQueryParam("status", status)
       .withSuccessResponse[ProductReview](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
@@ -866,32 +2628,736 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : Term (OK)
+   *   code 200 : ProductReview (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def productsReviewsIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
+    ApiRequest[ProductReview](ApiMethods.DELETE, baseUrl, "/products/reviews/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductReview](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductReview (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def productsReviewsIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
+    ApiRequest[ProductReview](ApiMethods.GET, baseUrl, "/products/reviews/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductReview](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductReview (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productReview4 
+   */
+  def productsReviewsIdPatch(id: Int, productReview4: ProductReview4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
+    ApiRequest[ProductReview](ApiMethods.PATCH, baseUrl, "/products/reviews/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productReview4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductReview](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductReview (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productReview3 
+   */
+  def productsReviewsIdPost(id: Int, productReview3: ProductReview3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
+    ApiRequest[ProductReview](ApiMethods.POST, baseUrl, "/products/reviews/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productReview3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductReview](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductReview (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productReview2 
+   */
+  def productsReviewsIdPut(id: Int, productReview2: ProductReview2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
+    ApiRequest[ProductReview](ApiMethods.PUT, baseUrl, "/products/reviews/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productReview2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductReview](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductReview (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productReview1 
+   */
+  def productsReviewsPost(productReview1: ProductReview1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
+    ApiRequest[ProductReview](ApiMethods.POST, baseUrl, "/products/reviews", "application/json")
+      .withCredentials(basicAuth).withBody(productReview1)
+      .withSuccessResponse[ProductReview](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch24 
+   */
+  def productsShippingClassesBatchPatch(batch24: Batch24)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/shipping_classes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch24)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch23 
+   */
+  def productsShippingClassesBatchPost(batch23: Batch23)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/shipping_classes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch23)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch22 
+   */
+  def productsShippingClassesBatchPut(batch22: Batch22)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/shipping_classes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch22)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
    * @param context Scope under which the request is made; determines fields present in response.
    * @param page Current page of the collection.
-   * @param perPage Maximum number of items to be returned in result set. Defaults to no limit if left blank.
+   * @param perPage Maximum number of items to be returned in result set.
    * @param search Limit results to those matching a string.
    * @param exclude Ensure result set excludes specific IDs.
    * @param include Limit result set to specific ids.
-   * @param order Sort ascending or descending.
-   * @param orderby Sort by term property.
-   * @param hideEmpty If true, empty terms will not be returned.
+   * @param offset Offset the result set by a specific number of items. Applies to hierarchical taxonomies only.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by resource attribute.
+   * @param hideEmpty Whether to hide resources not assigned to any products.
+   * @param parent Limit result set to resources assigned to a specific parent. Applies to hierarchical taxonomies only.
+   * @param product Limit result set to resources assigned to a specific product.
+   * @param slug Limit result set to resources with a specific slug.
    */
-  def productsTagsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None): ApiRequest[Term] =
-    ApiRequest[Term](ApiMethods.GET, baseUrl, "/products/tags", "application/json")
-      .withQueryParam("context", context)
+  def productsShippingClassesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.GET, baseUrl, "/products/shipping_classes", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
       .withQueryParam("search", search)
       .withQueryParam("exclude", ArrayValues(exclude, MULTI))
       .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
       .withQueryParam("hide_empty", hideEmpty)
-      .withSuccessResponse[Term](200)
+      .withQueryParam("parent", parent)
+      .withQueryParam("product", product)
+      .withQueryParam("slug", slug)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def productsShippingClassesIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.DELETE, baseUrl, "/products/shipping_classes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def productsShippingClassesIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.GET, baseUrl, "/products/shipping_classes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productShippingClass4 
+   */
+  def productsShippingClassesIdPatch(id: Int, productShippingClass4: ProductShippingClass4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.PATCH, baseUrl, "/products/shipping_classes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productShippingClass4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productShippingClass3 
+   */
+  def productsShippingClassesIdPost(id: Int, productShippingClass3: ProductShippingClass3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.POST, baseUrl, "/products/shipping_classes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productShippingClass3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productShippingClass2 
+   */
+  def productsShippingClassesIdPut(id: Int, productShippingClass2: ProductShippingClass2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.PUT, baseUrl, "/products/shipping_classes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productShippingClass2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductShippingClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productShippingClass1 
+   */
+  def productsShippingClassesPost(productShippingClass1: ProductShippingClass1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
+    ApiRequest[ProductShippingClass](ApiMethods.POST, baseUrl, "/products/shipping_classes", "application/json")
+      .withCredentials(basicAuth).withBody(productShippingClass1)
+      .withSuccessResponse[ProductShippingClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch27 
+   */
+  def productsTagsBatchPatch(batch27: Batch27)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/products/tags/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch27)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch26 
+   */
+  def productsTagsBatchPost(batch26: Batch26)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/products/tags/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch26)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch25 
+   */
+  def productsTagsBatchPut(batch25: Batch25)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/products/tags/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch25)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items. Applies to hierarchical taxonomies only.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by resource attribute.
+   * @param hideEmpty Whether to hide resources not assigned to any products.
+   * @param parent Limit result set to resources assigned to a specific parent. Applies to hierarchical taxonomies only.
+   * @param product Limit result set to resources assigned to a specific product.
+   * @param slug Limit result set to resources with a specific slug.
+   */
+  def productsTagsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.GET, baseUrl, "/products/tags", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("hide_empty", hideEmpty)
+      .withQueryParam("parent", parent)
+      .withQueryParam("product", product)
+      .withQueryParam("slug", slug)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def productsTagsIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.DELETE, baseUrl, "/products/tags/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def productsTagsIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.GET, baseUrl, "/products/tags/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productTag4 
+   */
+  def productsTagsIdPatch(id: Int, productTag4: ProductTag4)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.PATCH, baseUrl, "/products/tags/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productTag4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productTag3 
+   */
+  def productsTagsIdPost(id: Int, productTag3: ProductTag3)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.POST, baseUrl, "/products/tags/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productTag3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param productTag2 
+   */
+  def productsTagsIdPut(id: Int, productTag2: ProductTag2)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.PUT, baseUrl, "/products/tags/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(productTag2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ProductTag (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param productTag1 
+   */
+  def productsTagsPost(productTag1: ProductTag1)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
+    ApiRequest[ProductTag](ApiMethods.POST, baseUrl, "/products/tags", "application/json")
+      .withCredentials(basicAuth).withBody(productTag1)
+      .withSuccessResponse[ProductTag](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ReportCouponTotal (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def reportsCouponsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportCouponTotal] =
+    ApiRequest[ReportCouponTotal](ApiMethods.GET, baseUrl, "/reports/coupons/totals", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ReportCouponTotal](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ReportCustomerTotal (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def reportsCustomersTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportCustomerTotal] =
+    ApiRequest[ReportCustomerTotal](ApiMethods.GET, baseUrl, "/reports/customers/totals", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ReportCustomerTotal](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Report (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def reportsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Report] =
+    ApiRequest[Report](ApiMethods.GET, baseUrl, "/reports", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[Report](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ReportOrderTotal (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def reportsOrdersTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportOrderTotal] =
+    ApiRequest[ReportOrderTotal](ApiMethods.GET, baseUrl, "/reports/orders/totals", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ReportOrderTotal](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ReportProductTotal (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def reportsProductsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportProductTotal] =
+    ApiRequest[ReportProductTotal](ApiMethods.GET, baseUrl, "/reports/products/totals", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ReportProductTotal](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ReportReviewTotal (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def reportsReviewsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportReviewTotal] =
+    ApiRequest[ReportReviewTotal](ApiMethods.GET, baseUrl, "/reports/reviews/totals", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ReportReviewTotal](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SalesReport (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param period Report period.
+   * @param dateMin Return sales for a specific start date, the date need to be in the YYYY-MM-DD format.
+   * @param dateMax Return sales for a specific end date, the date need to be in the YYYY-MM-DD format.
+   */
+  def reportsSalesGet(context: Option[String] = None, period: Option[String] = None, dateMin: Option[LocalDate] = None, dateMax: Option[LocalDate] = None)(implicit basicAuth: BasicCredentials): ApiRequest[SalesReport] =
+    ApiRequest[SalesReport](ApiMethods.GET, baseUrl, "/reports/sales", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("period", period)
+      .withQueryParam("date_min", dateMin)
+      .withQueryParam("date_max", dateMax)
+      .withSuccessResponse[SalesReport](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : TopSellersReport (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param period Report period.
+   * @param dateMin Return sales for a specific start date, the date need to be in the YYYY-MM-DD format.
+   * @param dateMax Return sales for a specific end date, the date need to be in the YYYY-MM-DD format.
+   */
+  def reportsTopSellersGet(context: Option[String] = None, period: Option[String] = None, dateMin: Option[LocalDate] = None, dateMax: Option[LocalDate] = None)(implicit basicAuth: BasicCredentials): ApiRequest[TopSellersReport] =
+    ApiRequest[TopSellersReport](ApiMethods.GET, baseUrl, "/reports/top_sellers", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("period", period)
+      .withQueryParam("date_min", dateMin)
+      .withQueryParam("date_max", dateMax)
+      .withSuccessResponse[TopSellersReport](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -902,14 +3368,1062 @@ class DefaultApi(baseUrl: String) {
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
    * @param namespace 
    * @param context 
    */
-  def rootGet(namespace: Option[String] = None, context: Option[String] = None): ApiRequest[Unit] =
+  def rootGet(namespace: Option[String] = None, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Unit] =
     ApiRequest[Unit](ApiMethods.GET, baseUrl, "/", "application/json")
-      .withQueryParam("namespace", namespace)
+      .withCredentials(basicAuth).withQueryParam("namespace", namespace)
       .withQueryParam("context", context)
       .withSuccessResponse[Unit](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def shippingMethodsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingMethod] =
+    ApiRequest[ShippingMethod](ApiMethods.GET, baseUrl, "/shipping_methods", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[ShippingMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def shippingMethodsIdGet(id: String, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingMethod] =
+    ApiRequest[ShippingMethod](ApiMethods.GET, baseUrl, "/shipping_methods/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   */
+  def shippingZonesGet()(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.GET, baseUrl, "/shipping/zones", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def shippingZonesIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.DELETE, baseUrl, "/shipping/zones/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   */
+  def shippingZonesIdGet(id: Int)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.GET, baseUrl, "/shipping/zones/{id}", "application/json")
+      .withCredentials(basicAuth).withPathParam("id", id)
+      .withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneLocation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   */
+  def shippingZonesIdLocationsGet(id: Int)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneLocation] =
+    ApiRequest[ShippingZoneLocation](ApiMethods.GET, baseUrl, "/shipping/zones/{id}/locations", "application/json")
+      .withCredentials(basicAuth).withPathParam("id", id)
+      .withSuccessResponse[ShippingZoneLocation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneLocation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param shippingZoneLocation3 
+   */
+  def shippingZonesIdLocationsPatch(id: Int, shippingZoneLocation3: ShippingZoneLocation3)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneLocation] =
+    ApiRequest[ShippingZoneLocation](ApiMethods.PATCH, baseUrl, "/shipping/zones/{id}/locations", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneLocation3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZoneLocation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneLocation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param shippingZoneLocation2 
+   */
+  def shippingZonesIdLocationsPost(id: Int, shippingZoneLocation2: ShippingZoneLocation2)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneLocation] =
+    ApiRequest[ShippingZoneLocation](ApiMethods.POST, baseUrl, "/shipping/zones/{id}/locations", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneLocation2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZoneLocation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneLocation (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param shippingZoneLocation1 
+   */
+  def shippingZonesIdLocationsPut(id: Int, shippingZoneLocation1: ShippingZoneLocation1)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneLocation] =
+    ApiRequest[ShippingZoneLocation](ApiMethods.PUT, baseUrl, "/shipping/zones/{id}/locations", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneLocation1)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZoneLocation](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param shippingZone4 
+   */
+  def shippingZonesIdPatch(id: Int, shippingZone4: ShippingZone4)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.PATCH, baseUrl, "/shipping/zones/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZone4)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param shippingZone3 
+   */
+  def shippingZonesIdPost(id: Int, shippingZone3: ShippingZone3)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.POST, baseUrl, "/shipping/zones/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZone3)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique ID for the resource.
+   * @param shippingZone2 
+   */
+  def shippingZonesIdPut(id: Int, shippingZone2: ShippingZone2)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.PUT, baseUrl, "/shipping/zones/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZone2)
+      .withPathParam("id", id)
+      .withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZone (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param shippingZone1 
+   */
+  def shippingZonesPost(shippingZone1: ShippingZone1)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
+    ApiRequest[ShippingZone](ApiMethods.POST, baseUrl, "/shipping/zones", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZone1)
+      .withSuccessResponse[ShippingZone](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   */
+  def shippingZonesZoneIdMethodsGet(zoneId: Int)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.GET, baseUrl, "/shipping/zones/{zone_id}/methods", "application/json")
+      .withCredentials(basicAuth).withPathParam("zone_id", zoneId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   * @param instanceId Unique ID for the instance.
+   * @param force Whether to bypass trash and force deletion.
+   */
+  def shippingZonesZoneIdMethodsInstanceIdDelete(zoneId: Int, instanceId: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.DELETE, baseUrl, "/shipping/zones/{zone_id}/methods/{instance_id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("zone_id", zoneId)
+      .withPathParam("instance_id", instanceId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   * @param instanceId Unique ID for the instance.
+   */
+  def shippingZonesZoneIdMethodsInstanceIdGet(zoneId: Int, instanceId: Int)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.GET, baseUrl, "/shipping/zones/{zone_id}/methods/{instance_id}", "application/json")
+      .withCredentials(basicAuth).withPathParam("zone_id", zoneId)
+      .withPathParam("instance_id", instanceId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   * @param instanceId Unique ID for the instance.
+   * @param shippingZoneMethod4 
+   */
+  def shippingZonesZoneIdMethodsInstanceIdPatch(zoneId: Int, instanceId: Int, shippingZoneMethod4: ShippingZoneMethod4)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.PATCH, baseUrl, "/shipping/zones/{zone_id}/methods/{instance_id}", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneMethod4)
+      .withPathParam("zone_id", zoneId)
+      .withPathParam("instance_id", instanceId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   * @param instanceId Unique ID for the instance.
+   * @param shippingZoneMethod3 
+   */
+  def shippingZonesZoneIdMethodsInstanceIdPost(zoneId: Int, instanceId: Int, shippingZoneMethod3: ShippingZoneMethod3)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.POST, baseUrl, "/shipping/zones/{zone_id}/methods/{instance_id}", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneMethod3)
+      .withPathParam("zone_id", zoneId)
+      .withPathParam("instance_id", instanceId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   * @param instanceId Unique ID for the instance.
+   * @param shippingZoneMethod2 
+   */
+  def shippingZonesZoneIdMethodsInstanceIdPut(zoneId: Int, instanceId: Int, shippingZoneMethod2: ShippingZoneMethod2)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.PUT, baseUrl, "/shipping/zones/{zone_id}/methods/{instance_id}", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneMethod2)
+      .withPathParam("zone_id", zoneId)
+      .withPathParam("instance_id", instanceId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : ShippingZoneMethod (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param zoneId Unique ID for the zone.
+   * @param shippingZoneMethod1 
+   */
+  def shippingZonesZoneIdMethodsPost(zoneId: Int, shippingZoneMethod1: ShippingZoneMethod1)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
+    ApiRequest[ShippingZoneMethod](ApiMethods.POST, baseUrl, "/shipping/zones/{zone_id}/methods", "application/json")
+      .withCredentials(basicAuth).withBody(shippingZoneMethod1)
+      .withPathParam("zone_id", zoneId)
+      .withSuccessResponse[ShippingZoneMethod](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SystemStatus (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def systemStatusGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatus] =
+    ApiRequest[SystemStatus](ApiMethods.GET, baseUrl, "/system_status", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[SystemStatus](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SystemStatusTool (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def systemStatusToolsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatusTool] =
+    ApiRequest[SystemStatusTool](ApiMethods.GET, baseUrl, "/system_status/tools", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[SystemStatusTool](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SystemStatusTool (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   */
+  def systemStatusToolsIdGet(id: String)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatusTool] =
+    ApiRequest[SystemStatusTool](ApiMethods.GET, baseUrl, "/system_status/tools/{id}", "application/json")
+      .withCredentials(basicAuth).withPathParam("id", id)
+      .withSuccessResponse[SystemStatusTool](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SystemStatusTool (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id A unique identifier for the tool.
+   * @param systemStatusTool3 
+   */
+  def systemStatusToolsIdPatch(id: String, systemStatusTool3: SystemStatusTool3)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatusTool] =
+    ApiRequest[SystemStatusTool](ApiMethods.PATCH, baseUrl, "/system_status/tools/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(systemStatusTool3)
+      .withPathParam("id", id)
+      .withSuccessResponse[SystemStatusTool](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SystemStatusTool (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id A unique identifier for the tool.
+   * @param systemStatusTool2 
+   */
+  def systemStatusToolsIdPost(id: String, systemStatusTool2: SystemStatusTool2)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatusTool] =
+    ApiRequest[SystemStatusTool](ApiMethods.POST, baseUrl, "/system_status/tools/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(systemStatusTool2)
+      .withPathParam("id", id)
+      .withSuccessResponse[SystemStatusTool](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : SystemStatusTool (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id A unique identifier for the tool.
+   * @param systemStatusTool1 
+   */
+  def systemStatusToolsIdPut(id: String, systemStatusTool1: SystemStatusTool1)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatusTool] =
+    ApiRequest[SystemStatusTool](ApiMethods.PUT, baseUrl, "/system_status/tools/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(systemStatusTool1)
+      .withPathParam("id", id)
+      .withSuccessResponse[SystemStatusTool](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch36 
+   */
+  def taxesBatchPatch(batch36: Batch36)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/taxes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch36)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch35 
+   */
+  def taxesBatchPost(batch35: Batch35)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/taxes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch35)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch34 
+   */
+  def taxesBatchPut(batch34: Batch34)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/taxes/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch34)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : TaxClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def taxesClassesGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[TaxClass] =
+    ApiRequest[TaxClass](ApiMethods.GET, baseUrl, "/taxes/classes", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withSuccessResponse[TaxClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : TaxClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param taxClass1 
+   */
+  def taxesClassesPost(taxClass1: TaxClass1)(implicit basicAuth: BasicCredentials): ApiRequest[TaxClass] =
+    ApiRequest[TaxClass](ApiMethods.POST, baseUrl, "/taxes/classes", "application/json")
+      .withCredentials(basicAuth).withBody(taxClass1)
+      .withSuccessResponse[TaxClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : TaxClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param slug Unique slug for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def taxesClassesSlugDelete(slug: String, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[TaxClass] =
+    ApiRequest[TaxClass](ApiMethods.DELETE, baseUrl, "/taxes/classes/{slug}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("slug", slug)
+      .withSuccessResponse[TaxClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : TaxClass (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param slug Unique slug for the resource.
+   */
+  def taxesClassesSlugGet(slug: String)(implicit basicAuth: BasicCredentials): ApiRequest[TaxClass] =
+    ApiRequest[TaxClass](ApiMethods.GET, baseUrl, "/taxes/classes/{slug}", "application/json")
+      .withCredentials(basicAuth).withPathParam("slug", slug)
+      .withSuccessResponse[TaxClass](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param `class` Sort by tax class.
+   */
+  def taxesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, `class`: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.GET, baseUrl, "/taxes", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("class", `class`)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def taxesIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.DELETE, baseUrl, "/taxes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def taxesIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.GET, baseUrl, "/taxes/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param tax4 
+   */
+  def taxesIdPatch(id: Int, tax4: Tax4)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.PATCH, baseUrl, "/taxes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(tax4)
+      .withPathParam("id", id)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param tax3 
+   */
+  def taxesIdPost(id: Int, tax3: Tax3)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.POST, baseUrl, "/taxes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(tax3)
+      .withPathParam("id", id)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param tax2 
+   */
+  def taxesIdPut(id: Int, tax2: Tax2)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.PUT, baseUrl, "/taxes/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(tax2)
+      .withPathParam("id", id)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Tax (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param tax1 
+   */
+  def taxesPost(tax1: Tax1)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
+    ApiRequest[Tax](ApiMethods.POST, baseUrl, "/taxes", "application/json")
+      .withCredentials(basicAuth).withBody(tax1)
+      .withSuccessResponse[Tax](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch39 
+   */
+  def webhooksBatchPatch(batch39: Batch39)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PATCH, baseUrl, "/webhooks/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch39)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch38 
+   */
+  def webhooksBatchPost(batch38: Batch38)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.POST, baseUrl, "/webhooks/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch38)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Batch (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param batch37 
+   */
+  def webhooksBatchPut(batch37: Batch37)(implicit basicAuth: BasicCredentials): ApiRequest[Batch] =
+    ApiRequest[Batch](ApiMethods.PUT, baseUrl, "/webhooks/batch", "application/json")
+      .withCredentials(basicAuth).withBody(batch37)
+      .withSuccessResponse[Batch](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param context Scope under which the request is made; determines fields present in response.
+   * @param page Current page of the collection.
+   * @param perPage Maximum number of items to be returned in result set.
+   * @param search Limit results to those matching a string.
+   * @param after Limit response to resources published after a given ISO8601 compliant date.
+   * @param before Limit response to resources published before a given ISO8601 compliant date.
+   * @param exclude Ensure result set excludes specific IDs.
+   * @param include Limit result set to specific ids.
+   * @param offset Offset the result set by a specific number of items.
+   * @param order Order sort attribute ascending or descending.
+   * @param orderby Sort collection by object attribute.
+   * @param status Limit result set to webhooks assigned a specific status.
+   */
+  def webhooksGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.GET, baseUrl, "/webhooks", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withQueryParam("page", page)
+      .withQueryParam("per_page", perPage)
+      .withQueryParam("search", search)
+      .withQueryParam("after", after)
+      .withQueryParam("before", before)
+      .withQueryParam("exclude", ArrayValues(exclude, MULTI))
+      .withQueryParam("include", ArrayValues(include, MULTI))
+      .withQueryParam("offset", offset)
+      .withQueryParam("order", order)
+      .withQueryParam("orderby", orderby)
+      .withQueryParam("status", status)
+      .withSuccessResponse[Webhook](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param force Required to be true, as resource does not support trashing.
+   */
+  def webhooksIdDelete(id: Int, force: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.DELETE, baseUrl, "/webhooks/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("force", force)
+      .withPathParam("id", id)
+      .withSuccessResponse[Webhook](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param context Scope under which the request is made; determines fields present in response.
+   */
+  def webhooksIdGet(id: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.GET, baseUrl, "/webhooks/{id}", "application/json")
+      .withCredentials(basicAuth).withQueryParam("context", context)
+      .withPathParam("id", id)
+      .withSuccessResponse[Webhook](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param webhook4 
+   */
+  def webhooksIdPatch(id: Int, webhook4: Webhook4)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.PATCH, baseUrl, "/webhooks/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(webhook4)
+      .withPathParam("id", id)
+      .withSuccessResponse[Webhook](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param webhook3 
+   */
+  def webhooksIdPost(id: Int, webhook3: Webhook3)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.POST, baseUrl, "/webhooks/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(webhook3)
+      .withPathParam("id", id)
+      .withSuccessResponse[Webhook](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param id Unique identifier for the resource.
+   * @param webhook2 
+   */
+  def webhooksIdPut(id: Int, webhook2: Webhook2)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.PUT, baseUrl, "/webhooks/{id}", "application/json")
+      .withCredentials(basicAuth).withBody(webhook2)
+      .withPathParam("id", id)
+      .withSuccessResponse[Webhook](200)
+      .withErrorResponse[Unit](400)
+      .withErrorResponse[Unit](404)
+      
+
+  /**
+   * Expected answers:
+   *   code 200 : Webhook (OK)
+   *   code 400 :  (Bad Request)
+   *   code 404 :  (Not Found)
+   * 
+   * Available security schemes:
+   *   basicAuth (http)
+   * 
+   * @param webhook1 
+   */
+  def webhooksPost(webhook1: Webhook1)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
+    ApiRequest[Webhook](ApiMethods.POST, baseUrl, "/webhooks", "application/json")
+      .withCredentials(basicAuth).withBody(webhook1)
+      .withSuccessResponse[Webhook](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       

@@ -1,12 +1,13 @@
 openapi: 3.0.0
 info:
   title: wc/v3
-  description: >-
-    OpenAPI document of the namespace wc/store. Based on generated json
-    document, with some changes and additions
+  description: OpenAPI documented, based on generated OpenAPI document of the namespace wc/v3 with some manual fixes.
   version: '1'
 servers:
   - url: https://www.software-creation.nl/wp-json/wc/v3
+  - url: http://localhost/wp-json/wc/v3
+security:
+    - basicAuth: []
 paths:
   /:
     get:
@@ -172,7 +173,7 @@ paths:
             description: Limit result set to resources with a specific code.
     post:
       security:
-        - basicAuth: [ ]
+        - basicAuth: []
       responses:
         '200':
           description: OK

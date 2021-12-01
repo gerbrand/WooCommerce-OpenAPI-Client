@@ -1,6 +1,6 @@
 /**
- * wc/store
- * OpenAPI document of the namespace wc/store. Based on generated json document, with some changes and additions
+ * wc/v3
+ * OpenAPI documented, based on generated OpenAPI document of the namespace wc/v3 with some manual fixes.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,15 +17,29 @@ case class ProductAttribute(
   id: Option[Int] = None,
   /* Attribute name. */
   name: Option[String] = None,
-  /* The attribute taxonomy name. */
-  taxonomy: Option[String] = None,
-  /* Attribute type. */
-  `type`: Option[String] = None,
-  /* How terms in this attribute are sorted by default. */
-  order: Option[String] = None,
-  /* If this attribute has term archive pages. */
-  hasArchives: Option[Boolean] = None,
-  /* Number of terms in the attribute taxonomy. */
-  count: Option[Int] = None
+  /* An alphanumeric identifier for the resource unique to its type. */
+  slug: Option[String] = None,
+  /* Type of attribute. */
+  `type`: Option[ProductAttributeEnums.`Type`] = None,
+  /* Default sort order. */
+  orderBy: Option[ProductAttributeEnums.OrderBy] = None,
+  /* Enable/Disable attribute archives. */
+  hasArchives: Option[Boolean] = None
 )
 
+object ProductAttributeEnums {
+
+  type `Type` = `Type`.Value
+  type OrderBy = OrderBy.Value
+  object `Type` extends Enumeration {
+    val Select = Value("select")
+  }
+
+  object OrderBy extends Enumeration {
+    val MenuOrder = Value("menu_order")
+    val Name = Value("name")
+    val NameNum = Value("name_num")
+    val Id = Value("id")
+  }
+
+}

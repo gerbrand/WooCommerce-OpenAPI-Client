@@ -1,6 +1,6 @@
 /**
- * wc/store
- * OpenAPI document of the namespace wc/store. Based on generated json document, with some changes and additions
+ * wc/v3
+ * OpenAPI documented, based on generated OpenAPI document of the namespace wc/v3 with some manual fixes.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -11,27 +11,23 @@
  */
 package org.woocommerce.akkaclient.model
 
-import java.time.OffsetDateTime
 import org.woocommerce.akkaclient.core.ApiModel
 
 case class ProductReview (
   /* Unique identifier for the resource. */
   id: Option[Int] = None,
   /* The date the review was created, in the site's timezone. */
-  dateCreated: Option[OffsetDateTime] = None,
-  /* The date the review was created, in the site's timezone in human-readable format. */
-  formattedDateCreated: Option[String] = None,
+  dateCreated: Option[String] = None,
   /* The date the review was created, as GMT. */
-  dateCreatedGmt: Option[OffsetDateTime] = None,
+  dateCreatedGmt: Option[String] = None,
   /* Unique identifier for the product that the review belongs to. */
   productId: Option[Int] = None,
-  /* Name of the product that the review belongs to. */
-  productName: Option[String] = None,
-  /* Permalink of the product that the review belongs to. */
-  productPermalink: Option[String] = None,
-  productImage: Option[ProductReviewProductImage] = None,
+  /* Status of the review. */
+  status: Option[ProductReviewEnums.Status] = None,
   /* Reviewer name. */
   reviewer: Option[String] = None,
+  /* Reviewer email. */
+  reviewerEmail: Option[String] = None,
   /* The content of the review. */
   review: Option[String] = None,
   /* Review rating (0 to 5). */
@@ -41,3 +37,16 @@ case class ProductReview (
   reviewerAvatarUrls: Option[ProductReviewReviewerAvatarUrls] = None
 ) extends ApiModel
 
+object ProductReviewEnums {
+
+  type Status = Status.Value
+  object Status extends Enumeration {
+    val Approved = Value("approved")
+    val Hold = Value("hold")
+    val Spam = Value("spam")
+    val Unspam = Value("unspam")
+    val Trash = Value("trash")
+    val Untrash = Value("untrash")
+  }
+
+}

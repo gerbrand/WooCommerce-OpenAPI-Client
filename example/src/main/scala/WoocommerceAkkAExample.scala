@@ -14,9 +14,9 @@ object WoocommerceAkkAExample extends App {
   val invoker = ApiInvoker()
 
   // Using the generated api to get a list of products
-  val storeApi = DefaultApi("https://www.liberactiva.nl/wp-json/wc/store")
+  val wcApi = DefaultApi("https://www.liberactiva.nl/wp-json/wc/store")
   // Constructing a get request to retrieve a few products
-  val productsGet = storeApi.productsGet(exclude = empty, include = empty, parent = empty, stockStatus = empty, parentExclude = empty, rating = empty, attributes = empty)
+  val productsGet = wcApi.productsGet(exclude = empty, include = empty, parent = empty, stockStatus = empty, parentExclude = empty, rating = empty, attributes = empty)
   val fResult = invoker.execute(productsGet)
   val result = Await.result(fResult, 15.seconds)
   println(result.content)
