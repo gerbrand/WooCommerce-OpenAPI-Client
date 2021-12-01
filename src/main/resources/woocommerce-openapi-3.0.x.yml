@@ -3,7 +3,6 @@ info:
   title: wc/v3
   description: Generated OpenAPI document of the namespace wc/v3 on DemoShop.
   version: '1'
-jsonSchemaDialect: http://json-schema.org/draft-04/schema#
 servers:
   - url: http://localhost/wp-json/wc/v3
 paths:
@@ -80,7 +79,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -88,7 +87,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published before a given ISO8601 compliant date.
         - name: modified_after
           in: query
@@ -96,7 +95,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified after a given ISO8601 compliant date.
         - name: modified_before
           in: query
@@ -104,7 +103,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified before a given ISO8601 compliant date.
         - name: dates_are_gmt
           in: query
@@ -2299,7 +2298,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -2307,7 +2306,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published before a given ISO8601 compliant date.
         - name: modified_after
           in: query
@@ -2315,7 +2314,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified after a given ISO8601 compliant date.
         - name: modified_before
           in: query
@@ -2323,7 +2322,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified before a given ISO8601 compliant date.
         - name: dates_are_gmt
           in: query
@@ -2587,7 +2586,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -2595,7 +2594,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published before a given ISO8601 compliant date.
         - name: modified_after
           in: query
@@ -2603,7 +2602,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified after a given ISO8601 compliant date.
         - name: modified_before
           in: query
@@ -2611,7 +2610,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified before a given ISO8601 compliant date.
         - name: dates_are_gmt
           in: query
@@ -8151,7 +8150,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -8159,7 +8158,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to reviews published before a given ISO8601 compliant date.
         - name: exclude
           in: query
@@ -9530,7 +9529,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -9538,7 +9537,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published before a given ISO8601 compliant date.
         - name: modified_after
           in: query
@@ -9546,7 +9545,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified after a given ISO8601 compliant date.
         - name: modified_before
           in: query
@@ -9554,7 +9553,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified before a given ISO8601 compliant date.
         - name: dates_are_gmt
           in: query
@@ -12095,7 +12094,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -12103,7 +12102,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published before a given ISO8601 compliant date.
         - name: modified_after
           in: query
@@ -12111,7 +12110,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified after a given ISO8601 compliant date.
         - name: modified_before
           in: query
@@ -12119,7 +12118,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources modified before a given ISO8601 compliant date.
         - name: dates_are_gmt
           in: query
@@ -13998,287 +13997,6 @@ paths:
             description: Scope under which the request is made; determines fields present in response.
             enum:
               - view
-  /settings:
-    get:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/setting_group'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      parameters: []
-  /settings/batch:
-    post:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/batch'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-    put:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/batch'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-    patch:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/batch'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-  /settings/{group_id}:
-    get:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/setting'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      parameters:
-        - name: group
-          in: query
-          description: Settings group ID.
-          required: false
-          schema:
-            type: string
-            description: Settings group ID.
-  /settings/{group_id}/batch:
-    post:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/batch'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              title: batch
-              properties:
-                group:
-                  type: string
-                  description: Settings group ID.
-                value:
-                  type: string
-                  description: Setting value.
-    put:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/batch'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              title: batch
-              properties:
-                group:
-                  type: string
-                  description: Settings group ID.
-                value:
-                  type: string
-                  description: Setting value.
-    patch:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/batch'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              title: batch
-              properties:
-                group:
-                  type: string
-                  description: Settings group ID.
-                value:
-                  type: string
-                  description: Setting value.
-  /settings/{group_id}/{id}:
-    get:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/setting'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      parameters:
-        - name: group
-          in: query
-          description: Settings group ID.
-          required: false
-          schema:
-            type: string
-            description: Settings group ID.
-        - name: id
-          in: path
-          description: Unique identifier for the resource.
-          required: true
-          schema:
-            type: string
-            description: Unique identifier for the resource.
-    post:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/setting'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              title: setting
-              properties:
-                group:
-                  type: string
-                  description: Settings group ID.
-                value:
-                  type: string
-                  description: Setting value.
-      parameters:
-        - name: id
-          in: path
-          description: Unique identifier for the resource.
-          required: true
-          schema:
-            type: string
-            description: Unique identifier for the resource.
-    put:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/setting'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              title: setting
-              properties:
-                group:
-                  type: string
-                  description: Settings group ID.
-                value:
-                  type: string
-                  description: Setting value.
-      parameters:
-        - name: id
-          in: path
-          description: Unique identifier for the resource.
-          required: true
-          schema:
-            type: string
-            description: Unique identifier for the resource.
-    patch:
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/setting'
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              title: setting
-              properties:
-                group:
-                  type: string
-                  description: Settings group ID.
-                value:
-                  type: string
-                  description: Setting value.
-      parameters:
-        - name: id
-          in: path
-          description: Unique identifier for the resource.
-          required: true
-          schema:
-            type: string
-            description: Unique identifier for the resource.
   /shipping/zones:
     get:
       responses:
@@ -15793,7 +15511,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published after a given ISO8601 compliant date.
         - name: before
           in: query
@@ -15801,7 +15519,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date-time
+            format: string
             description: Limit response to resources published before a given ISO8601 compliant date.
         - name: exclude
           in: query
@@ -16786,10 +16504,10 @@ paths:
         '404':
           description: Not Found
       parameters:
-        - name: continent
-          in: query
+        - name: location
+          in: path
           description: 2 character continent code.
-          required: false
+          required: true
           schema:
             type: string
             description: 2 character continent code.
@@ -16870,15 +16588,13 @@ paths:
         '404':
           description: Not Found
       parameters:
-        - name: location
-          in: query
+        - name: currency
+          in: path
           description: ISO4217 currency code.
-          required: false
+          required: true
           schema:
             type: string
             description: ISO4217 currency code.
-security:
-  - basicAuth: []
 components:
   schemas:
     shop_coupon:
@@ -16894,16 +16610,16 @@ components:
           type: string
           description: The amount of discount. Should always be numeric, even if setting a percentage.
         date_created:
-          type: date-time
+          type: string
           description: The date the coupon was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the coupon was created, as GMT.
         date_modified:
-          type: date-time
+          type: string
           description: The date the coupon was last modified, in the site's timezone.
         date_modified_gmt:
-          type: date-time
+          type: string
           description: The date the coupon was last modified, as GMT.
         discount_type:
           type: string
@@ -16916,10 +16632,10 @@ components:
           type: string
           description: Coupon description.
         date_expires:
-          type: date-time
+          type: string
           description: The date the coupon expires, in the site's timezone.
         date_expires_gmt:
-          type: date-time
+          type: string
           description: The date the coupon expires, as GMT.
         usage_count:
           type: integer
@@ -16990,7 +16706,7 @@ components:
                 type: string
                 description: Meta key.
               value:
-                type: mixed
+                type: string
                 description: Meta value.
           description: Meta data.
     batch:
@@ -17061,16 +16777,16 @@ components:
           type: integer
           description: Unique identifier for the resource.
         date_created:
-          type: date-time
+          type: string
           description: The date the customer was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the customer was created, as GMT.
         date_modified:
-          type: date-time
+          type: string
           description: The date the customer was last modified, in the site's timezone.
         date_modified_gmt:
-          type: date-time
+          type: string
           description: The date the customer was last modified, as GMT.
         email:
           type: string
@@ -17164,7 +16880,7 @@ components:
               description: Phone number.
           description: List of shipping address data.
         is_paying_customer:
-          type: bool
+          type: boolean
           description: Is the customer a paying customer?
         avatar_url:
           type: string
@@ -17181,7 +16897,7 @@ components:
                 type: string
                 description: Meta key.
               value:
-                type: mixed
+                type: string
                 description: Meta value.
           description: Meta data.
     order_note:
@@ -17194,10 +16910,10 @@ components:
           type: string
           description: Order note author.
         date_created:
-          type: date-time
+          type: string
           description: The date the order note was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the order note was created, as GMT.
         note:
           type: string
@@ -17215,10 +16931,10 @@ components:
           type: integer
           description: Unique identifier for the resource.
         date_created:
-          type: date-time
+          type: string
           description: The date the order refund was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the order refund was created, as GMT.
         amount:
           type: string
@@ -17244,7 +16960,7 @@ components:
                 type: string
                 description: Meta key.
               value:
-                type: mixed
+                type: string
                 description: Meta value.
           description: Meta data.
         line_items:
@@ -17256,10 +16972,10 @@ components:
                 type: integer
                 description: Item ID.
               name:
-                type: mixed
+                type: string
                 description: Product name.
               product_id:
-                type: mixed
+                type: string
                 description: Product ID.
               variation_id:
                 type: integer
@@ -17312,7 +17028,7 @@ components:
                       type: string
                       description: Meta key.
                     value:
-                      type: mixed
+                      type: string
                       description: Meta value.
                 description: Meta data.
               sku:
@@ -17531,16 +17247,16 @@ components:
             - ZAR
             - ZMW
         date_created:
-          type: date-time
+          type: string
           description: The date the order was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the order was created, as GMT.
         date_modified:
-          type: date-time
+          type: string
           description: The date the order was last modified, in the site's timezone.
         date_modified_gmt:
-          type: date-time
+          type: string
           description: The date the order was last modified, as GMT.
         discount_total:
           type: string
@@ -17657,16 +17373,16 @@ components:
           type: string
           description: Unique transaction ID.
         date_paid:
-          type: date-time
+          type: string
           description: The date the order was paid, in the site's timezone.
         date_paid_gmt:
-          type: date-time
+          type: string
           description: The date the order was paid, as GMT.
         date_completed:
-          type: date-time
+          type: string
           description: The date the order was completed, in the site's timezone.
         date_completed_gmt:
-          type: date-time
+          type: string
           description: The date the order was completed, as GMT.
         cart_hash:
           type: string
@@ -17683,7 +17399,7 @@ components:
                 type: string
                 description: Meta key.
               value:
-                type: mixed
+                type: string
                 description: Meta value.
           description: Meta data.
         line_items:
@@ -17695,13 +17411,13 @@ components:
                 type: integer
                 description: Item ID.
               name:
-                type: mixed
+                type: string
                 description: Product name.
               parent_name:
                 type: string
                 description: Parent product name if the product is a variation.
               product_id:
-                type: mixed
+                type: string
                 description: Product ID.
               variation_id:
                 type: integer
@@ -17751,7 +17467,7 @@ components:
                       type: string
                       description: Meta key.
                     value:
-                      type: mixed
+                      type: string
                       description: Meta value.
                     display_key:
                       type: string
@@ -17805,7 +17521,7 @@ components:
                       type: string
                       description: Meta key.
                     value:
-                      type: mixed
+                      type: string
                       description: Meta value.
                 description: Meta data.
           description: Tax lines data.
@@ -17818,10 +17534,10 @@ components:
                 type: integer
                 description: Item ID.
               method_title:
-                type: mixed
+                type: string
                 description: Shipping method name.
               method_id:
-                type: mixed
+                type: string
                 description: Shipping method ID.
               instance_id:
                 type: string
@@ -17856,7 +17572,7 @@ components:
                       type: string
                       description: Meta key.
                     value:
-                      type: mixed
+                      type: string
                       description: Meta value.
                 description: Meta data.
           description: Shipping lines data.
@@ -17869,7 +17585,7 @@ components:
                 type: integer
                 description: Item ID.
               name:
-                type: mixed
+                type: string
                 description: Fee name.
               tax_class:
                 type: string
@@ -17913,7 +17629,7 @@ components:
                       type: string
                       description: Meta key.
                     value:
-                      type: mixed
+                      type: string
                       description: Meta value.
                 description: Meta data.
           description: Fee lines data.
@@ -17926,7 +17642,7 @@ components:
                 type: integer
                 description: Item ID.
               code:
-                type: mixed
+                type: string
                 description: Coupon code.
               discount:
                 type: string
@@ -17946,7 +17662,7 @@ components:
                       type: string
                       description: Meta key.
                     value:
-                      type: mixed
+                      type: string
                       description: Meta value.
                 description: Meta data.
           description: Coupons line data.
@@ -18050,16 +17766,16 @@ components:
               type: integer
               description: Image ID.
             date_created:
-              type: date-time
+              type: string
               description: The date the image was created, in the site's timezone.
             date_created_gmt:
-              type: date-time
+              type: string
               description: The date the image was created, as GMT.
             date_modified:
-              type: date-time
+              type: string
               description: The date the image was last modified, in the site's timezone.
             date_modified_gmt:
-              type: date-time
+              type: string
               description: The date the image was last modified, as GMT.
             src:
               type: string
@@ -18085,10 +17801,10 @@ components:
           type: integer
           description: Unique identifier for the resource.
         date_created:
-          type: date-time
+          type: string
           description: The date the review was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the review was created, as GMT.
         product_id:
           type: integer
@@ -18188,16 +17904,16 @@ components:
           format: uri
           description: Product URL.
         date_created:
-          type: date-time
+          type: string
           description: The date the product was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the product was created, as GMT.
         date_modified:
-          type: date-time
+          type: string
           description: The date the product was last modified, in the site's timezone.
         date_modified_gmt:
-          type: date-time
+          type: string
           description: The date the product was last modified, as GMT.
         type:
           type: string
@@ -18246,16 +17962,16 @@ components:
           type: string
           description: Product sale price.
         date_on_sale_from:
-          type: date-time
+          type: string
           description: Start date of sale price, in the site's timezone.
         date_on_sale_from_gmt:
-          type: date-time
+          type: string
           description: Start date of sale price, as GMT.
         date_on_sale_to:
-          type: date-time
+          type: string
           description: End date of sale price, in the site's timezone.
         date_on_sale_to_gmt:
-          type: date-time
+          type: string
           description: End date of sale price, in the site's timezone.
         price_html:
           type: string
@@ -18442,16 +18158,16 @@ components:
                 type: integer
                 description: Image ID.
               date_created:
-                type: date-time
+                type: string
                 description: The date the image was created, in the site's timezone.
               date_created_gmt:
-                type: date-time
+                type: string
                 description: The date the image was created, as GMT.
               date_modified:
-                type: date-time
+                type: string
                 description: The date the image was last modified, in the site's timezone.
               date_modified_gmt:
-                type: date-time
+                type: string
                 description: The date the image was last modified, as GMT.
               src:
                 type: string
@@ -18530,7 +18246,7 @@ components:
                 type: string
                 description: Meta key.
               value:
-                type: mixed
+                type: string
                 description: Meta value.
           description: Meta data.
     product_variation:
@@ -18540,10 +18256,10 @@ components:
           type: integer
           description: Unique identifier for the resource.
         date_created:
-          type: date-time
+          type: string
           description: The date the variation was created, in the site's timezone.
         date_modified:
-          type: date-time
+          type: string
           description: The date the variation was last modified, in the site's timezone.
         description:
           type: string
@@ -18565,16 +18281,16 @@ components:
           type: string
           description: Variation sale price.
         date_on_sale_from:
-          type: date-time
+          type: string
           description: Start date of sale price, in the site's timezone.
         date_on_sale_from_gmt:
-          type: date-time
+          type: string
           description: Start date of sale price, as GMT.
         date_on_sale_to:
-          type: date-time
+          type: string
           description: End date of sale price, in the site's timezone.
         date_on_sale_to_gmt:
-          type: date-time
+          type: string
           description: End date of sale price, in the site's timezone.
         on_sale:
           type: boolean
@@ -18685,16 +18401,16 @@ components:
               type: integer
               description: Image ID.
             date_created:
-              type: date-time
+              type: string
               description: The date the image was created, in the site's timezone.
             date_created_gmt:
-              type: date-time
+              type: string
               description: The date the image was created, as GMT.
             date_modified:
-              type: date-time
+              type: string
               description: The date the image was last modified, in the site's timezone.
             date_modified_gmt:
-              type: date-time
+              type: string
               description: The date the image was last modified, as GMT.
             src:
               type: string
@@ -18737,7 +18453,7 @@ components:
                 type: string
                 description: Meta key.
               value:
-                type: mixed
+                type: string
                 description: Meta value.
           description: Meta data.
     sales_report:
@@ -18776,7 +18492,7 @@ components:
         totals:
           type: array
           items:
-            type: array
+            type: integer
           description: Totals.
     top_sellers_report:
       type: object
@@ -18893,10 +18609,10 @@ components:
           type: string
           description: A human readable description for the setting used in interfaces.
         value:
-          type: mixed
+          type: string
           description: Setting value.
         default:
-          type: mixed
+          type: string
           description: Default value for the setting.
         tip:
           type: string
@@ -19119,16 +18835,16 @@ components:
           type: string
           description: Secret key used to generate a hash of the delivered webhook and provided in the request headers. This will default to a MD5 hash from the current user's ID|username if not provided.
         date_created:
-          type: date-time
+          type: string
           description: The date the webhook was created, in the site's timezone.
         date_created_gmt:
-          type: date-time
+          type: string
           description: The date the webhook was created, as GMT.
         date_modified:
-          type: date-time
+          type: string
           description: The date the webhook was last modified, in the site's timezone.
         date_modified_gmt:
-          type: date-time
+          type: string
           description: The date the webhook was last modified, as GMT.
     system_status:
       type: object
@@ -19568,7 +19284,3 @@ components:
         symbol:
           type: string
           description: Currency symbol.
-  securitySchemas:
-    basicAuth:
-      type: http
-      scheme: basic
