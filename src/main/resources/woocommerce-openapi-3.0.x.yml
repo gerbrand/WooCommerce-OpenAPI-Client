@@ -1,10 +1,12 @@
 openapi: 3.0.0
 info:
   title: wc/v3
-  description: Generated OpenAPI document of the namespace wc/v3 on DemoShop.
+  description: >-
+    OpenAPI document of the namespace wc/store. Based on generated json
+    document, with some changes and additions
   version: '1'
 servers:
-  - url: http://localhost/wp-json/wc/v3
+  - url: https://www.software-creation.nl/wp-json/wc/v3
 paths:
   /:
     get:
@@ -169,6 +171,8 @@ paths:
             type: string
             description: Limit result set to resources with a specific code.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -306,6 +310,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -676,6 +682,8 @@ paths:
             description: Whether to bypass trash and force deletion.
   /coupons/batch:
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -1140,6 +1148,8 @@ paths:
               - customer
               - shop_manager
     post:
+      security:
+        - basicAuth: []
       responses:
         '200':
           description: OK
@@ -1293,6 +1303,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -1721,6 +1733,8 @@ paths:
             description: ID to reassign posts to.
   /customers/batch:
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -2132,6 +2146,8 @@ paths:
               - customer
               - internal
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -2406,6 +2422,8 @@ paths:
             type: integer
             description: Number of decimal points to use in each resource.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -2727,6 +2745,8 @@ paths:
             type: integer
             description: Number of decimal points to use in each resource.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -3283,6 +3303,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -9749,6 +9771,8 @@ paths:
               - outofstock
               - onbackorder
     post:
+      security:
+        - basicAuth: []
       responses:
         '200':
           description: OK
@@ -10095,6 +10119,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -11092,6 +11118,8 @@ paths:
             description: Whether to bypass trash and force deletion.
   /products/batch:
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -12257,6 +12285,8 @@ paths:
               - outofstock
               - onbackorder
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -12496,6 +12526,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -13155,6 +13187,8 @@ paths:
             description: Whether to bypass trash and force deletion.
   /products/{product_id}/variations/batch:
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14012,6 +14046,8 @@ paths:
           description: Not Found
       parameters: []
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14059,6 +14095,8 @@ paths:
             type: integer
             description: Unique ID for the resource.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14209,6 +14247,8 @@ paths:
             type: integer
             description: Unique ID for the resource.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14347,6 +14387,8 @@ paths:
             type: integer
             description: Unique ID for the zone.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14454,6 +14496,8 @@ paths:
             type: integer
             description: Unique ID for the instance.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14761,6 +14805,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -14909,6 +14955,8 @@ paths:
               - reduced-rate
               - zero-rate
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -15007,6 +15055,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: []
       responses:
         '200':
           description: OK
@@ -15260,6 +15310,8 @@ paths:
             description: Required to be true, as resource does not support trashing.
   /taxes/batch:
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -15580,6 +15632,8 @@ paths:
               - paused
               - disabled
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -15650,6 +15704,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -15810,6 +15866,8 @@ paths:
             description: Required to be true, as resource does not support trashing.
   /webhooks/batch:
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -15986,6 +16044,8 @@ paths:
             type: string
             description: Unique identifier for the resource.
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -16223,6 +16283,8 @@ paths:
               - view
               - edit
     post:
+      security:
+        - basicAuth: [ ]
       responses:
         '200':
           description: OK
@@ -16596,6 +16658,11 @@ paths:
             type: string
             description: ISO4217 currency code.
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Wordpress username and password. Tip, use generated application password
   schemas:
     shop_coupon:
       type: object
