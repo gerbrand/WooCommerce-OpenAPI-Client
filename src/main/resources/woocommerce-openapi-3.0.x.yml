@@ -39,7 +39,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shop_coupon'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shop_coupon'
         '400':
           description: Bad Request
         '404':
@@ -1010,7 +1012,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/customer_download'
+                type: array
+                items:
+                  $ref: '#/components/schemas/customer_download'
         '400':
           description: Bad Request
         '404':
@@ -1040,7 +1044,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/customer'
+                type: array
+                items:
+                  $ref: '#/components/schemas/customer'
         '400':
           description: Bad Request
         '404':
@@ -2112,7 +2118,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/order_note'
+                type: array
+                items:
+                  $ref: '#/components/schemas/order_note'
         '400':
           description: Bad Request
         '404':
@@ -2265,7 +2273,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shop_order_refund'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shop_order_refund'
         '400':
           description: Bad Request
         '404':
@@ -2562,7 +2572,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shop_order'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shop_order'
         '400':
           description: Bad Request
         '404':
@@ -6515,7 +6527,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_attribute_term'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_attribute_term'
         '400':
           description: Bad Request
         '404':
@@ -7019,7 +7033,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_attribute'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_attribute'
         '400':
           description: Bad Request
         '404':
@@ -7420,7 +7436,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_cat'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_cat'
         '400':
           description: Bad Request
         '404':
@@ -8130,7 +8148,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_review'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_review'
         '400':
           description: Bad Request
         '404':
@@ -8691,7 +8711,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_shipping_class'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_shipping_class'
         '400':
           description: Bad Request
         '404':
@@ -9100,7 +9122,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_tag'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_tag'
         '400':
           description: Bad Request
         '404':
@@ -9509,7 +9533,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product'
         '400':
           description: Bad Request
         '404':
@@ -12073,7 +12099,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/product_variation'
+                type: array
+                items:
+                  $ref: '#/components/schemas/product_variation'
         '400':
           description: Bad Request
         '404':
@@ -13800,7 +13828,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sales_report'
+                type: array
+                items:
+                  $ref: '#/components/schemas/sales_report'
         '400':
           description: Bad Request
         '404':
@@ -13851,7 +13881,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/top_sellers_report'
+                type: array
+                items:
+                  $ref: '#/components/schemas/top_sellers_report'
         '400':
           description: Bad Request
         '404':
@@ -13902,7 +13934,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/report_order_total'
+                type: array
+                items:
+                  $ref: '#/components/schemas/report_order_total'
         '400':
           description: Bad Request
         '404':
@@ -13925,7 +13959,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/report_product_total'
+                type: array
+                items:
+                  $ref: '#/components/schemas/report_product_total'
         '400':
           description: Bad Request
         '404':
@@ -13948,7 +13984,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/report_customer_total'
+                type: array
+                items:
+                  $ref: '#/components/schemas/report_customer_total'
         '400':
           description: Bad Request
         '404':
@@ -13971,7 +14009,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/report_coupon_total'
+                type: array
+                items:
+                  $ref: '#/components/schemas/report_coupon_total'
         '400':
           description: Bad Request
         '404':
@@ -13994,7 +14034,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/report_review_total'
+                type: array
+                items:
+                  $ref: '#/components/schemas/report_review_total'
         '400':
           description: Bad Request
         '404':
@@ -14017,7 +14059,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/report'
+                type: array
+                items:
+                  $ref: '#/components/schemas/report'
         '400':
           description: Bad Request
         '404':
@@ -14040,7 +14084,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shipping_zone'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipping_zone'
         '400':
           description: Bad Request
         '404':
@@ -14234,7 +14280,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shipping_zone_location'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipping_zone_location'
         '400':
           description: Bad Request
         '404':
@@ -14374,7 +14422,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shipping_zone_method'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipping_zone_method'
         '400':
           description: Bad Request
         '404':
@@ -14789,7 +14839,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/tax_class'
+                type: array
+                items:
+                  $ref: '#/components/schemas/tax_class'
         '400':
           description: Bad Request
         '404':
@@ -14886,7 +14938,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/tax'
+                type: array
+                items:
+                  $ref: '#/components/schemas/tax'
         '400':
           description: Bad Request
         '404':
@@ -15521,7 +15575,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/webhook'
+                type: array
+                items:
+                  $ref: '#/components/schemas/webhook'
         '400':
           description: Bad Request
         '404':
@@ -16007,7 +16063,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/system_status_tool'
+                type: array
+                items:
+                  $ref: '#/components/schemas/system_status_tool'
         '400':
           description: Bad Request
         '404':
@@ -16183,7 +16241,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shipping_method'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shipping_method'
         '400':
           description: Bad Request
         '404':
@@ -16236,7 +16296,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/payment_gateway'
+                type: array
+                items:
+                  $ref: '#/components/schemas/payment_gateway'
         '400':
           description: Bad Request
         '404':
@@ -16547,7 +16609,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/data_continents'
+                type: array
+                items:
+                  $ref: '#/components/schemas/data_continents'
         '400':
           description: Bad Request
         '404':
@@ -16582,7 +16646,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/data_countries'
+                type: array
+                items:
+                  $ref: '#/components/schemas/data_countries'
         '400':
           description: Bad Request
         '404':
@@ -16617,7 +16683,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/data_currencies'
+                type: array
+                items:
+                  $ref: '#/components/schemas/data_currencies'
         '400':
           description: Bad Request
         '404':
