@@ -230,7 +230,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShopCoupon (OK)
+   *   code 200 : Seq[ShopCoupon] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -253,8 +253,8 @@ class DefaultApi(baseUrl: String) {
    * @param orderby Sort collection by object attribute.
    * @param code Limit result set to resources with a specific code.
    */
-  def couponsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, code: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopCoupon] =
-    ApiRequest[ShopCoupon](ApiMethods.GET, baseUrl, "/coupons", "application/json")
+  def couponsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, code: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShopCoupon]] =
+    ApiRequest[Seq[ShopCoupon]](ApiMethods.GET, baseUrl, "/coupons", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -270,7 +270,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
       .withQueryParam("code", code)
-      .withSuccessResponse[ShopCoupon](200)
+      .withSuccessResponse[Seq[ShopCoupon]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -458,7 +458,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : CustomerDownload (OK)
+   *   code 200 : Seq[CustomerDownload] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -468,18 +468,18 @@ class DefaultApi(baseUrl: String) {
    * @param customerId Unique identifier for the resource.
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def customersCustomerIdDownloadsGet(customerId: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[CustomerDownload] =
-    ApiRequest[CustomerDownload](ApiMethods.GET, baseUrl, "/customers/{customer_id}/downloads", "application/json")
+  def customersCustomerIdDownloadsGet(customerId: Int, context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[CustomerDownload]] =
+    ApiRequest[Seq[CustomerDownload]](ApiMethods.GET, baseUrl, "/customers/{customer_id}/downloads", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withPathParam("customer_id", customerId)
-      .withSuccessResponse[CustomerDownload](200)
+      .withSuccessResponse[Seq[CustomerDownload]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : Customer (OK)
+   *   code 200 : Seq[Customer] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -498,8 +498,8 @@ class DefaultApi(baseUrl: String) {
    * @param email Limit result set to resources with a specific email.
    * @param role Limit result set to resources with a specific role.
    */
-  def customersGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, email: Option[String] = None, role: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Customer] =
-    ApiRequest[Customer](ApiMethods.GET, baseUrl, "/customers", "application/json")
+  def customersGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, email: Option[String] = None, role: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[Customer]] =
+    ApiRequest[Seq[Customer]](ApiMethods.GET, baseUrl, "/customers", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -511,7 +511,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("orderby", orderby)
       .withQueryParam("email", email)
       .withQueryParam("role", role)
-      .withSuccessResponse[Customer](200)
+      .withSuccessResponse[Seq[Customer]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -644,16 +644,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : DataContinents (OK)
+   *   code 200 : Seq[DataContinents] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * Available security schemes:
    *   basicAuth (http)
    */
-  def dataContinentsGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataContinents] =
-    ApiRequest[DataContinents](ApiMethods.GET, baseUrl, "/data/continents", "application/json")
-      .withCredentials(basicAuth).withSuccessResponse[DataContinents](200)
+  def dataContinentsGet()(implicit basicAuth: BasicCredentials): ApiRequest[Seq[DataContinents]] =
+    ApiRequest[Seq[DataContinents]](ApiMethods.GET, baseUrl, "/data/continents", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[Seq[DataContinents]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -679,16 +679,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : DataCountries (OK)
+   *   code 200 : Seq[DataCountries] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * Available security schemes:
    *   basicAuth (http)
    */
-  def dataCountriesGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataCountries] =
-    ApiRequest[DataCountries](ApiMethods.GET, baseUrl, "/data/countries", "application/json")
-      .withCredentials(basicAuth).withSuccessResponse[DataCountries](200)
+  def dataCountriesGet()(implicit basicAuth: BasicCredentials): ApiRequest[Seq[DataCountries]] =
+    ApiRequest[Seq[DataCountries]](ApiMethods.GET, baseUrl, "/data/countries", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[Seq[DataCountries]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -749,16 +749,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : DataCurrencies (OK)
+   *   code 200 : Seq[DataCurrencies] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * Available security schemes:
    *   basicAuth (http)
    */
-  def dataCurrenciesGet()(implicit basicAuth: BasicCredentials): ApiRequest[DataCurrencies] =
-    ApiRequest[DataCurrencies](ApiMethods.GET, baseUrl, "/data/currencies", "application/json")
-      .withCredentials(basicAuth).withSuccessResponse[DataCurrencies](200)
+  def dataCurrenciesGet()(implicit basicAuth: BasicCredentials): ApiRequest[Seq[DataCurrencies]] =
+    ApiRequest[Seq[DataCurrencies]](ApiMethods.GET, baseUrl, "/data/currencies", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[Seq[DataCurrencies]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -838,7 +838,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShopOrder (OK)
+   *   code 200 : Seq[ShopOrder] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -866,8 +866,8 @@ class DefaultApi(baseUrl: String) {
    * @param product Limit result set to orders assigned a specific product.
    * @param dp Number of decimal points to use in each resource.
    */
-  def ordersGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], status: Seq[String], customer: Option[Int] = None, product: Option[Int] = None, dp: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrder] =
-    ApiRequest[ShopOrder](ApiMethods.GET, baseUrl, "/orders", "application/json")
+  def ordersGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], status: Seq[String], customer: Option[Int] = None, product: Option[Int] = None, dp: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShopOrder]] =
+    ApiRequest[Seq[ShopOrder]](ApiMethods.GET, baseUrl, "/orders", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -888,7 +888,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("customer", customer)
       .withQueryParam("product", product)
       .withQueryParam("dp", dp)
-      .withSuccessResponse[ShopOrder](200)
+      .withSuccessResponse[Seq[ShopOrder]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -1000,7 +1000,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : OrderNote (OK)
+   *   code 200 : Seq[OrderNote] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -1011,12 +1011,12 @@ class DefaultApi(baseUrl: String) {
    * @param context Scope under which the request is made; determines fields present in response.
    * @param `type` Limit result to customers or internal notes.
    */
-  def ordersOrderIdNotesGet(orderId: Int, context: Option[String] = None, `type`: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[OrderNote] =
-    ApiRequest[OrderNote](ApiMethods.GET, baseUrl, "/orders/{order_id}/notes", "application/json")
+  def ordersOrderIdNotesGet(orderId: Int, context: Option[String] = None, `type`: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[OrderNote]] =
+    ApiRequest[Seq[OrderNote]](ApiMethods.GET, baseUrl, "/orders/{order_id}/notes", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("type", `type`)
       .withPathParam("order_id", orderId)
-      .withSuccessResponse[OrderNote](200)
+      .withSuccessResponse[Seq[OrderNote]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -1090,7 +1090,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShopOrderRefund (OK)
+   *   code 200 : Seq[ShopOrderRefund] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -1116,8 +1116,8 @@ class DefaultApi(baseUrl: String) {
    * @param parentExclude Limit result set to all items except those of a particular parent ID.
    * @param dp Number of decimal points to use in each resource.
    */
-  def ordersOrderIdRefundsGet(orderId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], dp: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShopOrderRefund] =
-    ApiRequest[ShopOrderRefund](ApiMethods.GET, baseUrl, "/orders/{order_id}/refunds", "application/json")
+  def ordersOrderIdRefundsGet(orderId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], dp: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShopOrderRefund]] =
+    ApiRequest[Seq[ShopOrderRefund]](ApiMethods.GET, baseUrl, "/orders/{order_id}/refunds", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -1136,7 +1136,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("parent_exclude", ArrayValues(parentExclude, MULTI))
       .withQueryParam("dp", dp)
       .withPathParam("order_id", orderId)
-      .withSuccessResponse[ShopOrderRefund](200)
+      .withSuccessResponse[Seq[ShopOrderRefund]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -1229,7 +1229,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : PaymentGateway (OK)
+   *   code 200 : Seq[PaymentGateway] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -1238,10 +1238,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def paymentGatewaysGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[PaymentGateway] =
-    ApiRequest[PaymentGateway](ApiMethods.GET, baseUrl, "/payment_gateways", "application/json")
+  def paymentGatewaysGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[PaymentGateway]] =
+    ApiRequest[Seq[PaymentGateway]](ApiMethods.GET, baseUrl, "/payment_gateways", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[PaymentGateway](200)
+      .withSuccessResponse[Seq[PaymentGateway]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -1395,7 +1395,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductAttributeTerm (OK)
+   *   code 200 : Seq[ProductAttributeTerm] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -1417,8 +1417,8 @@ class DefaultApi(baseUrl: String) {
    * @param product Limit result set to resources assigned to a specific product.
    * @param slug Limit result set to resources with a specific slug.
    */
-  def productsAttributesAttributeIdTermsGet(attributeId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttributeTerm] =
-    ApiRequest[ProductAttributeTerm](ApiMethods.GET, baseUrl, "/products/attributes/{attribute_id}/terms", "application/json")
+  def productsAttributesAttributeIdTermsGet(attributeId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductAttributeTerm]] =
+    ApiRequest[Seq[ProductAttributeTerm]](ApiMethods.GET, baseUrl, "/products/attributes/{attribute_id}/terms", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -1433,7 +1433,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("product", product)
       .withQueryParam("slug", slug)
       .withPathParam("attribute_id", attributeId)
-      .withSuccessResponse[ProductAttributeTerm](200)
+      .withSuccessResponse[Seq[ProductAttributeTerm]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -1633,7 +1633,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductAttribute (OK)
+   *   code 200 : Seq[ProductAttribute] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -1642,10 +1642,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def productsAttributesGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductAttribute] =
-    ApiRequest[ProductAttribute](ApiMethods.GET, baseUrl, "/products/attributes", "application/json")
+  def productsAttributesGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductAttribute]] =
+    ApiRequest[Seq[ProductAttribute]](ApiMethods.GET, baseUrl, "/products/attributes", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ProductAttribute](200)
+      .withSuccessResponse[Seq[ProductAttribute]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -1890,7 +1890,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductCat (OK)
+   *   code 200 : Seq[ProductCat] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -1911,8 +1911,8 @@ class DefaultApi(baseUrl: String) {
    * @param product Limit result set to resources assigned to a specific product.
    * @param slug Limit result set to resources with a specific slug.
    */
-  def productsCategoriesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductCat] =
-    ApiRequest[ProductCat](ApiMethods.GET, baseUrl, "/products/categories", "application/json")
+  def productsCategoriesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductCat]] =
+    ApiRequest[Seq[ProductCat]](ApiMethods.GET, baseUrl, "/products/categories", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -1926,7 +1926,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("parent", parent)
       .withQueryParam("product", product)
       .withQueryParam("slug", slug)
-      .withSuccessResponse[ProductCat](200)
+      .withSuccessResponse[Seq[ProductCat]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -2057,7 +2057,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : Product (OK)
+   *   code 200 : Seq[Product] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -2095,8 +2095,8 @@ class DefaultApi(baseUrl: String) {
    * @param maxPrice Limit result set to products based on a maximum price.
    * @param stockStatus Limit result set to products with specified stock status.
    */
-  def productsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], slug: Option[String] = None, status: Option[String] = None, `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, tag: Option[String] = None, shippingClass: Option[String] = None, attribute: Option[String] = None, attributeTerm: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Product] =
-    ApiRequest[Product](ApiMethods.GET, baseUrl, "/products", "application/json")
+  def productsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], slug: Option[String] = None, status: Option[String] = None, `type`: Option[String] = None, sku: Option[String] = None, featured: Option[Boolean] = None, category: Option[String] = None, tag: Option[String] = None, shippingClass: Option[String] = None, attribute: Option[String] = None, attributeTerm: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[Product]] =
+    ApiRequest[Seq[Product]](ApiMethods.GET, baseUrl, "/products", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -2127,7 +2127,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("min_price", minPrice)
       .withQueryParam("max_price", maxPrice)
       .withQueryParam("stock_status", stockStatus)
-      .withSuccessResponse[Product](200)
+      .withSuccessResponse[Seq[Product]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -2321,7 +2321,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductVariation (OK)
+   *   code 200 : Seq[ProductVariation] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -2353,8 +2353,8 @@ class DefaultApi(baseUrl: String) {
    * @param maxPrice Limit result set to products based on a maximum price.
    * @param stockStatus Limit result set to products with specified stock status.
    */
-  def productsProductIdVariationsGet(productId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], slug: Option[String] = None, status: Option[String] = None, sku: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductVariation] =
-    ApiRequest[ProductVariation](ApiMethods.GET, baseUrl, "/products/{product_id}/variations", "application/json")
+  def productsProductIdVariationsGet(productId: Int, context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, modifiedAfter: Option[String] = None, modifiedBefore: Option[String] = None, datesAreGmt: Option[Boolean] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, parent: Seq[Int], parentExclude: Seq[Int], slug: Option[String] = None, status: Option[String] = None, sku: Option[String] = None, onSale: Option[Boolean] = None, minPrice: Option[String] = None, maxPrice: Option[String] = None, stockStatus: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductVariation]] =
+    ApiRequest[Seq[ProductVariation]](ApiMethods.GET, baseUrl, "/products/{product_id}/variations", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -2379,7 +2379,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("max_price", maxPrice)
       .withQueryParam("stock_status", stockStatus)
       .withPathParam("product_id", productId)
-      .withSuccessResponse[ProductVariation](200)
+      .withSuccessResponse[Seq[ProductVariation]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -2579,7 +2579,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductReview (OK)
+   *   code 200 : Seq[ProductReview] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -2603,8 +2603,8 @@ class DefaultApi(baseUrl: String) {
    * @param product Limit result set to reviews assigned to specific product IDs.
    * @param status Limit result set to reviews assigned a specific status.
    */
-  def productsReviewsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, reviewer: Seq[Int], reviewerExclude: Seq[Int], reviewerEmail: Option[String] = None, product: Seq[Int], status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductReview] =
-    ApiRequest[ProductReview](ApiMethods.GET, baseUrl, "/products/reviews", "application/json")
+  def productsReviewsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, reviewer: Seq[Int], reviewerExclude: Seq[Int], reviewerEmail: Option[String] = None, product: Seq[Int], status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductReview]] =
+    ApiRequest[Seq[ProductReview]](ApiMethods.GET, baseUrl, "/products/reviews", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -2621,7 +2621,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("reviewer_email", reviewerEmail)
       .withQueryParam("product", ArrayValues(product, MULTI))
       .withQueryParam("status", status)
-      .withSuccessResponse[ProductReview](200)
+      .withSuccessResponse[Seq[ProductReview]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -2809,7 +2809,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductShippingClass (OK)
+   *   code 200 : Seq[ProductShippingClass] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -2830,8 +2830,8 @@ class DefaultApi(baseUrl: String) {
    * @param product Limit result set to resources assigned to a specific product.
    * @param slug Limit result set to resources with a specific slug.
    */
-  def productsShippingClassesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductShippingClass] =
-    ApiRequest[ProductShippingClass](ApiMethods.GET, baseUrl, "/products/shipping_classes", "application/json")
+  def productsShippingClassesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductShippingClass]] =
+    ApiRequest[Seq[ProductShippingClass]](ApiMethods.GET, baseUrl, "/products/shipping_classes", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -2845,7 +2845,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("parent", parent)
       .withQueryParam("product", product)
       .withQueryParam("slug", slug)
-      .withSuccessResponse[ProductShippingClass](200)
+      .withSuccessResponse[Seq[ProductShippingClass]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3033,7 +3033,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ProductTag (OK)
+   *   code 200 : Seq[ProductTag] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3054,8 +3054,8 @@ class DefaultApi(baseUrl: String) {
    * @param product Limit result set to resources assigned to a specific product.
    * @param slug Limit result set to resources with a specific slug.
    */
-  def productsTagsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ProductTag] =
-    ApiRequest[ProductTag](ApiMethods.GET, baseUrl, "/products/tags", "application/json")
+  def productsTagsGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, hideEmpty: Option[Boolean] = None, parent: Option[Int] = None, product: Option[Int] = None, slug: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ProductTag]] =
+    ApiRequest[Seq[ProductTag]](ApiMethods.GET, baseUrl, "/products/tags", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -3069,7 +3069,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("parent", parent)
       .withQueryParam("product", product)
       .withQueryParam("slug", slug)
-      .withSuccessResponse[ProductTag](200)
+      .withSuccessResponse[Seq[ProductTag]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3200,7 +3200,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ReportCouponTotal (OK)
+   *   code 200 : Seq[ReportCouponTotal] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3209,17 +3209,17 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def reportsCouponsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportCouponTotal] =
-    ApiRequest[ReportCouponTotal](ApiMethods.GET, baseUrl, "/reports/coupons/totals", "application/json")
+  def reportsCouponsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ReportCouponTotal]] =
+    ApiRequest[Seq[ReportCouponTotal]](ApiMethods.GET, baseUrl, "/reports/coupons/totals", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ReportCouponTotal](200)
+      .withSuccessResponse[Seq[ReportCouponTotal]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : ReportCustomerTotal (OK)
+   *   code 200 : Seq[ReportCustomerTotal] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3228,17 +3228,17 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def reportsCustomersTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportCustomerTotal] =
-    ApiRequest[ReportCustomerTotal](ApiMethods.GET, baseUrl, "/reports/customers/totals", "application/json")
+  def reportsCustomersTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ReportCustomerTotal]] =
+    ApiRequest[Seq[ReportCustomerTotal]](ApiMethods.GET, baseUrl, "/reports/customers/totals", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ReportCustomerTotal](200)
+      .withSuccessResponse[Seq[ReportCustomerTotal]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : Report (OK)
+   *   code 200 : Seq[Report] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3247,17 +3247,17 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def reportsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Report] =
-    ApiRequest[Report](ApiMethods.GET, baseUrl, "/reports", "application/json")
+  def reportsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[Report]] =
+    ApiRequest[Seq[Report]](ApiMethods.GET, baseUrl, "/reports", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[Report](200)
+      .withSuccessResponse[Seq[Report]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : ReportOrderTotal (OK)
+   *   code 200 : Seq[ReportOrderTotal] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3266,17 +3266,17 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def reportsOrdersTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportOrderTotal] =
-    ApiRequest[ReportOrderTotal](ApiMethods.GET, baseUrl, "/reports/orders/totals", "application/json")
+  def reportsOrdersTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ReportOrderTotal]] =
+    ApiRequest[Seq[ReportOrderTotal]](ApiMethods.GET, baseUrl, "/reports/orders/totals", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ReportOrderTotal](200)
+      .withSuccessResponse[Seq[ReportOrderTotal]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : ReportProductTotal (OK)
+   *   code 200 : Seq[ReportProductTotal] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3285,17 +3285,17 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def reportsProductsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportProductTotal] =
-    ApiRequest[ReportProductTotal](ApiMethods.GET, baseUrl, "/reports/products/totals", "application/json")
+  def reportsProductsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ReportProductTotal]] =
+    ApiRequest[Seq[ReportProductTotal]](ApiMethods.GET, baseUrl, "/reports/products/totals", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ReportProductTotal](200)
+      .withSuccessResponse[Seq[ReportProductTotal]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : ReportReviewTotal (OK)
+   *   code 200 : Seq[ReportReviewTotal] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3304,17 +3304,17 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def reportsReviewsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ReportReviewTotal] =
-    ApiRequest[ReportReviewTotal](ApiMethods.GET, baseUrl, "/reports/reviews/totals", "application/json")
+  def reportsReviewsTotalsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ReportReviewTotal]] =
+    ApiRequest[Seq[ReportReviewTotal]](ApiMethods.GET, baseUrl, "/reports/reviews/totals", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ReportReviewTotal](200)
+      .withSuccessResponse[Seq[ReportReviewTotal]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : SalesReport (OK)
+   *   code 200 : Seq[SalesReport] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3326,20 +3326,20 @@ class DefaultApi(baseUrl: String) {
    * @param dateMin Return sales for a specific start date, the date need to be in the YYYY-MM-DD format.
    * @param dateMax Return sales for a specific end date, the date need to be in the YYYY-MM-DD format.
    */
-  def reportsSalesGet(context: Option[String] = None, period: Option[String] = None, dateMin: Option[LocalDate] = None, dateMax: Option[LocalDate] = None)(implicit basicAuth: BasicCredentials): ApiRequest[SalesReport] =
-    ApiRequest[SalesReport](ApiMethods.GET, baseUrl, "/reports/sales", "application/json")
+  def reportsSalesGet(context: Option[String] = None, period: Option[String] = None, dateMin: Option[LocalDate] = None, dateMax: Option[LocalDate] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[SalesReport]] =
+    ApiRequest[Seq[SalesReport]](ApiMethods.GET, baseUrl, "/reports/sales", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("period", period)
       .withQueryParam("date_min", dateMin)
       .withQueryParam("date_max", dateMax)
-      .withSuccessResponse[SalesReport](200)
+      .withSuccessResponse[Seq[SalesReport]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
 
   /**
    * Expected answers:
-   *   code 200 : TopSellersReport (OK)
+   *   code 200 : Seq[TopSellersReport] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3351,13 +3351,13 @@ class DefaultApi(baseUrl: String) {
    * @param dateMin Return sales for a specific start date, the date need to be in the YYYY-MM-DD format.
    * @param dateMax Return sales for a specific end date, the date need to be in the YYYY-MM-DD format.
    */
-  def reportsTopSellersGet(context: Option[String] = None, period: Option[String] = None, dateMin: Option[LocalDate] = None, dateMax: Option[LocalDate] = None)(implicit basicAuth: BasicCredentials): ApiRequest[TopSellersReport] =
-    ApiRequest[TopSellersReport](ApiMethods.GET, baseUrl, "/reports/top_sellers", "application/json")
+  def reportsTopSellersGet(context: Option[String] = None, period: Option[String] = None, dateMin: Option[LocalDate] = None, dateMax: Option[LocalDate] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[TopSellersReport]] =
+    ApiRequest[Seq[TopSellersReport]](ApiMethods.GET, baseUrl, "/reports/top_sellers", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("period", period)
       .withQueryParam("date_min", dateMin)
       .withQueryParam("date_max", dateMax)
-      .withSuccessResponse[TopSellersReport](200)
+      .withSuccessResponse[Seq[TopSellersReport]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3385,7 +3385,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShippingMethod (OK)
+   *   code 200 : Seq[ShippingMethod] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3394,10 +3394,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def shippingMethodsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingMethod] =
-    ApiRequest[ShippingMethod](ApiMethods.GET, baseUrl, "/shipping_methods", "application/json")
+  def shippingMethodsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShippingMethod]] =
+    ApiRequest[Seq[ShippingMethod]](ApiMethods.GET, baseUrl, "/shipping_methods", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[ShippingMethod](200)
+      .withSuccessResponse[Seq[ShippingMethod]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3425,16 +3425,16 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShippingZone (OK)
+   *   code 200 : Seq[ShippingZone] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
    * Available security schemes:
    *   basicAuth (http)
    */
-  def shippingZonesGet()(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZone] =
-    ApiRequest[ShippingZone](ApiMethods.GET, baseUrl, "/shipping/zones", "application/json")
-      .withCredentials(basicAuth).withSuccessResponse[ShippingZone](200)
+  def shippingZonesGet()(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShippingZone]] =
+    ApiRequest[Seq[ShippingZone]](ApiMethods.GET, baseUrl, "/shipping/zones", "application/json")
+      .withCredentials(basicAuth).withSuccessResponse[Seq[ShippingZone]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3481,7 +3481,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShippingZoneLocation (OK)
+   *   code 200 : Seq[ShippingZoneLocation] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3490,10 +3490,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param id Unique ID for the resource.
    */
-  def shippingZonesIdLocationsGet(id: Int)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneLocation] =
-    ApiRequest[ShippingZoneLocation](ApiMethods.GET, baseUrl, "/shipping/zones/{id}/locations", "application/json")
+  def shippingZonesIdLocationsGet(id: Int)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShippingZoneLocation]] =
+    ApiRequest[Seq[ShippingZoneLocation]](ApiMethods.GET, baseUrl, "/shipping/zones/{id}/locations", "application/json")
       .withCredentials(basicAuth).withPathParam("id", id)
-      .withSuccessResponse[ShippingZoneLocation](200)
+      .withSuccessResponse[Seq[ShippingZoneLocation]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3645,7 +3645,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : ShippingZoneMethod (OK)
+   *   code 200 : Seq[ShippingZoneMethod] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3654,10 +3654,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param zoneId Unique ID for the zone.
    */
-  def shippingZonesZoneIdMethodsGet(zoneId: Int)(implicit basicAuth: BasicCredentials): ApiRequest[ShippingZoneMethod] =
-    ApiRequest[ShippingZoneMethod](ApiMethods.GET, baseUrl, "/shipping/zones/{zone_id}/methods", "application/json")
+  def shippingZonesZoneIdMethodsGet(zoneId: Int)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[ShippingZoneMethod]] =
+    ApiRequest[Seq[ShippingZoneMethod]](ApiMethods.GET, baseUrl, "/shipping/zones/{zone_id}/methods", "application/json")
       .withCredentials(basicAuth).withPathParam("zone_id", zoneId)
-      .withSuccessResponse[ShippingZoneMethod](200)
+      .withSuccessResponse[Seq[ShippingZoneMethod]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3817,7 +3817,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : SystemStatusTool (OK)
+   *   code 200 : Seq[SystemStatusTool] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3826,10 +3826,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def systemStatusToolsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[SystemStatusTool] =
-    ApiRequest[SystemStatusTool](ApiMethods.GET, baseUrl, "/system_status/tools", "application/json")
+  def systemStatusToolsGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[SystemStatusTool]] =
+    ApiRequest[Seq[SystemStatusTool]](ApiMethods.GET, baseUrl, "/system_status/tools", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[SystemStatusTool](200)
+      .withSuccessResponse[Seq[SystemStatusTool]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -3975,7 +3975,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : TaxClass (OK)
+   *   code 200 : Seq[TaxClass] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -3984,10 +3984,10 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param context Scope under which the request is made; determines fields present in response.
    */
-  def taxesClassesGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[TaxClass] =
-    ApiRequest[TaxClass](ApiMethods.GET, baseUrl, "/taxes/classes", "application/json")
+  def taxesClassesGet(context: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[TaxClass]] =
+    ApiRequest[Seq[TaxClass]](ApiMethods.GET, baseUrl, "/taxes/classes", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
-      .withSuccessResponse[TaxClass](200)
+      .withSuccessResponse[Seq[TaxClass]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -4053,7 +4053,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : Tax (OK)
+   *   code 200 : Seq[Tax] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -4068,8 +4068,8 @@ class DefaultApi(baseUrl: String) {
    * @param orderby Sort collection by object attribute.
    * @param `class` Sort by tax class.
    */
-  def taxesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, `class`: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Tax] =
-    ApiRequest[Tax](ApiMethods.GET, baseUrl, "/taxes", "application/json")
+  def taxesGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, `class`: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[Tax]] =
+    ApiRequest[Seq[Tax]](ApiMethods.GET, baseUrl, "/taxes", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -4077,7 +4077,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
       .withQueryParam("class", `class`)
-      .withSuccessResponse[Tax](200)
+      .withSuccessResponse[Seq[Tax]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       
@@ -4265,7 +4265,7 @@ class DefaultApi(baseUrl: String) {
 
   /**
    * Expected answers:
-   *   code 200 : Webhook (OK)
+   *   code 200 : Seq[Webhook] (OK)
    *   code 400 :  (Bad Request)
    *   code 404 :  (Not Found)
    * 
@@ -4285,8 +4285,8 @@ class DefaultApi(baseUrl: String) {
    * @param orderby Sort collection by object attribute.
    * @param status Limit result set to webhooks assigned a specific status.
    */
-  def webhooksGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Webhook] =
-    ApiRequest[Webhook](ApiMethods.GET, baseUrl, "/webhooks", "application/json")
+  def webhooksGet(context: Option[String] = None, page: Option[Int] = None, perPage: Option[Int] = None, search: Option[String] = None, after: Option[String] = None, before: Option[String] = None, exclude: Seq[Int], include: Seq[Int], offset: Option[Int] = None, order: Option[String] = None, orderby: Option[String] = None, status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[Seq[Webhook]] =
+    ApiRequest[Seq[Webhook]](ApiMethods.GET, baseUrl, "/webhooks", "application/json")
       .withCredentials(basicAuth).withQueryParam("context", context)
       .withQueryParam("page", page)
       .withQueryParam("per_page", perPage)
@@ -4299,7 +4299,7 @@ class DefaultApi(baseUrl: String) {
       .withQueryParam("order", order)
       .withQueryParam("orderby", orderby)
       .withQueryParam("status", status)
-      .withSuccessResponse[Webhook](200)
+      .withSuccessResponse[Seq[Webhook]](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](404)
       

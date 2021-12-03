@@ -6,5 +6,9 @@ The OpenAPI specification is based on the OpenAPI-specification generated using 
 
 You should be to use OpenAPI document to generate a client for your favorite programming language, assuming there's a [generator available](https://openapi-generator.tech/). Also you can load the document in a OpenAPI editor, for example the online [swagger-editor](https://editor.swagger.io/).
 
-
-
+## Generated Scala and Java clients
+As started, I've added the generated source-code for a Scala Akka client and Java Client. The code can be (re)generated via sbt via the command:
+```shell
+sbt generateScalaClient
+sbt generateJavaClient
+```
