@@ -1,10 +1,10 @@
 import sbt._
-import Keys._
+import Keys.{state, streams, _}
 import org.apache.logging.log4j.LogManager
 
 import java.io.PrintWriter
 import sys.process._
-import sbt.Keys.streams
+import sbt.internal.util.ManagedLogger
 
 // imports standard command parsing functionality
 import complete.DefaultParsers._
@@ -16,34 +16,29 @@ import complete.DefaultParsers._
  */
 object OpenApiGenerator {
 
+  def generateOpenAPIClient = Command.args("generateClient", "<generator>") { (state, args) =>
+    val generator = args.headOption.getOrElse("java")
 
-  def replaceAll(toReplace:Map[String, String])(file:String) = {
-    import scala.io.Source
-    val content = Source.fromFile(file).mkString
-    val newContent = toReplace.foldLeft(content){case (c,(target,replacement)) => c.replaceAll(target,replacement)}
-    val writer = new PrintWriter(new File(file))
-    writer.write(newContent)
-    writer.close()
+    val additionalProperties = if (args.length>1) args(1) else s"mainPackage=org.woocommerce.${generator}client,artifactId=woocommerce-${generator}-client,groupId=org.woocommerce"
+    generateClient(state, generator, additionalProperties)
+    state
   }
 
   def generateAkkaClient = Command.command("generateAkkaClient") { state =>
     val log = state.log
     // Generate files using openapitools.json file
-    val result = "openapi-generator-cli generate -g scala-akka -o woocommerce-akka-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=mainPackage=org.woocommerce.akkaclient,artifactId=woocommerce-akka-client,groupId=org.woocommerce".!!
-    log.info(result)
-    // Some ugly search&replace of the default scala version, so the submodule's scala version is the same as the main module
-    // Hadn't find out yet how to update this via the config file openapitools.json
-    val files = Seq(new File("woocommerce-akka-client/build.sbt"))
-    files.foreach(_.delete())
+    generateClient(state, "scala-akka", "mainPackage=org.woocommerce.akkaclient,artifactId=woocommerce-akka-client,groupId=org.woocommerce,legacyDiscriminatorBehavior=false")
+
     state
   }
-  def generateJavaClient = Command.command("generateJavaClient") { state =>
-    val log = state.log
+
+  private def generateClient(state: State, generator: String, additionalProperties: String): String = {
+
     // Generate files using openapitools.json file
-    val result = "openapi-generator-cli generate -g java -o woocommerce-java-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=mainPackage=org.woocommerce.client,artifactId=woocommerce-java-client,groupId=org.woocommerce".!!
-    log.info(result)
-    val files = Seq(new File("woocommerce-java-client/build.sbt"), new File("woocommerce-java-client/pom.xml"))
-    files.foreach(_.delete())
-    state
+    val openapiCommand = s"openapi-generator-cli generate -g ${generator} -o woocommerce-${generator}-client -i src/main/resources/woocommerce-openapi-3.0.x.yml --additional-properties=${additionalProperties}"
+    val result = openapiCommand.!!
+    state.log.info(s"Executing: ${openapiCommand}")
+    state.log.info(result)
+    result
   }
 }
