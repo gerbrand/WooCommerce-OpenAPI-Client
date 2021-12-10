@@ -65,9 +65,6 @@ All URIs are relative to *https://www.software-creation.nl/wp-json/wc/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | **couponsBatchPatch** | **PATCH** /coupons/batch | 
-*DefaultApi* | **couponsBatchPost** | **POST** /coupons/batch | 
-*DefaultApi* | **couponsBatchPut** | **PUT** /coupons/batch | 
 *DefaultApi* | **couponsGet** | **GET** /coupons | 
 *DefaultApi* | **couponsIdDelete** | **DELETE** /coupons/{id} | 
 *DefaultApi* | **couponsIdGet** | **GET** /coupons/{id} | 
@@ -75,9 +72,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **couponsIdPost** | **POST** /coupons/{id} | 
 *DefaultApi* | **couponsIdPut** | **PUT** /coupons/{id} | 
 *DefaultApi* | **couponsPost** | **POST** /coupons | 
-*DefaultApi* | **customersBatchPatch** | **PATCH** /customers/batch | 
-*DefaultApi* | **customersBatchPost** | **POST** /customers/batch | 
-*DefaultApi* | **customersBatchPut** | **PUT** /customers/batch | 
 *DefaultApi* | **customersCustomerIdDownloadsGet** | **GET** /customers/{customer_id}/downloads | 
 *DefaultApi* | **customersGet** | **GET** /customers | 
 *DefaultApi* | **customersIdDelete** | **DELETE** /customers/{id} | 
@@ -94,9 +88,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **dataCurrenciesCurrentGet** | **GET** /data/currencies/current | 
 *DefaultApi* | **dataCurrenciesGet** | **GET** /data/currencies | 
 *DefaultApi* | **dataGet** | **GET** /data | 
-*DefaultApi* | **ordersBatchPatch** | **PATCH** /orders/batch | 
-*DefaultApi* | **ordersBatchPost** | **POST** /orders/batch | 
-*DefaultApi* | **ordersBatchPut** | **PUT** /orders/batch | 
 *DefaultApi* | **ordersGet** | **GET** /orders | 
 *DefaultApi* | **ordersIdDelete** | **DELETE** /orders/{id} | 
 *DefaultApi* | **ordersIdGet** | **GET** /orders/{id} | 
@@ -117,9 +108,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **paymentGatewaysIdPatch** | **PATCH** /payment_gateways/{id} | 
 *DefaultApi* | **paymentGatewaysIdPost** | **POST** /payment_gateways/{id} | 
 *DefaultApi* | **paymentGatewaysIdPut** | **PUT** /payment_gateways/{id} | 
-*DefaultApi* | **productsAttributesAttributeIdTermsBatchPatch** | **PATCH** /products/attributes/{attribute_id}/terms/batch | 
-*DefaultApi* | **productsAttributesAttributeIdTermsBatchPost** | **POST** /products/attributes/{attribute_id}/terms/batch | 
-*DefaultApi* | **productsAttributesAttributeIdTermsBatchPut** | **PUT** /products/attributes/{attribute_id}/terms/batch | 
 *DefaultApi* | **productsAttributesAttributeIdTermsGet** | **GET** /products/attributes/{attribute_id}/terms | 
 *DefaultApi* | **productsAttributesAttributeIdTermsIdDelete** | **DELETE** /products/attributes/{attribute_id}/terms/{id} | 
 *DefaultApi* | **productsAttributesAttributeIdTermsIdGet** | **GET** /products/attributes/{attribute_id}/terms/{id} | 
@@ -127,9 +115,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **productsAttributesAttributeIdTermsIdPost** | **POST** /products/attributes/{attribute_id}/terms/{id} | 
 *DefaultApi* | **productsAttributesAttributeIdTermsIdPut** | **PUT** /products/attributes/{attribute_id}/terms/{id} | 
 *DefaultApi* | **productsAttributesAttributeIdTermsPost** | **POST** /products/attributes/{attribute_id}/terms | 
-*DefaultApi* | **productsAttributesBatchPatch** | **PATCH** /products/attributes/batch | 
-*DefaultApi* | **productsAttributesBatchPost** | **POST** /products/attributes/batch | 
-*DefaultApi* | **productsAttributesBatchPut** | **PUT** /products/attributes/batch | 
 *DefaultApi* | **productsAttributesGet** | **GET** /products/attributes | 
 *DefaultApi* | **productsAttributesIdDelete** | **DELETE** /products/attributes/{id} | 
 *DefaultApi* | **productsAttributesIdGet** | **GET** /products/attributes/{id} | 
@@ -137,12 +122,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **productsAttributesIdPost** | **POST** /products/attributes/{id} | 
 *DefaultApi* | **productsAttributesIdPut** | **PUT** /products/attributes/{id} | 
 *DefaultApi* | **productsAttributesPost** | **POST** /products/attributes | 
-*DefaultApi* | **productsBatchPatch** | **PATCH** /products/batch | 
-*DefaultApi* | **productsBatchPost** | **POST** /products/batch | 
-*DefaultApi* | **productsBatchPut** | **PUT** /products/batch | 
-*DefaultApi* | **productsCategoriesBatchPatch** | **PATCH** /products/categories/batch | 
-*DefaultApi* | **productsCategoriesBatchPost** | **POST** /products/categories/batch | 
-*DefaultApi* | **productsCategoriesBatchPut** | **PUT** /products/categories/batch | 
 *DefaultApi* | **productsCategoriesGet** | **GET** /products/categories | 
 *DefaultApi* | **productsCategoriesIdDelete** | **DELETE** /products/categories/{id} | 
 *DefaultApi* | **productsCategoriesIdGet** | **GET** /products/categories/{id} | 
@@ -157,9 +136,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **productsIdPost** | **POST** /products/{id} | 
 *DefaultApi* | **productsIdPut** | **PUT** /products/{id} | 
 *DefaultApi* | **productsPost** | **POST** /products | 
-*DefaultApi* | **productsProductIdVariationsBatchPatch** | **PATCH** /products/{product_id}/variations/batch | 
-*DefaultApi* | **productsProductIdVariationsBatchPost** | **POST** /products/{product_id}/variations/batch | 
-*DefaultApi* | **productsProductIdVariationsBatchPut** | **PUT** /products/{product_id}/variations/batch | 
 *DefaultApi* | **productsProductIdVariationsGet** | **GET** /products/{product_id}/variations | 
 *DefaultApi* | **productsProductIdVariationsIdDelete** | **DELETE** /products/{product_id}/variations/{id} | 
 *DefaultApi* | **productsProductIdVariationsIdGet** | **GET** /products/{product_id}/variations/{id} | 
@@ -167,9 +143,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **productsProductIdVariationsIdPost** | **POST** /products/{product_id}/variations/{id} | 
 *DefaultApi* | **productsProductIdVariationsIdPut** | **PUT** /products/{product_id}/variations/{id} | 
 *DefaultApi* | **productsProductIdVariationsPost** | **POST** /products/{product_id}/variations | 
-*DefaultApi* | **productsReviewsBatchPatch** | **PATCH** /products/reviews/batch | 
-*DefaultApi* | **productsReviewsBatchPost** | **POST** /products/reviews/batch | 
-*DefaultApi* | **productsReviewsBatchPut** | **PUT** /products/reviews/batch | 
 *DefaultApi* | **productsReviewsGet** | **GET** /products/reviews | 
 *DefaultApi* | **productsReviewsIdDelete** | **DELETE** /products/reviews/{id} | 
 *DefaultApi* | **productsReviewsIdGet** | **GET** /products/reviews/{id} | 
@@ -177,9 +150,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **productsReviewsIdPost** | **POST** /products/reviews/{id} | 
 *DefaultApi* | **productsReviewsIdPut** | **PUT** /products/reviews/{id} | 
 *DefaultApi* | **productsReviewsPost** | **POST** /products/reviews | 
-*DefaultApi* | **productsShippingClassesBatchPatch** | **PATCH** /products/shipping_classes/batch | 
-*DefaultApi* | **productsShippingClassesBatchPost** | **POST** /products/shipping_classes/batch | 
-*DefaultApi* | **productsShippingClassesBatchPut** | **PUT** /products/shipping_classes/batch | 
 *DefaultApi* | **productsShippingClassesGet** | **GET** /products/shipping_classes | 
 *DefaultApi* | **productsShippingClassesIdDelete** | **DELETE** /products/shipping_classes/{id} | 
 *DefaultApi* | **productsShippingClassesIdGet** | **GET** /products/shipping_classes/{id} | 
@@ -187,9 +157,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **productsShippingClassesIdPost** | **POST** /products/shipping_classes/{id} | 
 *DefaultApi* | **productsShippingClassesIdPut** | **PUT** /products/shipping_classes/{id} | 
 *DefaultApi* | **productsShippingClassesPost** | **POST** /products/shipping_classes | 
-*DefaultApi* | **productsTagsBatchPatch** | **PATCH** /products/tags/batch | 
-*DefaultApi* | **productsTagsBatchPost** | **POST** /products/tags/batch | 
-*DefaultApi* | **productsTagsBatchPut** | **PUT** /products/tags/batch | 
 *DefaultApi* | **productsTagsGet** | **GET** /products/tags | 
 *DefaultApi* | **productsTagsIdDelete** | **DELETE** /products/tags/{id} | 
 *DefaultApi* | **productsTagsIdGet** | **GET** /products/tags/{id} | 
@@ -232,9 +199,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **systemStatusToolsIdPatch** | **PATCH** /system_status/tools/{id} | 
 *DefaultApi* | **systemStatusToolsIdPost** | **POST** /system_status/tools/{id} | 
 *DefaultApi* | **systemStatusToolsIdPut** | **PUT** /system_status/tools/{id} | 
-*DefaultApi* | **taxesBatchPatch** | **PATCH** /taxes/batch | 
-*DefaultApi* | **taxesBatchPost** | **POST** /taxes/batch | 
-*DefaultApi* | **taxesBatchPut** | **PUT** /taxes/batch | 
 *DefaultApi* | **taxesClassesGet** | **GET** /taxes/classes | 
 *DefaultApi* | **taxesClassesPost** | **POST** /taxes/classes | 
 *DefaultApi* | **taxesClassesSlugDelete** | **DELETE** /taxes/classes/{slug} | 
@@ -246,9 +210,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | **taxesIdPost** | **POST** /taxes/{id} | 
 *DefaultApi* | **taxesIdPut** | **PUT** /taxes/{id} | 
 *DefaultApi* | **taxesPost** | **POST** /taxes | 
-*DefaultApi* | **webhooksBatchPatch** | **PATCH** /webhooks/batch | 
-*DefaultApi* | **webhooksBatchPost** | **POST** /webhooks/batch | 
-*DefaultApi* | **webhooksBatchPut** | **PUT** /webhooks/batch | 
 *DefaultApi* | **webhooksGet** | **GET** /webhooks | 
 *DefaultApi* | **webhooksIdDelete** | **DELETE** /webhooks/{id} | 
 *DefaultApi* | **webhooksIdGet** | **GET** /webhooks/{id} | 
@@ -260,46 +221,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [Batch](Batch.md)
- - [Batch1](Batch1.md)
- - [Batch10](Batch10.md)
- - [Batch11](Batch11.md)
- - [Batch12](Batch12.md)
- - [Batch13](Batch13.md)
- - [Batch14](Batch14.md)
- - [Batch15](Batch15.md)
- - [Batch16](Batch16.md)
- - [Batch17](Batch17.md)
- - [Batch18](Batch18.md)
- - [Batch19](Batch19.md)
- - [Batch2](Batch2.md)
- - [Batch20](Batch20.md)
- - [Batch21](Batch21.md)
- - [Batch22](Batch22.md)
- - [Batch23](Batch23.md)
- - [Batch24](Batch24.md)
- - [Batch25](Batch25.md)
- - [Batch26](Batch26.md)
- - [Batch27](Batch27.md)
- - [Batch28](Batch28.md)
- - [Batch29](Batch29.md)
- - [Batch3](Batch3.md)
- - [Batch30](Batch30.md)
- - [Batch31](Batch31.md)
- - [Batch32](Batch32.md)
- - [Batch33](Batch33.md)
- - [Batch34](Batch34.md)
- - [Batch35](Batch35.md)
- - [Batch36](Batch36.md)
- - [Batch37](Batch37.md)
- - [Batch38](Batch38.md)
- - [Batch39](Batch39.md)
- - [Batch4](Batch4.md)
- - [Batch5](Batch5.md)
- - [Batch6](Batch6.md)
- - [Batch7](Batch7.md)
- - [Batch8](Batch8.md)
- - [Batch9](Batch9.md)
  - [CouponsMetaData](CouponsMetaData.md)
  - [Customer](Customer.md)
  - [Customer1](Customer1.md)
