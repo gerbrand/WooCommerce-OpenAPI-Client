@@ -3,7 +3,7 @@ import OpenApiGenerator._
 import sbt.Keys.organization
 
 ThisBuild / scalaVersion     := "2.13.7"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
+ThisBuild / version          := "0.1.1"
 ThisBuild / organization     := "software-creation"
 ThisBuild / organizationName := "software-creation"
 
