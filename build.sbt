@@ -1,10 +1,12 @@
 import Dependencies._
 import OpenApiGenerator._
 import sbt.Keys.organization
+import xerial.sbt.Sonatype.autoImport.sonatypeCredentialHost
 
 ThisBuild / scalaVersion     := "2.13.7"
-ThisBuild / version          := "0.1.1"
-ThisBuild / organization     := "software-creation"
+ThisBuild / versionScheme    := Some("semver-spec")
+ThisBuild / version          := "0.1.1-SNAPSHOT"
+ThisBuild / organization     := "nl.software-creation"
 ThisBuild / organizationName := "software-creation"
 
 resolvers ++= Seq(Resolver.mavenLocal)
@@ -15,7 +17,11 @@ scalacOptions := Seq(
   "-feature"
 )
 
-publishArtifact in (Compile, packageDoc) := false
+// Sonatype settings, from https://github.com/xerial/sbt-sonatype#buildsbt
+// For all Sonatype accounts created on or after February 2021
+ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
+ThisBuild / publishTo := sonatypePublishToBundle.value
+ThisBuild / sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 /**
  * Generated using the custom task generateAkkaClient.
@@ -26,7 +32,6 @@ publishArtifact in (Compile, packageDoc) := false
 lazy val akkaClient = (project in file("woocommerce-scala-akka-client"))
   .settings(
     name := "woocommerce-scala-akka-client",
-    organization := "org.woocommerce",
     libraryDependencies := Seq(
       "com.typesafe" % "config" % "1.4.1",
       "com.typesafe.akka" %% "akka-actor" % "2.6.12",
@@ -45,7 +50,7 @@ lazy val akkaClient = (project in file("woocommerce-scala-akka-client"))
 lazy val example = (project in file("example"))
   .settings(
     name := "woocommerce-example",
-    organization := "org.woocommerce",
+    publishArtifact := false,
     libraryDependencies ++= Seq(),
   ).dependsOn(akkaClient)
 
@@ -53,6 +58,8 @@ lazy val root = (project in file("."))
   .settings(
     name := "woocommerce-openapi-client",
     libraryDependencies += scalaTest % Test,
+    Compile / packageDoc / publishArtifact := false,
+    Compile / packageSrc / publishArtifact := false,
     commands ++= Seq(generateOpenAPIClient, generateAkkaClient)
   )
   .aggregate(akkaClient, example)
